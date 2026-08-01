@@ -1,0 +1,39 @@
+name: Build Check
+
+on:
+  pull_request:
+    branches:
+      - main # Change this to match your main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.15.1
+
+      - name: Set Up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22 # Adjust based on your Next.js version
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Run TypeScript compiler (force errors to fail)
+      - name: Run TypeScript Check
+        run: |
+          pnpm lint
+          npx tsc --noEmit
+
+      - name: Run Next.js Build (Fail on Warnings)
+        run: |
+          pnpm build | tee build_output.log
+          ! grep -q "warn" build_output.log

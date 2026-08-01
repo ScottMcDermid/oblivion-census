@@ -9,6 +9,10 @@ import {
   ListItemIcon,
   ListItemText,
   Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableRow,
   Typography,
 } from '@mui/material';
 import { Shield, Warning } from '@mui/icons-material';
@@ -239,9 +243,43 @@ export default function NpcDetail({
           >
             Routine
           </Typography>
-          <Typography variant="body2" sx={{ fontSize: '0.8rem', color: 'text.secondary' }}>
-            {npc.routine}
-          </Typography>
+          {Array.isArray(npc.routine) ? (
+            <Table size="small" sx={{ tableLayout: 'fixed' }}>
+              <TableBody>
+                {npc.routine.map((row) => (
+                  <TableRow key={row.time} sx={{ '&:last-child td': { borderBottom: 0 } }}>
+                    <TableCell
+                      sx={{
+                        width: '38%',
+                        fontSize: '0.72rem',
+                        color: 'text.secondary',
+                        py: 0.2,
+                        px: 0,
+                        borderColor: 'divider',
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
+                      {row.time}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        fontSize: '0.72rem',
+                        py: 0.2,
+                        px: 1,
+                        borderColor: 'divider',
+                      }}
+                    >
+                      {row.location}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          ) : (
+            <Typography variant="body2" sx={{ fontSize: '0.8rem', color: 'text.secondary' }}>
+              {npc.routine}
+            </Typography>
+          )}
         </Box>
       )}
 

@@ -96,6 +96,11 @@ export type UniqueItemReference = {
   name: string;
 };
 
+export type ScheduleRow = {
+  time: string;      // e.g. "6am–8am", "5–8pm (weekends)"
+  location: string;  // e.g. "The Count's Arms"
+};
+
 export type TrainerTier = 'Novice' | 'Journeyman' | 'Master';
 
 export type TrainerReference = {
@@ -124,7 +129,7 @@ export type NpcDefinition = {
   essential?: boolean;
   disposition?: number;       // 0–100 base disposition toward player
   primaryLocation: string;    // City or place where they primarily reside
-  routine?: string;           // Optional free-text schedule description
+  routine?: string | ScheduleRow[];  // Table of time→location rows, or free-text description
   trainer?: TrainerReference; // If they offer training
   quests?: QuestReference[];
   uniqueItems?: UniqueItemReference[];

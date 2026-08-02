@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, Chip, Stack, Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Box, Chip, Slider, Stack, Typography } from '@mui/material';
 import {
   LocationDLC,
   NpcCity,
@@ -27,6 +27,9 @@ export default function NpcFilters({
   onToggleBeggarFilter,
   merchantFilter,
   onToggleMerchantFilter,
+  responsibilityMin,
+  responsibilityMax,
+  onSetResponsibilityRange,
 }: {
   activeRaceFilters: Set<NpcRace>;
   onToggleRaceFilter: (race: NpcRace) => void;
@@ -40,7 +43,17 @@ export default function NpcFilters({
   onToggleBeggarFilter: () => void;
   merchantFilter: boolean;
   onToggleMerchantFilter: () => void;
+  responsibilityMin: number;
+  responsibilityMax: number;
+  onSetResponsibilityRange: (min: number, max: number) => void;
 }) {
+  const [localRange, setLocalRange] = useState<[number, number]>([responsibilityMin, responsibilityMax]);
+
+  // Sync local range if the store value changes externally (e.g. "Clear filters")
+  useEffect(() => {
+    setLocalRange([responsibilityMin, responsibilityMax]);
+  }, [responsibilityMin, responsibilityMax]);
+
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
       {/* Race filter */}
@@ -247,6 +260,44 @@ export default function NpcFilters({
             }}
           />
         </Stack>
+      </Box>
+
+      {/* Responsibility filter */}
+      <Box>
+        <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1, mb: 0.5 }}>
+          <Typography
+            variant="caption"
+            sx={{
+              color: 'text.secondary',
+              fontWeight: 'bold',
+              textTransform: 'uppercase',
+              display: 'block',
+            }}
+          >
+            Responsibility
+          </Typography>
+          <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+            {localRange[0]} – {localRange[1]}
+          </Typography>
+        </Box>
+        <Box sx={{ px: 1 }}>
+          <Slider
+            min={0}
+            max={100}
+            value={localRange}
+            onChange={(_e, value) => {
+              const [min, max] = value as number[];
+              setLocalRange([min, max]);
+            }}
+            onChangeCommitted={(_e, value) => {
+              const [min, max] = value as number[];
+              onSetResponsibilityRange(min, max);
+            }}
+            valueLabelDisplay="auto"
+            size="small"
+            sx={{ color: 'primary.main' }}
+          />
+        </Box>
       </Box>
     </Box>
   );

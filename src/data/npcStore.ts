@@ -11,6 +11,8 @@ type State = {
   cityFilters: NpcCity[];
   beggarFilter: boolean;
   merchantFilter: boolean;
+  responsibilityMin: number;
+  responsibilityMax: number;
   version: number;
 };
 
@@ -23,6 +25,7 @@ type Actions = {
   toggleCityFilter: (city: NpcCity) => void;
   toggleBeggarFilter: () => void;
   toggleMerchantFilter: () => void;
+  setResponsibilityRange: (min: number, max: number) => void;
   clearFilters: () => void;
   resetToDefaults: () => void;
 };
@@ -40,6 +43,8 @@ export const useNpcStore = create<NpcStore>()(
       cityFilters: [],
       beggarFilter: false,
       merchantFilter: false,
+      responsibilityMin: 0,
+      responsibilityMax: 100,
       version: 1,
       actions: {
         toggleQuestCompleted: (questName) =>
@@ -81,8 +86,10 @@ export const useNpcStore = create<NpcStore>()(
           set((state) => ({ beggarFilter: !state.beggarFilter })),
         toggleMerchantFilter: () =>
           set((state) => ({ merchantFilter: !state.merchantFilter })),
+        setResponsibilityRange: (min, max) =>
+          set({ responsibilityMin: min, responsibilityMax: max }),
         clearFilters: () =>
-          set({ raceFilters: [], factionFilters: [], dlcFilters: [], cityFilters: [], beggarFilter: false, merchantFilter: false }),
+          set({ raceFilters: [], factionFilters: [], dlcFilters: [], cityFilters: [], beggarFilter: false, merchantFilter: false, responsibilityMin: 0, responsibilityMax: 100 }),
         resetToDefaults: () =>
           set({ completedQuests: {}, acquiredItems: {} }),
       },
@@ -99,6 +106,8 @@ export const useNpcStore = create<NpcStore>()(
         cityFilters: state.cityFilters,
         beggarFilter: state.beggarFilter,
         merchantFilter: state.merchantFilter,
+        responsibilityMin: state.responsibilityMin,
+        responsibilityMax: state.responsibilityMax,
         version: state.version,
       }),
     },

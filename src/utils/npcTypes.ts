@@ -127,7 +127,7 @@ export type NpcDefinition = {
   faction?: NpcFaction;
   dlc?: LocationDLC;
   essential?: boolean;
-  disposition?: number;       // 0–100 base disposition toward player
+  responsibility?: number;    // 0–100 base responsibility
   primaryLocation: string;    // City or place where they primarily reside
   routine?: string | ScheduleRow[];  // Table of time→location rows, or free-text description
   trainer?: TrainerReference; // If they offer training

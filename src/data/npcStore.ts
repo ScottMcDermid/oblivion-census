@@ -6,6 +6,7 @@ type State = {
   completedQuests: Record<string, boolean>;  // keyed by quest name
   acquiredItems: Record<string, boolean>;    // keyed by "npcId:itemName"
   raceFilters: NpcRace[];
+  genderFilters: ('Male' | 'Female')[];
   factionFilters: NpcFaction[];
   dlcFilters: LocationDLC[];
   cityFilters: NpcCity[];
@@ -20,6 +21,7 @@ type Actions = {
   toggleQuestCompleted: (questName: string) => void;
   toggleItemAcquired: (npcId: string, itemName: string) => void;
   toggleRaceFilter: (race: NpcRace) => void;
+  toggleGenderFilter: (gender: 'Male' | 'Female') => void;
   toggleFactionFilter: (faction: NpcFaction) => void;
   toggleDLCFilter: (dlc: LocationDLC) => void;
   toggleCityFilter: (city: NpcCity) => void;
@@ -38,6 +40,7 @@ export const useNpcStore = create<NpcStore>()(
       completedQuests: {},
       acquiredItems: {},
       raceFilters: [],
+      genderFilters: [],
       factionFilters: [],
       dlcFilters: [],
       cityFilters: [],
@@ -64,6 +67,12 @@ export const useNpcStore = create<NpcStore>()(
               ? state.raceFilters.filter((r) => r !== race)
               : [...state.raceFilters, race],
           })),
+        toggleGenderFilter: (gender) =>
+          set((state) => ({
+            genderFilters: state.genderFilters.includes(gender)
+              ? state.genderFilters.filter((g) => g !== gender)
+              : [...state.genderFilters, gender],
+          })),
         toggleFactionFilter: (faction) =>
           set((state) => ({
             factionFilters: state.factionFilters.includes(faction)
@@ -89,7 +98,7 @@ export const useNpcStore = create<NpcStore>()(
         setResponsibilityRange: (min, max) =>
           set({ responsibilityMin: min, responsibilityMax: max }),
         clearFilters: () =>
-          set({ raceFilters: [], factionFilters: [], dlcFilters: [], cityFilters: [], beggarFilter: false, merchantFilter: false, responsibilityMin: 0, responsibilityMax: 100 }),
+          set({ raceFilters: [], genderFilters: [], factionFilters: [], dlcFilters: [], cityFilters: [], beggarFilter: false, merchantFilter: false, responsibilityMin: 0, responsibilityMax: 100 }),
         resetToDefaults: () =>
           set({ completedQuests: {}, acquiredItems: {} }),
       },
@@ -101,6 +110,7 @@ export const useNpcStore = create<NpcStore>()(
         completedQuests: state.completedQuests,
         acquiredItems: state.acquiredItems,
         raceFilters: state.raceFilters,
+        genderFilters: state.genderFilters,
         factionFilters: state.factionFilters,
         dlcFilters: state.dlcFilters,
         cityFilters: state.cityFilters,

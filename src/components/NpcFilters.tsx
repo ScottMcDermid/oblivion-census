@@ -17,6 +17,8 @@ import {
 export default function NpcFilters({
   activeRaceFilters,
   onToggleRaceFilter,
+  activeGenderFilters,
+  onToggleGenderFilter,
   activeFactionFilters,
   onToggleFactionFilter,
   activeDLCFilters,
@@ -33,6 +35,8 @@ export default function NpcFilters({
 }: {
   activeRaceFilters: Set<NpcRace>;
   onToggleRaceFilter: (race: NpcRace) => void;
+  activeGenderFilters: Set<'Male' | 'Female'>;
+  onToggleGenderFilter: (gender: 'Male' | 'Female') => void;
   activeFactionFilters: Set<NpcFaction>;
   onToggleFactionFilter: (faction: NpcFaction) => void;
   activeDLCFilters: Set<LocationDLC>;
@@ -80,6 +84,45 @@ export default function NpcFilters({
                 size="small"
                 variant={active ? 'filled' : 'outlined'}
                 onClick={() => onToggleRaceFilter(race)}
+                sx={{
+                  borderColor: active ? 'secondary.main' : 'divider',
+                  color: active ? '#1e1e1e' : 'text.primary',
+                  backgroundColor: active ? 'secondary.main' : 'transparent',
+                  '&:hover': {
+                    backgroundColor: active ? 'secondary.dark' : 'action.hover',
+                  },
+                  fontSize: '0.7rem',
+                }}
+              />
+            );
+          })}
+        </Stack>
+      </Box>
+
+      {/* Gender filter */}
+      <Box>
+        <Typography
+          variant="caption"
+          sx={{
+            color: 'text.secondary',
+            fontWeight: 'bold',
+            textTransform: 'uppercase',
+            mb: 0.5,
+            display: 'block',
+          }}
+        >
+          Gender
+        </Typography>
+        <Stack direction="row" spacing={0.5} sx={{ flexWrap: 'wrap', gap: 0.5 }}>
+          {(['Male', 'Female'] as const).map((gender) => {
+            const active = activeGenderFilters.has(gender);
+            return (
+              <Chip
+                key={gender}
+                label={gender}
+                size="small"
+                variant={active ? 'filled' : 'outlined'}
+                onClick={() => onToggleGenderFilter(gender)}
                 sx={{
                   borderColor: active ? 'secondary.main' : 'divider',
                   color: active ? '#1e1e1e' : 'text.primary',

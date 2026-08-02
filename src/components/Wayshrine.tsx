@@ -37,6 +37,7 @@ function CensusContent({ npcId }: { npcId?: string }) {
   const completedQuests = useNpcStore((s) => s.completedQuests);
   const acquiredItems = useNpcStore((s) => s.acquiredItems);
   const raceFilters = useNpcStore((s) => s.raceFilters);
+  const genderFilters = useNpcStore((s) => s.genderFilters);
   const factionFilters = useNpcStore((s) => s.factionFilters);
   const dlcFilters = useNpcStore((s) => s.dlcFilters);
   const beggarFilter = useNpcStore((s) => s.beggarFilter);
@@ -48,6 +49,7 @@ function CensusContent({ npcId }: { npcId?: string }) {
     toggleQuestCompleted,
     toggleItemAcquired,
     toggleRaceFilter,
+    toggleGenderFilter,
     toggleFactionFilter,
     toggleDLCFilter,
     toggleCityFilter,
@@ -59,6 +61,7 @@ function CensusContent({ npcId }: { npcId?: string }) {
   } = useNpcStore((s) => s.actions);
 
   const activeRaceFilters = React.useMemo(() => new Set<NpcRace>(raceFilters), [raceFilters]);
+  const activeGenderFilters = React.useMemo(() => new Set<'Male' | 'Female'>(genderFilters), [genderFilters]);
   const activeFactionFilters = React.useMemo(() => new Set<NpcFaction>(factionFilters), [factionFilters]);
   const activeDLCFilters = React.useMemo(() => new Set<LocationDLC>(dlcFilters), [dlcFilters]);
   const activeCityFilters = React.useMemo(() => new Set<NpcCity>(cityFilters), [cityFilters]);
@@ -95,11 +98,12 @@ function CensusContent({ npcId }: { npcId?: string }) {
   const mobileDetailOpen = isMobile && !!selectedNpc;
 
   const hasActiveFilters =
-    activeRaceFilters.size > 0 || activeFactionFilters.size > 0 || activeDLCFilters.size > 0 || activeCityFilters.size > 0 || beggarFilter || merchantFilter || responsibilityMin > 0 || responsibilityMax < 100;
+    activeRaceFilters.size > 0 || activeGenderFilters.size > 0 || activeFactionFilters.size > 0 || activeDLCFilters.size > 0 || activeCityFilters.size > 0 || beggarFilter || merchantFilter || responsibilityMin > 0 || responsibilityMax < 100;
 
   const filteredNpcs = React.useMemo(() => {
     return npcDefinitions.filter((npc) => {
       const matchesRace = activeRaceFilters.size === 0 || activeRaceFilters.has(npc.race);
+      const matchesGender = activeGenderFilters.size === 0 || activeGenderFilters.has(npc.gender);
       const matchesFaction =
         activeFactionFilters.size === 0 ||
         (npc.faction ? activeFactionFilters.has(npc.faction) : false);
@@ -114,9 +118,9 @@ function CensusContent({ npcId }: { npcId?: string }) {
       const matchesMerchant = !merchantFilter || npc.merchant === true;
       const npcResponsibility = npc.responsibility ?? 50;
       const matchesResponsibility = npcResponsibility >= responsibilityMin && npcResponsibility <= responsibilityMax;
-      return matchesRace && matchesFaction && matchesDLC && matchesCity && matchesBeggar && matchesMerchant && matchesResponsibility;
+      return matchesRace && matchesGender && matchesFaction && matchesDLC && matchesCity && matchesBeggar && matchesMerchant && matchesResponsibility;
     });
-  }, [activeRaceFilters, activeFactionFilters, activeDLCFilters, activeCityFilters, beggarFilter, merchantFilter, responsibilityMin, responsibilityMax]);
+  }, [activeRaceFilters, activeGenderFilters, activeFactionFilters, activeDLCFilters, activeCityFilters, beggarFilter, merchantFilter, responsibilityMin, responsibilityMax]);
 
   const handleSelectNpc = (npc: NpcDefinition) => {
     navigateTo(npc.id);
@@ -173,6 +177,8 @@ function CensusContent({ npcId }: { npcId?: string }) {
     <NpcFilters
       activeRaceFilters={activeRaceFilters}
       onToggleRaceFilter={toggleRaceFilter}
+      activeGenderFilters={activeGenderFilters}
+      onToggleGenderFilter={toggleGenderFilter}
       activeFactionFilters={activeFactionFilters}
       onToggleFactionFilter={toggleFactionFilter}
       activeDLCFilters={activeDLCFilters}

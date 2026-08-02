@@ -23,7 +23,7 @@ import theme from '@/app/theme';
 import { useNpcStore } from '@/data/npcStore';
 import { useHydrated } from '@/hooks/useHydrated';
 import { npcDefinitions, npcDefinitionById } from '@/data/npcs';
-import { LocationDLC, NpcDefinition, NpcFaction, NpcRace } from '@/utils/npcTypes';
+import { LocationDLC, NpcCity, NpcDefinition, NpcFaction, NpcRace, getCityFromLocation } from '@/utils/npcTypes';
 import NpcList from '@/components/NpcList';
 import NpcDetail from '@/components/NpcDetail';
 import NpcFilters from '@/components/NpcFilters';
@@ -41,12 +41,14 @@ function CensusContent({ npcId }: { npcId?: string }) {
   const dlcFilters = useNpcStore((s) => s.dlcFilters);
   const beggarFilter = useNpcStore((s) => s.beggarFilter);
   const merchantFilter = useNpcStore((s) => s.merchantFilter);
+  const cityFilters = useNpcStore((s) => s.cityFilters);
   const {
     toggleQuestCompleted,
     toggleItemAcquired,
     toggleRaceFilter,
     toggleFactionFilter,
     toggleDLCFilter,
+    toggleCityFilter,
     toggleBeggarFilter,
     toggleMerchantFilter,
     clearFilters,
@@ -56,6 +58,7 @@ function CensusContent({ npcId }: { npcId?: string }) {
   const activeRaceFilters = React.useMemo(() => new Set<NpcRace>(raceFilters), [raceFilters]);
   const activeFactionFilters = React.useMemo(() => new Set<NpcFaction>(factionFilters), [factionFilters]);
   const activeDLCFilters = React.useMemo(() => new Set<LocationDLC>(dlcFilters), [dlcFilters]);
+  const activeCityFilters = React.useMemo(() => new Set<NpcCity>(cityFilters), [cityFilters]);
 
   const [selectedNpcId, setSelectedNpcId] = useState<string | undefined>(npcId);
 
@@ -89,7 +92,7 @@ function CensusContent({ npcId }: { npcId?: string }) {
   const mobileDetailOpen = isMobile && !!selectedNpc;
 
   const hasActiveFilters =
-    activeRaceFilters.size > 0 || activeFactionFilters.size > 0 || activeDLCFilters.size > 0 || beggarFilter || merchantFilter;
+    activeRaceFilters.size > 0 || activeFactionFilters.size > 0 || activeDLCFilters.size > 0 || activeCityFilters.size > 0 || beggarFilter || merchantFilter;
 
   const filteredNpcs = React.useMemo(() => {
     return npcDefinitions.filter((npc) => {
@@ -102,11 +105,13 @@ function CensusContent({ npcId }: { npcId?: string }) {
         npc.quests?.some((q) => q.dlc && activeDLCFilters.has(q.dlc)) ?? false;
       const matchesDLC =
         activeDLCFilters.size === 0 || activeDLCFilters.has(npcDLC) || hasMatchingQuestDLC;
+      const matchesCity =
+        activeCityFilters.size === 0 || activeCityFilters.has(getCityFromLocation(npc.primaryLocation) as NpcCity);
       const matchesBeggar = !beggarFilter || npc.beggar === true;
       const matchesMerchant = !merchantFilter || npc.merchant === true;
-      return matchesRace && matchesFaction && matchesDLC && matchesBeggar && matchesMerchant;
+      return matchesRace && matchesFaction && matchesDLC && matchesCity && matchesBeggar && matchesMerchant;
     });
-  }, [activeRaceFilters, activeFactionFilters, activeDLCFilters, beggarFilter, merchantFilter]);
+  }, [activeRaceFilters, activeFactionFilters, activeDLCFilters, activeCityFilters, beggarFilter, merchantFilter]);
 
   const handleSelectNpc = (npc: NpcDefinition) => {
     navigateTo(npc.id);
@@ -167,6 +172,8 @@ function CensusContent({ npcId }: { npcId?: string }) {
       onToggleFactionFilter={toggleFactionFilter}
       activeDLCFilters={activeDLCFilters}
       onToggleDLCFilter={toggleDLCFilter}
+      activeCityFilters={activeCityFilters}
+      onToggleCityFilter={toggleCityFilter}
       beggarFilter={beggarFilter}
       onToggleBeggarFilter={toggleBeggarFilter}
       merchantFilter={merchantFilter}

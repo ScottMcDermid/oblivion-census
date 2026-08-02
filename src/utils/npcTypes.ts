@@ -85,6 +85,50 @@ export const locationDLCColors: Record<LocationDLC, string> = {
   Remastered: '#ef4444',
 };
 
+export type NpcCity =
+  | 'Anvil'
+  | 'Bravil'
+  | 'Bruma'
+  | 'Cheydinhal'
+  | 'Chorrol'
+  | 'Imperial City'
+  | 'Leyawiin'
+  | 'Skingrad';
+
+export const npcCities: NpcCity[] = [
+  'Anvil',
+  'Bravil',
+  'Bruma',
+  'Cheydinhal',
+  'Chorrol',
+  'Imperial City',
+  'Leyawiin',
+  'Skingrad',
+];
+
+/**
+ * Derives the city from a primaryLocation string.
+ * Returns null if the location is outside the 8 main cities (e.g. wilderness, shrines).
+ */
+export function getCityFromLocation(primaryLocation: string): NpcCity | null {
+  const loc = primaryLocation;
+  // Imperial City — matches "Imperial City", "IC " prefix, or "Arcane University"
+  if (
+    loc.includes('Imperial City') ||
+    loc.startsWith('IC ') ||
+    loc.includes('Arcane University') ||
+    loc.includes('Imperial Palace')
+  ) {
+    return 'Imperial City';
+  }
+  // The other 7 cities — name appears in the location string
+  for (const city of npcCities) {
+    if (city === 'Imperial City') continue;
+    if (loc.includes(city)) return city;
+  }
+  return null;
+}
+
 export type QuestReference = {
   name: string;
   levelReq?: number;

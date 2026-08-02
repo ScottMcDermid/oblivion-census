@@ -2,11 +2,13 @@ import React from 'react';
 import { Box, Chip, Stack, Typography } from '@mui/material';
 import {
   LocationDLC,
+  NpcCity,
   NpcFaction,
   NpcRace,
   locationDLCColors,
   locationDLCLabels,
   locationDLCs,
+  npcCities,
   npcFactionColors,
   npcFactions,
   npcRaces,
@@ -19,6 +21,8 @@ export default function NpcFilters({
   onToggleFactionFilter,
   activeDLCFilters,
   onToggleDLCFilter,
+  activeCityFilters,
+  onToggleCityFilter,
   beggarFilter,
   onToggleBeggarFilter,
   merchantFilter,
@@ -30,6 +34,8 @@ export default function NpcFilters({
   onToggleFactionFilter: (faction: NpcFaction) => void;
   activeDLCFilters: Set<LocationDLC>;
   onToggleDLCFilter: (dlc: LocationDLC) => void;
+  activeCityFilters: Set<NpcCity>;
+  onToggleCityFilter: (city: NpcCity) => void;
   beggarFilter: boolean;
   onToggleBeggarFilter: () => void;
   merchantFilter: boolean;
@@ -147,6 +153,45 @@ export default function NpcFilters({
                   backgroundColor: active ? color : 'transparent',
                   '&:hover': {
                     backgroundColor: active ? color : 'action.hover',
+                  },
+                  fontSize: '0.7rem',
+                }}
+              />
+            );
+          })}
+        </Stack>
+      </Box>
+
+      {/* City filter */}
+      <Box>
+        <Typography
+          variant="caption"
+          sx={{
+            color: 'text.secondary',
+            fontWeight: 'bold',
+            textTransform: 'uppercase',
+            mb: 0.5,
+            display: 'block',
+          }}
+        >
+          City
+        </Typography>
+        <Stack direction="row" spacing={0.5} sx={{ flexWrap: 'wrap', gap: 0.5 }}>
+          {npcCities.map((city) => {
+            const active = activeCityFilters.has(city);
+            return (
+              <Chip
+                key={city}
+                label={city}
+                size="small"
+                variant={active ? 'filled' : 'outlined'}
+                onClick={() => onToggleCityFilter(city)}
+                sx={{
+                  borderColor: active ? '#15803d' : 'divider',
+                  color: active ? '#fff' : 'text.primary',
+                  backgroundColor: active ? '#15803d' : 'transparent',
+                  '&:hover': {
+                    backgroundColor: active ? '#166534' : 'action.hover',
                   },
                   fontSize: '0.7rem',
                 }}

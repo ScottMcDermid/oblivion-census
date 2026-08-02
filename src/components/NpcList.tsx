@@ -180,8 +180,6 @@ export default function NpcList({
                       }}
                     >
                       <span>{npc.race}</span>
-                      <span>·</span>
-                      <span>{npc.class}</span>
                       {npc.faction && npc.faction !== 'None' && (
                         <>
                           <span>·</span>

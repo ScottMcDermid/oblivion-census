@@ -167,7 +167,6 @@ export type NpcDefinition = {
   name: string;
   race: NpcRace;
   gender: 'Male' | 'Female';
-  class: string;
   faction?: NpcFaction;
   dlc?: LocationDLC;
   essential?: boolean;

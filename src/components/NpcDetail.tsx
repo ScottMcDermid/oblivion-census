@@ -111,9 +111,6 @@ export default function NpcDetail({
           {/* Gender */}
           <Chip label={npc.gender} size="small" sx={{ fontSize: '0.7rem' }} />
 
-          {/* Class */}
-          <Chip label={npc.class} size="small" sx={{ fontSize: '0.7rem' }} />
-
           {/* Faction */}
           {npc.faction && npc.faction !== 'None' && (
             <Chip

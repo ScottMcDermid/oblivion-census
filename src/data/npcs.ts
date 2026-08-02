@@ -205,6 +205,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Ostler',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Horse Whisperer Stables, Anvil',
     routine: 'Opens the stables at 8am and is available to sell horses through the day. Closes at 8pm, relaxes until bed at 10pm. Sells White Horses for 4,000 gold.',
@@ -303,6 +304,7 @@ export const npcDefinitions: NpcDefinition[] = [
     class: 'Bookseller',
     dlc: 'Plugins',
     essential: true,
+    merchant: true,
     responsibility: 5,
     primaryLocation: 'The Sea Tub Clarabella, Anvil',
     routine: 'Spends her entire day pacing the deck of the Clarabella; never eats or sleeps. Recruits the player for Dunbarrow Cove upgrades.',
@@ -356,6 +358,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Smith',
     essential: true,
+    merchant: true,
     responsibility: 100,
     primaryLocation: "Morvayn's Peacemakers, Anvil",
     routine: "Works an 8-hour shift at Morvayn's Peacemakers after a morning breakfast at The Flowing Bowl, then secretly meets his lover Hasathil behind the Horse Whisperer Stables before an evening dinner.",
@@ -408,6 +411,7 @@ export const npcDefinitions: NpcDefinition[] = [
     class: 'Alchemist',
     faction: 'Mages Guild',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Anvil Mages Guild',
     routine: [
@@ -594,6 +598,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Commoner',
     essential: false,
+    beggar: true,
     responsibility: 25,
     primaryLocation: 'Anvil docks and Chapel of Dibella area',
     routine: "Sleeps on a bedroll behind The Flowing Bowl 10pm–6am. Rotates between begging near the Dock Gate, the Chapel of Dibella stairs, and wandering the dockside. Seeks shelter at Heinrich Oaken-Hull's house in heavy rain.",
@@ -720,6 +725,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Trader',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'The Flowing Bowl, Anvil',
     routine: 'Never eats or sleeps; available as a merchant 24 hours a day at The Flowing Bowl.',
@@ -805,6 +811,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Trader',
     essential: true,
+    merchant: true,
     responsibility: 50,
     primaryLocation: "Lelles' Quality Merchandise, Anvil",
     routine: [
@@ -830,6 +837,7 @@ export const npcDefinitions: NpcDefinition[] = [
     class: 'Smith',
     faction: 'Thieves Guild',
     essential: false,
+    merchant: true,
     responsibility: 25,
     primaryLocation: 'Anvil Castle (Smithy)',
     routine: [
@@ -852,6 +860,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Commoner',
     essential: false,
+    beggar: true,
     responsibility: 25,
     primaryLocation: 'Anvil Main Gate area',
     routine: [
@@ -1196,6 +1205,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Smith',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: "Morvayn's Peacemakers, Anvil",
     routine: [
@@ -1277,6 +1287,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: "The Count's Arms, Anvil",
     routine: "Serves customers 24 hours a day, every day. Never eats or sleeps.",
@@ -1779,6 +1790,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Commoner',
     essential: false,
+    beggar: true,
     responsibility: 50,
     primaryLocation: 'Bedroll west of north gate, Bruma',
     routine: [
@@ -1803,6 +1815,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Smith',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Hammer and Axe, Bruma',
     routine: [
@@ -1822,6 +1835,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Jerall View Inn, Bruma',
     routine: 'On duty at the inn 22 hours a day; eats 8–10pm (no bartering during this window). Rents beds (25 gold) at any hour.',
@@ -1965,6 +1979,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Commoner',
     essential: false,
+    beggar: true,
     responsibility: 50,
     primaryLocation: 'Bedroll behind Arnora\'s House, Bruma',
     routine: [
@@ -2062,6 +2077,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Smith',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Nord Winds, Bruma',
     routine: [
@@ -2081,6 +2097,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Publican',
     essential: true,
+    merchant: true,
     responsibility: 100,
     primaryLocation: "Olav's Tap and Tack, Bruma",
     routine: 'Never sleeps or eats; available 24 hours every day.',
@@ -2118,6 +2135,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Ostler',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Wildeye Stables, Bruma',
     routine: [
@@ -2161,6 +2179,7 @@ export const npcDefinitions: NpcDefinition[] = [
     class: 'Alchemist',
     faction: 'Mages Guild',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Bruma Mages Guild',
     routine: [
@@ -2182,6 +2201,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Clothier',
     essential: false,
+    merchant: true,
     responsibility: 50,
     primaryLocation: 'Nord Winds, Bruma',
     routine: [
@@ -2465,6 +2485,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Bookseller',
     essential: true,
+    merchant: true,
     responsibility: 80,
     primaryLocation: "Mach-Na's Books, Cheydinhal",
     routine: [
@@ -2740,6 +2761,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'The Grey Mare, Chorrol',
     routine: 'Serves customers nearly 24 hours a day; sleeps briefly 12am–4am. Sells food, rents bed (10 gold).',
@@ -2756,6 +2778,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Bookseller',
     essential: false,
+    merchant: true,
     responsibility: 80,
     primaryLocation: "Renoit's Books, Chorrol",
     routine: [
@@ -2901,6 +2924,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Smith',
     essential: false,
+    merchant: true,
     responsibility: 80,
     primaryLocation: 'Fire and Steel, Chorrol',
     routine: [
@@ -2938,6 +2962,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Trader',
     essential: true,
+    merchant: true,
     responsibility: 80,
     primaryLocation: 'Northern Goods and Trade, Chorrol',
     routine: 'Available as a merchant nearly 24 hours a day due to a bugged AI package opening the shop early. Intended shop hours are 8am–8pm.',
@@ -3163,6 +3188,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Smith',
     essential: false,
+    merchant: true,
     responsibility: 50,
     primaryLocation: 'The Best Defense (basement), Imperial City Market District',
     routine: [
@@ -3437,6 +3463,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Clothier',
     essential: false,
+    merchant: true,
     responsibility: 50,
     primaryLocation: 'Divine Elegance, Imperial City Market District',
     routine: [
@@ -3497,6 +3524,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Smith',
     essential: false,
+    merchant: true,
     responsibility: 50,
     primaryLocation: 'A Fighting Chance, Imperial City Market District',
     routine: [
@@ -3557,6 +3585,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Trader',
     essential: false,
+    merchant: true,
     responsibility: 35,
     primaryLocation: 'Outside Imperial City walls, NE of Chestnut Handy Stables',
     routine: 'Stationary 24 hours a day — never eats or sleeps.',
@@ -3583,6 +3612,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Trader',
     essential: true,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'The Copious Coinpurse, Imperial City Market District',
     routine: [
@@ -3631,6 +3661,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Smith',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'The Best Defense, Imperial City Market District',
     routine: [
@@ -3652,6 +3683,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Publican',
     essential: true,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'The Bloated Float Inn, Imperial City Waterfront District',
     routine: [
@@ -3834,6 +3866,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Commoner',
     essential: false,
+    beggar: true,
     responsibility: 25,
     primaryLocation: 'West of Five Claws Lodge, Leyawiin (outdoor beggar)',
     routine: [
@@ -3913,6 +3946,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Merchant',
     essential: true,
+    merchant: true,
     responsibility: 100,
     primaryLocation: "Margarte's House, Leyawiin",
     routine: [
@@ -3964,6 +3998,7 @@ export const npcDefinitions: NpcDefinition[] = [
     class: 'Alchemist',
     faction: 'Mages Guild',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Leyawiin Mages Guild',
     routine: [
@@ -4074,6 +4109,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Five Claws Lodge, Leyawiin',
     routine: 'Serves at the tavern 24 hours a day, every day. Does not eat or sleep under normal circumstances.',
@@ -4171,6 +4207,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Alchemist',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'All Things Alchemical, Skingrad',
     routine: [
@@ -4306,6 +4343,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Faregyl Inn, south of Imperial City',
     routine: 'Sleeps on a bedroll behind the counter 2am–6am; serves customers the rest of the day.',
@@ -4352,6 +4390,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Publican',
     essential: true,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Brina Cross Inn, north of Anvil',
     routine: 'Available 6am–2am; sleeps downstairs 2am–6am. Rents beds (30 gold) and sells food and potions.',
@@ -4369,6 +4408,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Imperial Bridge Inn, Nibenay region',
     routine: 'Always behind the counter; available 24 hours a day.',
@@ -4383,6 +4423,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Gottshaw Inn, Gold Road between Kvatch and Anvil',
     routine: 'Behind counter 4am–midnight; sleeps on mat midnight–4am.',
@@ -4623,6 +4664,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Trader',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: "Borba's Goods and Stores, Cheydinhal",
     routine: [
@@ -4685,6 +4727,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Cheydinhal Bridge Inn',
     routine: 'Behind the inn counter at all hours except 9–11pm, when she takes a late dinner on the second floor.',
@@ -4796,6 +4839,7 @@ export const npcDefinitions: NpcDefinition[] = [
     class: 'Alchemist',
     faction: 'Mages Guild',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Chorrol Mages Guild',
     routine: [
@@ -5026,6 +5070,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Smith',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Hammer and Tongs, Skingrad',
     routine: [
@@ -5334,6 +5379,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'The All-Saints Inn, Imperial City Temple District',
     routine: 'Stationary behind the inn counter 24 hours a day. Never eats, sleeps, or leaves.',
@@ -5468,6 +5514,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Publican',
     essential: true,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Wawnet Inn, Weye (near Imperial City / Talos Bridge)',
     routine: [
@@ -5681,6 +5728,7 @@ export const npcDefinitions: NpcDefinition[] = [
     class: 'Enchanter',
     dlc: 'Plugins',
     essential: true,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Mystic Emporium, Imperial City Market District',
     routine: [
@@ -5780,6 +5828,7 @@ export const npcDefinitions: NpcDefinition[] = [
     class: 'Trader',
     dlc: 'Plugins',
     essential: true,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'The Merchants Inn, Imperial City Market District',
     routine: [
@@ -5799,6 +5848,7 @@ export const npcDefinitions: NpcDefinition[] = [
     class: 'Trader',
     dlc: 'Plugins',
     essential: true,
+    merchant: true,
     responsibility: 65,
     primaryLocation: 'Wawnet Inn, Weye (near Imperial City)',
     routine: [
@@ -5863,6 +5913,7 @@ export const npcDefinitions: NpcDefinition[] = [
     class: 'Alchemist',
     faction: 'Mages Guild',
     essential: true,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Bravil Mages Guild',
     routine: [
@@ -5946,6 +5997,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Smith',
     essential: false,
+    merchant: true,
     responsibility: 50,
     primaryLocation: "The Archer's Paradox, Bravil",
     routine: [
@@ -6245,6 +6297,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Enchanter',
     essential: false,
+    merchant: true,
     responsibility: 50,
     primaryLocation: "A Warlock's Luck, Bravil",
     routine: [
@@ -6477,6 +6530,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Enchanter',
     essential: false,
+    merchant: true,
     responsibility: 50,
     primaryLocation: 'Mystic Emporium, Imperial City Market District',
     routine: [
@@ -6498,6 +6552,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Alchemist',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'The Gilded Carafe, Imperial City Market District',
     routine: [
@@ -6521,6 +6576,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Enchanter',
     essential: false,
+    merchant: true,
     responsibility: 50,
     primaryLocation: "Edgar's Discount Spells, Imperial City Market District",
     routine: [
@@ -6541,6 +6597,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Pawnbroker',
     essential: true,
+    merchant: true,
     responsibility: 100,
     primaryLocation: "Jensine's 'Good as New' Merchandise, Imperial City Market District",
     routine: [
@@ -6564,6 +6621,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Smith',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'The Best Defense, Imperial City Market District',
     routine: [
@@ -6582,6 +6640,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Alchemist',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'The Main Ingredient, Imperial City Market District',
     routine: [
@@ -6605,6 +6664,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Bookseller',
     essential: true,
+    merchant: true,
     responsibility: 50,
     primaryLocation: 'First Edition, Imperial City Market District',
     routine: [
@@ -6634,6 +6694,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Trader',
     essential: false,
+    merchant: true,
     responsibility: 50,
     primaryLocation: "Rindir's Staffs, Imperial City Market District",
     routine: [
@@ -6653,6 +6714,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'The Merchants Inn, Imperial City Market District',
     routine: 'Available 24 hours a day, every day. No travel or off-duty AI packages.',
@@ -7055,6 +7117,7 @@ export const npcDefinitions: NpcDefinition[] = [
     class: 'Smith',
     faction: 'Fighters Guild',
     essential: false,
+    merchant: true,
     responsibility: 60,
     primaryLocation: 'Chorrol Fighters Guild',
     routine: [
@@ -7286,6 +7349,7 @@ export const npcDefinitions: NpcDefinition[] = [
     class: 'Alchemist',
     faction: 'Mages Guild',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Kvatch Refugee Camp (outside Kvatch, Gold Coast)',
     routine: [
@@ -7440,6 +7504,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 70,
     primaryLocation: 'The Drunken Dragon Inn, Heartlands (east of Imperial City)',
     routine: 'Offers services 6am–2am daily; sleeps on bedroll behind counter 2am–6am.',
@@ -7502,6 +7567,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Publican',
     essential: true,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Roxey Inn, Silver Road (north of Imperial City)',
     routine: "Offers services 6am–2am daily; sleeps on bedroll behind counter 2am–6am.",
@@ -7519,6 +7585,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 30,
     primaryLocation: 'Inn of Ill Omen, Green Road (between Imperial City and Bravil)',
     routine: 'Stands behind the counter 24 hours a day, never sleeping or eating.',
@@ -7786,6 +7853,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'The Lonely Suitor Lodge, Bravil',
     routine: [
@@ -7823,6 +7891,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Commoner',
     essential: false,
+    beggar: true,
     responsibility: 50,
     primaryLocation: 'NE corner of Bravil (behind The Fair Deal), outdoor beggar',
     routine: [
@@ -7846,6 +7915,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Silverhome on the Water, Bravil',
     routine: 'Present in the taproom virtually all day; takes a 2-hour dinner break at midnight. Rents beds (20 gold) at all times; will not barter while eating.',
@@ -7902,6 +7972,7 @@ export const npcDefinitions: NpcDefinition[] = [
     class: 'Smith',
     faction: 'Fighters Guild',
     essential: false,
+    merchant: true,
     responsibility: 61,
     primaryLocation: 'Bravil Fighters Guild',
     routine: [
@@ -7966,6 +8037,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Commoner',
     essential: false,
+    beggar: true,
     responsibility: 50,
     primaryLocation: 'SW corner of Bravil (behind The Lonely Suitor Lodge), outdoor beggar',
     routine: [
@@ -8101,6 +8173,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Trader',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Novaroma, Bruma',
     routine: [
@@ -8211,6 +8284,7 @@ export const npcDefinitions: NpcDefinition[] = [
     class: 'Alchemist',
     faction: 'Mages Guild',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Cheydinhal Mages Guild',
     routine: [
@@ -8559,6 +8633,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Bookseller',
     essential: false,
+    merchant: true,
     responsibility: 50,
     primaryLocation: 'Southern Books, Leyawiin',
     routine: [
@@ -8579,6 +8654,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Smith',
     essential: false,
+    merchant: true,
     responsibility: 50,
     primaryLocation: 'The Dividing Line (lives at Margarte\'s House), Leyawiin',
     routine: [
@@ -8632,6 +8708,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Smith',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'The Dividing Line, Leyawiin',
     routine: [
@@ -8851,6 +8928,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Trader',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: "Moslin's Dry Goods, Hackdirt, West Weald",
     routine: [
@@ -9355,6 +9433,7 @@ export const npcDefinitions: NpcDefinition[] = [
     class: 'Smith',
     dlc: 'Plugins',
     essential: true,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Battlehorn Castle Blacksmith House, Colovian Highlands',
     routine: [
@@ -9696,6 +9775,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Ostler',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Bay Roan Stables, Bravil',
     routine: [
@@ -9789,6 +9869,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Trader',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'The Fair Deal, Bravil',
     routine: [
@@ -9809,6 +9890,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Trader',
     essential: true,
+    merchant: true,
     responsibility: 50,
     primaryLocation: 'The Fair Deal / alley beside it, Bravil',
     routine: [
@@ -10085,6 +10167,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Newlands Lodge, Cheydinhal',
     routine: 'Behind her bar from 2am to midnight; eats midnight–2am (bar services paused but beds available 24h).',
@@ -10384,6 +10467,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Smith',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'The March Rider, Cheydinhal',
     routine: [
@@ -10423,6 +10507,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Ostler',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Black Waterside Stables, Cheydinhal',
     routine: [
@@ -10531,6 +10616,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Ostler',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'North Country Stables, Chorrol',
     routine: [
@@ -10754,6 +10840,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'The Oak and Crosier, Chorrol',
     routine: [
@@ -10815,6 +10902,7 @@ export const npcDefinitions: NpcDefinition[] = [
     class: 'Alchemist',
     faction: 'Mages Guild',
     essential: true,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Leyawiin Mages Guild',
     routine: [
@@ -10919,6 +11007,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Ostler',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Five Riders Stables, Leyawiin (never leaves)',
     routine: [
@@ -10971,6 +11060,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Trader',
     essential: false,
+    merchant: true,
     responsibility: 50,
     primaryLocation: 'Best Goods and Guarantees, Leyawiin',
     routine: [
@@ -11001,6 +11091,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Trader',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Best Goods and Guarantees, Leyawiin',
     routine: [
@@ -11189,6 +11280,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Commoner',
     essential: false,
+    beggar: true,
     responsibility: 25,
     primaryLocation: 'SW corner of Leyawiin (outdoor beggar)',
     routine: [
@@ -11421,6 +11513,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Publican',
     essential: true,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'West Weald Inn, Skingrad',
     routine: [
@@ -11530,6 +11623,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Trader',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Colovian Traders, Skingrad',
     routine: [
@@ -11597,6 +11691,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Two Sisters Lodge, Skingrad',
     routine: 'Available 24 hours a day; sleeps briefly 1–4am (fixed by UOP 3.5.2).',
@@ -11796,6 +11891,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Ostler',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Grateful Pass Stables, Skingrad',
     routine: [
@@ -11932,6 +12028,7 @@ export const npcDefinitions: NpcDefinition[] = [
     class: 'Enchanter',
     faction: 'Mages Guild',
     essential: true,
+    merchant: true,
     responsibility: 50,
     primaryLocation: 'Arcane University Chironasium, Imperial City',
     routine: [
@@ -11987,6 +12084,7 @@ export const npcDefinitions: NpcDefinition[] = [
     class: 'Alchemist',
     faction: 'Mages Guild',
     essential: true,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Arcane University Lustratorium, Imperial City',
     routine: [
@@ -12071,6 +12169,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'The Feed Bag, Imperial City Market District',
     routine: 'Available 24 hours a day, every day — never eats or sleeps.',
@@ -12101,6 +12200,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Trader',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Red Diamond Jewelry, Imperial City Market District',
     routine: [
@@ -12135,6 +12235,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Trader',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Three Brothers Trade Goods, Imperial City Market District',
     routine: [
@@ -12179,6 +12280,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Trader',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Three Brothers Trade Goods, Imperial City Market District',
     routine: [
@@ -12201,6 +12303,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Smith',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: "Slash 'N Smash, Imperial City Market District",
     routine: [
@@ -12218,6 +12321,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Smith',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Stonewall Shields, Imperial City Market District',
     routine: [
@@ -12336,6 +12440,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'The King and Queen Tavern, IC Elven Gardens District',
     routine: 'Available 24 hours a day, every day — never eats or sleeps.',
@@ -12360,6 +12465,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 80,
     primaryLocation: "Luther Broad's Boarding House, IC Elven Gardens District",
     routine: 'Stands behind counter at all times, 24 hours a day.',
@@ -12613,6 +12719,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'The Tiber Septim Hotel, IC Talos Plaza District',
     routine: 'Available as innkeeper at all times; sleeps briefly 2–6am.',
@@ -12678,6 +12785,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Merchant',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'The Foaming Flask, IC Talos Plaza District',
     routine: 'Stands behind the bar 24 hours a day, every day. Never eats or sleeps.',
@@ -12987,6 +13095,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Commoner',
     essential: false,
+    beggar: true,
     responsibility: 25,
     primaryLocation: "IC Temple District (bedroll behind Pennus Mallius' House)",
     routine: [
@@ -13267,6 +13376,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Commoner',
     essential: false,
+    beggar: true,
     responsibility: 25,
     primaryLocation: 'IC Waterfront District (bedroll near Garden of Dareloth)',
     routine: [
@@ -13382,6 +13492,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Ostler',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Chestnut Handy Stables, Imperial City',
     routine: [
@@ -13399,6 +13510,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Ostler',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Chestnut Handy Stables, Imperial City',
     routine: [
@@ -13447,6 +13559,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Smith',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: 'Kvatch Refugee Camp',
     routine: 'Wanders camp all day; sleeps 1–6am. Offers repairs 24 hrs/day.',
@@ -13794,6 +13907,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 50,
     primaryLocation: "Bleaker's Way Goodwill Inn",
     routine: [
@@ -13953,6 +14067,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 50,
     primaryLocation: 'Border Watch Inn (innkeeper)',
     routine: [
@@ -14372,6 +14487,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 50,
     primaryLocation: 'The Sleeping Mare Inn, Pell\'s Gate',
     routine: 'Never eats or sleeps; available 24 hours a day.',
@@ -14921,6 +15037,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Male',
     class: 'Enchanter',
     essential: true,
+    merchant: true,
     responsibility: 50,
     primaryLocation: "Vaermina's Shrine, West Weald",
     routine: 'Worships at shrine day and night.',
@@ -15788,6 +15905,7 @@ export const npcDefinitions: NpcDefinition[] = [
     gender: 'Female',
     class: 'Publican',
     essential: false,
+    merchant: true,
     responsibility: 100,
     primaryLocation: "Three Sisters' Inn, Leyawiin",
     routine: [
@@ -15823,6 +15941,7 @@ export const npcDefinitions: NpcDefinition[] = [
     faction: 'Knights of the Nine',
     dlc: 'KotN',
     essential: false,
+    merchant: true,
     responsibility: 50,
     primaryLocation: 'Priory of the Nine, basement forge',
     routine: 'Stands near the forge 24 hours a day; never sleeps or eats. Offers repairs at all times.',

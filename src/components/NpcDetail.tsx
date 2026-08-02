@@ -160,6 +160,36 @@ export default function NpcDetail({
               }}
             />
           )}
+
+          {/* Merchant */}
+          {npc.merchant && (
+            <Chip
+              label="Merchant"
+              size="small"
+              sx={{
+                fontSize: '0.65rem',
+                fontWeight: 'bold',
+                color: '#fff',
+                backgroundColor: '#0f766e',
+                height: 20,
+              }}
+            />
+          )}
+
+          {/* Beggar */}
+          {npc.beggar && (
+            <Chip
+              label="Beggar"
+              size="small"
+              sx={{
+                fontSize: '0.65rem',
+                fontWeight: 'bold',
+                color: '#fff',
+                backgroundColor: '#92400e',
+                height: 20,
+              }}
+            />
+          )}
         </Box>
       </Box>
 

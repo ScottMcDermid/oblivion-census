@@ -127,6 +127,8 @@ export type NpcDefinition = {
   faction?: NpcFaction;
   dlc?: LocationDLC;
   essential?: boolean;
+  beggar?: boolean;           // one of the 19 beggars required for Speechcraft master training
+  merchant?: boolean;         // actively sells goods or services to the player
   responsibility?: number;    // 0–100 base responsibility
   primaryLocation: string;    // City or place where they primarily reside
   routine?: string | ScheduleRow[];  // Table of time→location rows, or free-text description

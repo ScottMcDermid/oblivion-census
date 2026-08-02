@@ -133,6 +133,34 @@ export default function NpcList({
                           }}
                         />
                       )}
+                      {/* Merchant indicator */}
+                      {npc.merchant && (
+                        <Typography
+                          component="span"
+                          sx={{
+                            fontSize: '0.55rem',
+                            fontWeight: 'bold',
+                            color: '#0f766e',
+                            lineHeight: 1,
+                          }}
+                        >
+                          Merchant
+                        </Typography>
+                      )}
+                      {/* Beggar indicator */}
+                      {npc.beggar && (
+                        <Typography
+                          component="span"
+                          sx={{
+                            fontSize: '0.55rem',
+                            fontWeight: 'bold',
+                            color: '#92400e',
+                            lineHeight: 1,
+                          }}
+                        >
+                          Beggar
+                        </Typography>
+                      )}
                       {/* Notes indicator */}
                       {npc.notes && (
                         <Typography sx={{ fontSize: '0.65rem', color: '#fbbf24' }}>!</Typography>

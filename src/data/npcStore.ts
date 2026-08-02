@@ -8,6 +8,8 @@ type State = {
   raceFilters: NpcRace[];
   factionFilters: NpcFaction[];
   dlcFilters: LocationDLC[];
+  beggarFilter: boolean;
+  merchantFilter: boolean;
   version: number;
 };
 
@@ -17,6 +19,8 @@ type Actions = {
   toggleRaceFilter: (race: NpcRace) => void;
   toggleFactionFilter: (faction: NpcFaction) => void;
   toggleDLCFilter: (dlc: LocationDLC) => void;
+  toggleBeggarFilter: () => void;
+  toggleMerchantFilter: () => void;
   clearFilters: () => void;
   resetToDefaults: () => void;
 };
@@ -31,6 +35,8 @@ export const useNpcStore = create<NpcStore>()(
       raceFilters: [],
       factionFilters: [],
       dlcFilters: [],
+      beggarFilter: false,
+      merchantFilter: false,
       version: 1,
       actions: {
         toggleQuestCompleted: (questName) =>
@@ -62,8 +68,12 @@ export const useNpcStore = create<NpcStore>()(
               ? state.dlcFilters.filter((d) => d !== dlc)
               : [...state.dlcFilters, dlc],
           })),
+        toggleBeggarFilter: () =>
+          set((state) => ({ beggarFilter: !state.beggarFilter })),
+        toggleMerchantFilter: () =>
+          set((state) => ({ merchantFilter: !state.merchantFilter })),
         clearFilters: () =>
-          set({ raceFilters: [], factionFilters: [], dlcFilters: [] }),
+          set({ raceFilters: [], factionFilters: [], dlcFilters: [], beggarFilter: false, merchantFilter: false }),
         resetToDefaults: () =>
           set({ completedQuests: {}, acquiredItems: {} }),
       },
@@ -77,6 +87,8 @@ export const useNpcStore = create<NpcStore>()(
         raceFilters: state.raceFilters,
         factionFilters: state.factionFilters,
         dlcFilters: state.dlcFilters,
+        beggarFilter: state.beggarFilter,
+        merchantFilter: state.merchantFilter,
         version: state.version,
       }),
     },

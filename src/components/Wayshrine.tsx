@@ -39,12 +39,16 @@ function CensusContent({ npcId }: { npcId?: string }) {
   const raceFilters = useNpcStore((s) => s.raceFilters);
   const factionFilters = useNpcStore((s) => s.factionFilters);
   const dlcFilters = useNpcStore((s) => s.dlcFilters);
+  const beggarFilter = useNpcStore((s) => s.beggarFilter);
+  const merchantFilter = useNpcStore((s) => s.merchantFilter);
   const {
     toggleQuestCompleted,
     toggleItemAcquired,
     toggleRaceFilter,
     toggleFactionFilter,
     toggleDLCFilter,
+    toggleBeggarFilter,
+    toggleMerchantFilter,
     clearFilters,
     resetToDefaults,
   } = useNpcStore((s) => s.actions);
@@ -85,7 +89,7 @@ function CensusContent({ npcId }: { npcId?: string }) {
   const mobileDetailOpen = isMobile && !!selectedNpc;
 
   const hasActiveFilters =
-    activeRaceFilters.size > 0 || activeFactionFilters.size > 0 || activeDLCFilters.size > 0;
+    activeRaceFilters.size > 0 || activeFactionFilters.size > 0 || activeDLCFilters.size > 0 || beggarFilter || merchantFilter;
 
   const filteredNpcs = React.useMemo(() => {
     return npcDefinitions.filter((npc) => {
@@ -98,9 +102,11 @@ function CensusContent({ npcId }: { npcId?: string }) {
         npc.quests?.some((q) => q.dlc && activeDLCFilters.has(q.dlc)) ?? false;
       const matchesDLC =
         activeDLCFilters.size === 0 || activeDLCFilters.has(npcDLC) || hasMatchingQuestDLC;
-      return matchesRace && matchesFaction && matchesDLC;
+      const matchesBeggar = !beggarFilter || npc.beggar === true;
+      const matchesMerchant = !merchantFilter || npc.merchant === true;
+      return matchesRace && matchesFaction && matchesDLC && matchesBeggar && matchesMerchant;
     });
-  }, [activeRaceFilters, activeFactionFilters, activeDLCFilters]);
+  }, [activeRaceFilters, activeFactionFilters, activeDLCFilters, beggarFilter, merchantFilter]);
 
   const handleSelectNpc = (npc: NpcDefinition) => {
     navigateTo(npc.id);
@@ -161,6 +167,10 @@ function CensusContent({ npcId }: { npcId?: string }) {
       onToggleFactionFilter={toggleFactionFilter}
       activeDLCFilters={activeDLCFilters}
       onToggleDLCFilter={toggleDLCFilter}
+      beggarFilter={beggarFilter}
+      onToggleBeggarFilter={toggleBeggarFilter}
+      merchantFilter={merchantFilter}
+      onToggleMerchantFilter={toggleMerchantFilter}
     />
   );
 

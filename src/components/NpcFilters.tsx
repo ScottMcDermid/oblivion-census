@@ -19,6 +19,10 @@ export default function NpcFilters({
   onToggleFactionFilter,
   activeDLCFilters,
   onToggleDLCFilter,
+  beggarFilter,
+  onToggleBeggarFilter,
+  merchantFilter,
+  onToggleMerchantFilter,
 }: {
   activeRaceFilters: Set<NpcRace>;
   onToggleRaceFilter: (race: NpcRace) => void;
@@ -26,6 +30,10 @@ export default function NpcFilters({
   onToggleFactionFilter: (faction: NpcFaction) => void;
   activeDLCFilters: Set<LocationDLC>;
   onToggleDLCFilter: (dlc: LocationDLC) => void;
+  beggarFilter: boolean;
+  onToggleBeggarFilter: () => void;
+  merchantFilter: boolean;
+  onToggleMerchantFilter: () => void;
 }) {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
@@ -145,6 +153,54 @@ export default function NpcFilters({
               />
             );
           })}
+        </Stack>
+      </Box>
+
+      {/* Role filter */}
+      <Box>
+        <Typography
+          variant="caption"
+          sx={{
+            color: 'text.secondary',
+            fontWeight: 'bold',
+            textTransform: 'uppercase',
+            mb: 0.5,
+            display: 'block',
+          }}
+        >
+          Role
+        </Typography>
+        <Stack direction="row" spacing={0.5} sx={{ flexWrap: 'wrap', gap: 0.5 }}>
+          <Chip
+            label="Merchant"
+            size="small"
+            variant={merchantFilter ? 'filled' : 'outlined'}
+            onClick={onToggleMerchantFilter}
+            sx={{
+              borderColor: merchantFilter ? '#0f766e' : 'divider',
+              color: merchantFilter ? '#fff' : 'text.primary',
+              backgroundColor: merchantFilter ? '#0f766e' : 'transparent',
+              '&:hover': {
+                backgroundColor: merchantFilter ? '#0d6b63' : 'action.hover',
+              },
+              fontSize: '0.7rem',
+            }}
+          />
+          <Chip
+            label="Beggar"
+            size="small"
+            variant={beggarFilter ? 'filled' : 'outlined'}
+            onClick={onToggleBeggarFilter}
+            sx={{
+              borderColor: beggarFilter ? '#92400e' : 'divider',
+              color: beggarFilter ? '#fff' : 'text.primary',
+              backgroundColor: beggarFilter ? '#92400e' : 'transparent',
+              '&:hover': {
+                backgroundColor: beggarFilter ? '#78350f' : 'action.hover',
+              },
+              fontSize: '0.7rem',
+            }}
+          />
         </Stack>
       </Box>
     </Box>

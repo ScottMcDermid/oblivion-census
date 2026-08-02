@@ -17,11 +17,11 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: 'Oblivion Census',
   description:
-    'A reference and tracking tool for NPCs in The Elder Scrolls IV: Oblivion. Browse NPC details including quests, disposition, routines, unique items, and trainer information.',
+    'A reference and tracking tool for NPCs in The Elder Scrolls IV: Oblivion. Browse NPC details including quests, responsibility, routines, unique items, and trainer information.',
   openGraph: {
     title: 'Oblivion Census',
     description:
-      'A reference and tracking tool for NPCs in The Elder Scrolls IV: Oblivion. Browse NPC details including quests, disposition, routines, unique items, and trainer information.',
+      'A reference and tracking tool for NPCs in The Elder Scrolls IV: Oblivion. Browse NPC details including quests, responsibility, routines, unique items, and trainer information.',
     url: 'https://census.oblivion.tools',
     siteName: 'Oblivion Census',
     type: 'website',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Oblivion Census',
     description:
-      'A reference and tracking tool for NPCs in The Elder Scrolls IV: Oblivion. Browse NPC details including quests, disposition, routines, unique items, and trainer information.',
+      'A reference and tracking tool for NPCs in The Elder Scrolls IV: Oblivion. Browse NPC details including quests, responsibility, routines, unique items, and trainer information.',
   },
   alternates: {
     canonical: 'https://census.oblivion.tools',

@@ -163,8 +163,8 @@ export default function NpcDetail({
         </Box>
       </Box>
 
-      {/* Disposition */}
-      {npc.disposition !== undefined && (
+      {/* Responsibility */}
+      {npc.responsibility !== undefined && (
         <Box sx={{ mb: 1.5 }}>
           <Typography
             variant="caption"
@@ -176,11 +176,11 @@ export default function NpcDetail({
               mb: 0.5,
             }}
           >
-            Base Disposition
+            Base Responsibility
           </Typography>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <Typography variant="body2" sx={{ fontSize: '0.8rem', fontWeight: 'bold' }}>
-              {npc.disposition}
+              {npc.responsibility}
             </Typography>
             <Box
               sx={{
@@ -193,13 +193,13 @@ export default function NpcDetail({
             >
               <Box
                 sx={{
-                  width: `${npc.disposition}%`,
+                  width: `${npc.responsibility}%`,
                   height: '100%',
                   borderRadius: 2,
                   backgroundColor:
-                    npc.disposition >= 70
+                    npc.responsibility >= 70
                       ? '#22c55e'
-                      : npc.disposition >= 40
+                      : npc.responsibility >= 40
                       ? '#f59e0b'
                       : '#ef4444',
                 }}

@@ -4,15 +4,23 @@
 ![Made with Next.js](https://img.shields.io/badge/Next.js-powered-black?style=flat-square)
 ![License MIT](https://img.shields.io/badge/License-MIT-brightgreen?style=flat-square)
 
-Track your progress through every discoverable location in The Elder Scrolls IV: Oblivion.
+A reference and progress-tracking tool for NPCs in *The Elder Scrolls IV: Oblivion*.
 Source for https://census.oblivion.tools
 
 ## Highlights
 
-- Browse and filter all discoverable locations by type (cities, forts, caves, ruins, etc.)
-- Mark locations as discovered or cleared on your journey to 100% completion.
-- Quick-reference info for quests, skill books, merchants, and unique items at each location.
-- Progress tracking with totals for discovered and cleared locations.
+- Browse and filter ~910 hand-curated NPCs from the base game and all DLC by race, gender, faction, city, role, and base responsibility score.
+- Track quest completion and unique item acquisition per NPC — progress persists in your browser across sessions.
+- Full trainer reference for all 21 skills across Novice, Journeyman, and Master tiers, including prerequisites and max trainable levels.
+- NPC detail view with location breadcrumbs, daily routine, UESP wiki links, and a direct gamemap link for each character.
+- UOP-aware quest data that surfaces both vanilla and Unofficial Oblivion Patch-corrected level thresholds for leveled rewards.
+- Deep-linkable NPC URLs (`/npc/[id]`) for sharing or bookmarking specific characters.
+
+## Tech Stack
+
+- **Next.js 14** (App Router) + **TypeScript**
+- **MUI v6** for UI components, **Tailwind CSS** for layout utilities
+- **Zustand** for client-side state and localStorage persistence
 
 ## Getting Started
 

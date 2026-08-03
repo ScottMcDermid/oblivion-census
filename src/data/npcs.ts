@@ -1551,7 +1551,6 @@ const _npcDefinitions = [
     race: 'Imperial',
     gender: 'Male',
     essential: false,
-    ambient: true,
     responsibility: 50,
     primaryLocation: [[{ label: 'Bruma' }, { label: 'Great Chapel of Talos' }]],
     routine: [
@@ -4095,7 +4094,6 @@ const _npcDefinitions = [
     race: 'Breton',
     gender: 'Male',
     essential: false,
-    ambient: true,
     responsibility: 75,
     primaryLocation: [[{ label: 'Skingrad' }, { label: 'Ambroise Canne\'s House' }], [{ label: 'Skingrad' }, { label: 'Surilie Brothers vineyard' }]],
     routine: [
@@ -4963,7 +4961,6 @@ const _npcDefinitions = [
     race: 'Argonian',
     gender: 'Male',
     essential: false,
-    ambient: true,
     responsibility: 50,
     primaryLocation: [[{ label: 'Leyawiin' }, { label: "Mahei's House" }]],
     routine: [
@@ -6131,7 +6128,6 @@ const _npcDefinitions = [
     race: 'Argonian',
     gender: 'Female',
     essential: false,
-    ambient: true,
     responsibility: 50,
     primaryLocation: [[{ label: 'Bravil' }, { label: 'Great Chapel of Mara' }]],
     routine: [
@@ -7906,7 +7902,6 @@ const _npcDefinitions = [
     race: 'Dunmer',
     gender: 'Female',
     essential: false,
-    ambient: true,
     responsibility: 50,
     primaryLocation: [[{ label: 'Bravil' }, { label: 'Great Chapel of Mara' }]],
     routine: [
@@ -16671,7 +16666,6 @@ const _npcDefinitions = [
     dlc: 'SI',
     essential: false,
     responsibility: 50,
-    ambient: true,
     primaryLocation: [[{ label: 'Niben Bay', context: 'Cyrodiil, near the strange door' }]],
     routine: 'Khajiit adventurer waiting near the strange door in Niben Bay.',
     quests: [
@@ -17641,7 +17635,6 @@ const _npcDefinitions = [
     gender: 'Female',
     dlc: 'SI',
     essential: false,
-    ambient: true,
     responsibility: 50,
     primaryLocation: [[{ label: 'Vitharn', slug: 'Shivering:Vitharn' }]],
     quests: [
@@ -17656,7 +17649,6 @@ const _npcDefinitions = [
     gender: 'Male',
     dlc: 'SI',
     essential: false,
-    ambient: true,
     responsibility: 50,
     primaryLocation: [[{ label: 'Vitharn', slug: 'Shivering:Vitharn' }]],
     quests: [
@@ -17671,7 +17663,6 @@ const _npcDefinitions = [
     gender: 'Male',
     dlc: 'SI',
     essential: false,
-    ambient: true,
     responsibility: 50,
     primaryLocation: [[{ label: 'Vitharn', slug: 'Shivering:Vitharn' }]],
     quests: [
@@ -17686,7 +17677,6 @@ const _npcDefinitions = [
     gender: 'Male',
     dlc: 'SI',
     essential: false,
-    ambient: true,
     responsibility: 50,
     primaryLocation: [[{ label: 'Vitharn', slug: 'Shivering:Vitharn' }]],
     quests: [
@@ -17701,7 +17691,6 @@ const _npcDefinitions = [
     gender: 'Male',
     dlc: 'SI',
     essential: false,
-    ambient: true,
     responsibility: 50,
     primaryLocation: [[{ label: 'Vitharn', slug: 'Shivering:Vitharn' }]],
     quests: [

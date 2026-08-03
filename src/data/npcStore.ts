@@ -14,6 +14,7 @@ type State = {
   cityFilters: NpcCity[];
   beggarFilter: boolean;
   merchantFilter: boolean;
+  ambientFilter: boolean;
   responsibilityMin: number;
   responsibilityMax: number;
   version: number;
@@ -31,6 +32,7 @@ type Actions = {
   toggleCityFilter: (city: NpcCity) => void;
   toggleBeggarFilter: () => void;
   toggleMerchantFilter: () => void;
+  toggleAmbientFilter: () => void;
   setResponsibilityRange: (min: number, max: number) => void;
   clearFilters: () => void;
   resetToDefaults: () => void;
@@ -52,9 +54,10 @@ export const useNpcStore = create<NpcStore>()(
       cityFilters: [],
       beggarFilter: false,
       merchantFilter: false,
+      ambientFilter: false,
       responsibilityMin: 0,
       responsibilityMax: 100,
-      version: 1,
+      version: 3,
       actions: {
         toggleQuestCompleted: (questName) =>
           set((state) => {
@@ -111,22 +114,27 @@ export const useNpcStore = create<NpcStore>()(
           set((state) => ({ beggarFilter: !state.beggarFilter })),
         toggleMerchantFilter: () =>
           set((state) => ({ merchantFilter: !state.merchantFilter })),
+        toggleAmbientFilter: () =>
+          set((state) => ({ ambientFilter: !state.ambientFilter })),
         setResponsibilityRange: (min, max) =>
           set({ responsibilityMin: min, responsibilityMax: max }),
         clearFilters: () =>
-          set({ statusFilters: [], raceFilters: [], genderFilters: [], factionFilters: [], dlcFilters: [], cityFilters: [], beggarFilter: false, merchantFilter: false, responsibilityMin: 0, responsibilityMax: 100 }),
+          set({ statusFilters: [], raceFilters: [], genderFilters: [], factionFilters: [], dlcFilters: [], cityFilters: [], beggarFilter: false, merchantFilter: false, ambientFilter: false, responsibilityMin: 0, responsibilityMax: 100 }),
         resetToDefaults: () =>
           set({ completedQuests: {}, acquiredItems: {}, npcStatuses: {} }),
       },
     }),
     {
       name: 'oblivion-census',
-      version: 2,
+      version: 3,
       migrate: (persistedState, fromVersion) => {
         const state = persistedState as Partial<State>;
         if (fromVersion < 2) {
           state.npcStatuses = {};
           state.statusFilters = [];
+        }
+        if (fromVersion < 3) {
+          state.ambientFilter = false;
         }
         return state;
       },
@@ -142,6 +150,7 @@ export const useNpcStore = create<NpcStore>()(
         cityFilters: state.cityFilters,
         beggarFilter: state.beggarFilter,
         merchantFilter: state.merchantFilter,
+        ambientFilter: state.ambientFilter,
         responsibilityMin: state.responsibilityMin,
         responsibilityMax: state.responsibilityMax,
         version: state.version,

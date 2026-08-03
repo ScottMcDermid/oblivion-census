@@ -199,6 +199,7 @@ export type NpcDefinition = {
   essential?: boolean;
   beggar?: boolean;           // one of the 19 beggars required for Speechcraft master training
   merchant?: boolean;         // actively sells goods or services to the player
+  ambient?: boolean;          // no discernible purpose; background/ambient character with no quests, training, or unique items
   responsibility?: number;    // 0-100 base responsibility
   primaryLocation: NpcLocation;  // Breadcrumb location array; outer = stages, inner = region→building
   routine?: string | ScheduleRow[];  // Table of time→location rows, or free-text description

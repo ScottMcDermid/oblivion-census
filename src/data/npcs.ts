@@ -10094,6 +10094,7 @@ const _npcDefinitions = [
     race: 'Imperial',
     gender: 'Female',
     essential: false,
+    beggar: true,
     responsibility: 50,
     primaryLocation: [[{ label: 'Cheydinhal', context: 'bedroll behind Willow Bank' }]],
     routine: [
@@ -10453,6 +10454,7 @@ const _npcDefinitions = [
     race: 'Imperial',
     gender: 'Male',
     essential: false,
+    beggar: true,
     responsibility: 25,
     primaryLocation: [[{ label: 'Chorrol', context: 'bedroll SE of Modryn Oreyn\'s House' }]],
     routine: [
@@ -10493,6 +10495,7 @@ const _npcDefinitions = [
     race: 'Imperial',
     gender: 'Male',
     essential: false,
+    beggar: true,
     responsibility: 25,
     primaryLocation: [[{ label: 'Chorrol', context: 'bedroll behind Chapel of Stendarr' }]],
     routine: [
@@ -11329,6 +11332,7 @@ const _npcDefinitions = [
     race: 'Imperial',
     gender: 'Male',
     essential: false,
+    beggar: true,
     responsibility: 25,
     primaryLocation: [[{ label: 'Skingrad', context: 'homeless, bedroll behind Colovian Traders' }]],
     routine: [
@@ -11480,6 +11484,7 @@ const _npcDefinitions = [
     race: 'Imperial',
     gender: 'Male',
     essential: false,
+    beggar: true,
     responsibility: 25,
     primaryLocation: [[{ label: 'Skingrad', context: 'homeless, bedroll behind Fighters Guild' }]],
     routine: [
@@ -11999,6 +12004,7 @@ const _npcDefinitions = [
     race: 'Imperial',
     gender: 'Female',
     essential: false,
+    beggar: true,
     responsibility: 25,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District', context: 'bedroll behind A Fighting Chance' }]],
     routine: [
@@ -12230,6 +12236,7 @@ const _npcDefinitions = [
     race: 'Imperial',
     gender: 'Male',
     essential: false,
+    beggar: true,
     responsibility: 25,
     primaryLocation: [[{ label: 'IC Elven Gardens District', slug: 'Imperial_City_Elven_Gardens_District', context: 'bedroll behind Fathis Ules\' house' }]],
     routine: [
@@ -12571,6 +12578,7 @@ const _npcDefinitions = [
     race: 'Imperial',
     gender: 'Male',
     essential: false,
+    beggar: true,
     responsibility: 25,
     primaryLocation: [[{ label: 'IC Talos Plaza District', slug: 'Imperial_City_Talos_Plaza_District', context: 'bedroll in alley behind Ulen Athram\'s house' }]],
     routine: [
@@ -15318,6 +15326,7 @@ const _npcDefinitions = [
     race: 'Imperial',
     gender: 'Male',
     essential: false,
+    beggar: true,
     responsibility: 50,
     primaryLocation: [[{ label: 'Cheydinhal', context: 'bedroll behind The March Rider' }]],
     routine: [

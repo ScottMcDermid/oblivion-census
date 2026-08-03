@@ -206,6 +206,7 @@ export type NpcDefinition = {
   trainerAvailability?: string;   // Hours when they can be trained with, e.g. "8am–8pm", "24 hours"
   merchantAvailability?: string;  // Hours when they can be traded with, e.g. "8am–8pm", "24 hours"
   merchantInventory?: string;     // Description of goods/services sold, e.g. "Potions, Ingredients, Spell Tomes"
+  merchantGold?: number;          // Base barter gold available, e.g. 800
   trainer?: TrainerReference; // If they offer training
   quests?: QuestReference[];
   uniqueItems?: UniqueItemReference[];

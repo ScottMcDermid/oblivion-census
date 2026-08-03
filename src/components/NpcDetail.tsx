@@ -16,7 +16,7 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
-import { AccessTime, Map, RadioButtonUnchecked, Shield, Storefront, Visibility, Warning } from '@mui/icons-material';
+import { AccessTime, AttachMoney, Map, RadioButtonUnchecked, Shield, Storefront, Visibility, Warning } from '@mui/icons-material';
 import { GiSkullCrossedBones } from 'react-icons/gi';
 import {
   LocationDLC,
@@ -491,6 +491,17 @@ export default function NpcDetail({
                 </ListItemIcon>
                 <ListItemText
                   primary={npc.merchantInventory}
+                  primaryTypographyProps={{ fontSize: '0.8rem', component: 'div' }}
+                />
+              </ListItem>
+            )}
+            {npc.merchantGold !== undefined && (
+              <ListItem disableGutters sx={{ py: 0.25 }}>
+                <ListItemIcon sx={{ minWidth: 28 }}>
+                  <AttachMoney sx={{ fontSize: '0.85rem', color: '#f59e0b', ml: 0.5 }} />
+                </ListItemIcon>
+                <ListItemText
+                  primary={`${npc.merchantGold.toLocaleString()} gold`}
                   primaryTypographyProps={{ fontSize: '0.8rem', component: 'div' }}
                 />
               </ListItem>

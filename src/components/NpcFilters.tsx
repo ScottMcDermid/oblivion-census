@@ -234,46 +234,6 @@ export default function NpcFilters({
         </Stack>
       </Box>
 
-      {/* DLC filter */}
-      <Box>
-        <Typography
-          variant="caption"
-          sx={{
-            color: 'text.secondary',
-            fontWeight: 'bold',
-            textTransform: 'uppercase',
-            mb: 0.5,
-            display: 'block',
-          }}
-        >
-          DLC
-        </Typography>
-        <Stack direction="row" spacing={0.5} sx={{ flexWrap: 'wrap', gap: 0.5 }}>
-          {locationDLCs.map((dlc) => {
-            const active = activeDLCFilters.has(dlc);
-            const color = locationDLCColors[dlc];
-            return (
-              <Chip
-                key={dlc}
-                label={locationDLCLabels[dlc]}
-                size="small"
-                variant={active ? 'filled' : 'outlined'}
-                onClick={() => onToggleDLCFilter(dlc)}
-                sx={{
-                  borderColor: active ? color : 'divider',
-                  color: active ? '#fff' : 'text.primary',
-                  backgroundColor: active ? color : 'transparent',
-                  '&:hover': {
-                    backgroundColor: active ? color : 'action.hover',
-                  },
-                  fontSize: '0.7rem',
-                }}
-              />
-            );
-          })}
-        </Stack>
-      </Box>
-
       {/* City filter */}
       <Box>
         <Typography
@@ -427,6 +387,46 @@ export default function NpcFilters({
             sx={{ color: 'primary.main' }}
           />
         </Box>
+      </Box>
+
+      {/* DLC filter */}
+      <Box>
+        <Typography
+          variant="caption"
+          sx={{
+            color: 'text.secondary',
+            fontWeight: 'bold',
+            textTransform: 'uppercase',
+            mb: 0.5,
+            display: 'block',
+          }}
+        >
+          DLC
+        </Typography>
+        <Stack direction="row" spacing={0.5} sx={{ flexWrap: 'wrap', gap: 0.5 }}>
+          {locationDLCs.map((dlc) => {
+            const active = activeDLCFilters.has(dlc);
+            const color = locationDLCColors[dlc];
+            return (
+              <Chip
+                key={dlc}
+                label={locationDLCLabels[dlc]}
+                size="small"
+                variant={active ? 'filled' : 'outlined'}
+                onClick={() => onToggleDLCFilter(dlc)}
+                sx={{
+                  borderColor: active ? color : 'divider',
+                  color: active ? '#fff' : 'text.primary',
+                  backgroundColor: active ? color : 'transparent',
+                  '&:hover': {
+                    backgroundColor: active ? color : 'action.hover',
+                  },
+                  fontSize: '0.7rem',
+                }}
+              />
+            );
+          })}
+        </Stack>
       </Box>
     </Box>
   );

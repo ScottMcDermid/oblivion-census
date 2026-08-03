@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback, memo, CSSProperties } from 'react';
+import React, { useMemo, useCallback, memo, CSSProperties, useRef, useImperativeHandle, forwardRef } from 'react';
 import {
   Badge,
   Box,
@@ -9,8 +9,13 @@ import {
 } from '@mui/material';
 import { FilterList, Search, Shield, Visibility } from '@mui/icons-material';
 import { GiSkullCrossedBones } from 'react-icons/gi';
-import { List, RowComponentProps as WindowRowComponentProps } from 'react-window';
+import { List, ListImperativeAPI, RowComponentProps as WindowRowComponentProps } from 'react-window';
 import { NpcDefinition, NpcStatus, locationDLCColors, npcFactionColors, npcStatusColors } from '@/utils/npcTypes';
+
+export type NpcListHandle = {
+  focusSearch: () => void;
+  scrollToIndex: (index: number) => void;
+};
 const statusIcon: Partial<Record<NpcStatus, React.ReactNode>> = {
   met:  <Visibility sx={{ fontSize: 12, color: npcStatusColors.met }} />,
   dead: <GiSkullCrossedBones style={{ fontSize: 12, color: npcStatusColors.dead, flexShrink: 0 }} />,
@@ -165,16 +170,7 @@ const NpcRowComponent = memo(function NpcRowComponent({
   );
 });
 
-export default function NpcList({
-  filteredNpcs,
-  selectedId,
-  onSelect,
-  search,
-  onSearchChange,
-  onToggleFilter,
-  hasActiveFilters,
-  npcStatuses,
-}: {
+const NpcList = forwardRef<NpcListHandle, {
   filteredNpcs: NpcDefinition[];
   selectedId: string | null;
   onSelect: (npc: NpcDefinition) => void;
@@ -183,21 +179,36 @@ export default function NpcList({
   onToggleFilter: () => void;
   hasActiveFilters: boolean;
   npcStatuses: Record<string, NpcStatus>;
-}) {
-  const searchLower = useMemo(() => search.toLowerCase(), [search]);
+}>(function NpcList({
+  filteredNpcs,
+  selectedId,
+  onSelect,
+  search,
+  onSearchChange,
+  onToggleFilter,
+  hasActiveFilters,
+  npcStatuses,
+}, ref) {
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const listRef = useRef<ListImperativeAPI | null>(null);
 
-  const filtered = useMemo(
-    () =>
-      search === ''
-        ? filteredNpcs
-        : filteredNpcs.filter((npc) => npc.name.toLowerCase().includes(searchLower)),
-    [filteredNpcs, search, searchLower],
-  );
+  useImperativeHandle(ref, () => ({
+    focusSearch() {
+      const input = searchInputRef.current;
+      if (!input) return;
+      input.focus();
+      input.select();
+    },
+    scrollToIndex(index: number) {
+      listRef.current?.scrollToRow({ index, align: 'smart' });
+    },
+  }));
 
   // Stable rowProps object — react-window v2 re-renders rows only when this changes.
+  // filteredNpcs already has the search filter applied by Census.tsx.
   const rowProps = useMemo<RowProps>(
-    () => ({ npcs: filtered, selectedId, onSelect, npcStatuses }),
-    [filtered, selectedId, onSelect, npcStatuses],
+    () => ({ npcs: filteredNpcs, selectedId, onSelect, npcStatuses }),
+    [filteredNpcs, selectedId, onSelect, npcStatuses],
   );
 
   const handleSearchChange = useCallback(
@@ -214,6 +225,7 @@ export default function NpcList({
           placeholder="Search NPCs..."
           value={search}
           onChange={handleSearchChange}
+          inputRef={searchInputRef}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -235,7 +247,7 @@ export default function NpcList({
       </Box>
 
       <Box sx={{ flex: 1, minHeight: 0 }}>
-        {filtered.length === 0 ? (
+        {filteredNpcs.length === 0 ? (
           <Box sx={{ p: 2, textAlign: 'center' }}>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
               No NPCs found
@@ -243,8 +255,9 @@ export default function NpcList({
           </Box>
         ) : (
           <List
+            listRef={listRef}
             rowComponent={NpcRowComponent as (props: WindowRowComponentProps<RowProps>) => React.ReactElement}
-            rowCount={filtered.length}
+            rowCount={filteredNpcs.length}
             rowHeight={ROW_HEIGHT}
             rowProps={rowProps}
             overscanCount={5}
@@ -254,4 +267,6 @@ export default function NpcList({
       </Box>
     </Box>
   );
-}
+});
+
+export default NpcList;

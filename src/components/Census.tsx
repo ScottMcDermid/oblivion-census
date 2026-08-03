@@ -24,7 +24,7 @@ import { useNpcStore } from '@/data/npcStore';
 import { useHydrated } from '@/hooks/useHydrated';
 import { npcDefinitions, npcDefinitionById, npcCityById } from '@/data/npcs';
 import { LocationDLC, NpcCity, NpcDefinition, NpcFaction, NpcRace, NpcStatus } from '@/utils/npcTypes';
-import NpcList from '@/components/NpcList';
+import NpcList, { NpcListHandle } from '@/components/NpcList';
 import NpcDetail from '@/components/NpcDetail';
 import NpcFilters from '@/components/NpcFilters';
 import ConfirmDialog from '@/components/ConfirmDialog';
@@ -109,6 +109,8 @@ function CensusContent({ npcId }: { npcId?: string }) {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
+  const npcListRef = useRef<NpcListHandle>(null);
+
   const [search, setSearch] = useState('');
   const [filterPanelOpen, setFilterPanelOpen] = useState(false);
   const [isConfirmingReset, setIsConfirmingReset] = useState(false);
@@ -144,6 +146,85 @@ function CensusContent({ npcId }: { npcId?: string }) {
       return true;
     });
   }, [npcStatusesForFilter, activeStatusFilters, activeRaceFilters, activeGenderFilters, activeFactionFilters, activeDLCFilters, activeCityFilters, beggarFilter, merchantFilter, ambientFilter, trainerFilter, responsibilityMin, responsibilityMax]);
+
+  // Apply search on top of store filters. Kept as a separate memo so the expensive
+  // store-filter pass above stays stable while the user is typing.
+  const searchLower = React.useMemo(() => search.toLowerCase(), [search]);
+  const visibleNpcs = React.useMemo(
+    () =>
+      search === ''
+        ? filteredNpcs
+        : filteredNpcs.filter((npc) => npc.name.toLowerCase().includes(searchLower)),
+    [filteredNpcs, search, searchLower],
+  );
+
+  // Global keyboard shortcuts:
+  //   '/'          → focus + select-all in the search field
+  //   Escape       → blur the currently-focused input
+  //   Enter        → (while search focused) blur + select the first result
+  //   ArrowDown/j  → select the next NPC in the filtered list (wraps)
+  //   ArrowUp/k    → select the previous NPC in the filtered list (wraps)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement;
+      const isInInput = target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable;
+
+      if (e.key === 'Escape') {
+        if (isInInput) (target as HTMLInputElement).blur();
+        return;
+      }
+
+      // Enter while the search field is focused: blur and select the first result.
+      if (e.key === 'Enter' && isInInput) {
+        (target as HTMLInputElement).blur();
+        if (visibleNpcs.length > 0) {
+          const first = visibleNpcs[0];
+          window.history.pushState(null, '', `/npc/${first.id}`);
+          npcListRef.current?.scrollToIndex(0);
+          setSelectedNpcId(first.id);
+        }
+        return;
+      }
+
+      // All other hotkeys are suppressed when an input is focused.
+      if (isInInput) return;
+
+      if (e.key === '/') {
+        e.preventDefault();
+        npcListRef.current?.focusSearch();
+        return;
+      }
+
+      const isDown = e.key === 'ArrowDown' || e.key === 'j';
+      const isUp = e.key === 'ArrowUp' || e.key === 'k';
+
+      if (!isDown && !isUp) return;
+      e.preventDefault();
+
+      setSelectedNpcId((currentId) => {
+        if (visibleNpcs.length === 0) return currentId;
+
+        const currentIndex = currentId
+          ? visibleNpcs.findIndex((npc) => npc.id === currentId)
+          : -1;
+
+        let nextIndex: number;
+        if (isDown) {
+          nextIndex = currentIndex < visibleNpcs.length - 1 ? currentIndex + 1 : 0;
+        } else {
+          nextIndex = currentIndex > 0 ? currentIndex - 1 : visibleNpcs.length - 1;
+        }
+
+        const nextNpc = visibleNpcs[nextIndex];
+        window.history.pushState(null, '', `/npc/${nextNpc.id}`);
+        npcListRef.current?.scrollToIndex(nextIndex);
+        return nextNpc.id;
+      });
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [visibleNpcs]);
 
   const handleSelectNpc = (npc: NpcDefinition) => {
     navigateTo(npc.id);
@@ -335,7 +416,8 @@ function CensusContent({ npcId }: { npcId?: string }) {
           }}
         >
           <NpcList
-            filteredNpcs={filteredNpcs}
+            ref={npcListRef}
+            filteredNpcs={visibleNpcs}
             selectedId={selectedNpc?.id ?? null}
             onSelect={handleSelectNpc}
             search={search}

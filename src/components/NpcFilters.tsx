@@ -5,6 +5,7 @@ import {
   NpcCity,
   NpcFaction,
   NpcRace,
+  NpcStatus,
   locationDLCColors,
   locationDLCLabels,
   locationDLCs,
@@ -12,9 +13,14 @@ import {
   npcFactionColors,
   npcFactions,
   npcRaces,
+  npcStatusColors,
+  npcStatusLabels,
+  npcStatuses,
 } from '@/utils/npcTypes';
 
 export default function NpcFilters({
+  activeStatusFilters,
+  onToggleStatusFilter,
   activeRaceFilters,
   onToggleRaceFilter,
   activeGenderFilters,
@@ -33,6 +39,8 @@ export default function NpcFilters({
   responsibilityMax,
   onSetResponsibilityRange,
 }: {
+  activeStatusFilters: Set<NpcStatus>;
+  onToggleStatusFilter: (status: NpcStatus) => void;
   activeRaceFilters: Set<NpcRace>;
   onToggleRaceFilter: (race: NpcRace) => void;
   activeGenderFilters: Set<'Male' | 'Female'>;
@@ -60,6 +68,46 @@ export default function NpcFilters({
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+      {/* Status filter */}
+      <Box>
+        <Typography
+          variant="caption"
+          sx={{
+            color: 'text.secondary',
+            fontWeight: 'bold',
+            textTransform: 'uppercase',
+            mb: 0.5,
+            display: 'block',
+          }}
+        >
+          Status
+        </Typography>
+        <Stack direction="row" spacing={0.5} sx={{ flexWrap: 'wrap', gap: 0.5 }}>
+          {npcStatuses.map((status) => {
+            const active = activeStatusFilters.has(status);
+            const color = npcStatusColors[status];
+            return (
+              <Chip
+                key={status}
+                label={npcStatusLabels[status]}
+                size="small"
+                variant={active ? 'filled' : 'outlined'}
+                onClick={() => onToggleStatusFilter(status)}
+                sx={{
+                  borderColor: active ? color : 'divider',
+                  color: active ? '#fff' : 'text.primary',
+                  backgroundColor: active ? color : 'transparent',
+                  '&:hover': {
+                    backgroundColor: active ? color : 'action.hover',
+                  },
+                  fontSize: '0.7rem',
+                }}
+              />
+            );
+          })}
+        </Stack>
+      </Box>
+
       {/* Race filter */}
       <Box>
         <Typography

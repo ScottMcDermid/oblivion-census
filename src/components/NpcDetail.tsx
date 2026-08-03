@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Box,
+  Button,
   Checkbox,
   Chip,
   Divider,
@@ -15,14 +16,18 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
-import { Map, Shield, Warning } from '@mui/icons-material';
+import { Map, RadioButtonUnchecked, Shield, Visibility, Warning } from '@mui/icons-material';
+import { GiSkullCrossedBones } from 'react-icons/gi';
 import {
   LocationDLC,
   LocationPart,
   NpcDefinition,
+  NpcStatus,
   locationDLCColors,
   locationDLCLabels,
   npcFactionColors,
+  npcStatusColors,
+  npcStatusLabels,
   vanillaLeveledOverrides,
 } from '@/utils/npcTypes';
 import SkillIcon from '@/components/SkillIcon';
@@ -53,8 +58,16 @@ const tierColors = {
   Novice: '#22c55e',
 };
 
+const statusCycle: Record<NpcStatus, NpcStatus> = {
+  unacquainted: 'met',
+  met: 'dead',
+  dead: 'unacquainted',
+};
+
 export default function NpcDetail({
   npc,
+  status,
+  onStatusChange,
   completedQuests,
   acquiredItems,
   onToggleQuest,
@@ -62,6 +75,8 @@ export default function NpcDetail({
   activeDLCFilters,
 }: {
   npc: NpcDefinition;
+  status: NpcStatus;
+  onStatusChange: (status: NpcStatus) => void;
   completedQuests: Record<string, boolean>;
   acquiredItems: Record<string, boolean>;
   onToggleQuest: (questName: string) => void;
@@ -106,7 +121,7 @@ export default function NpcDetail({
           {npc.name}
         </Typography>
 
-        <Box sx={{ display: 'flex', gap: 0.75, alignItems: 'center', flexWrap: 'wrap' }}>
+        <Box sx={{ display: 'flex', gap: 0.75, alignItems: 'center', flexWrap: 'wrap', mb: 1 }}>
           {/* Race */}
           <Chip label={npc.race} size="small" sx={{ fontSize: '0.7rem' }} />
 
@@ -210,6 +225,50 @@ export default function NpcDetail({
               <Map sx={{ fontSize: 16 }} />
             </Box>
           )}
+        </Box>
+
+        {/* Status toggle */}
+        <Box sx={{ mb: 2 }}>
+          <Button
+            size="small"
+            fullWidth
+            variant={status === 'unacquainted' ? 'outlined' : 'contained'}
+            onClick={() => onStatusChange(statusCycle[status])}
+            startIcon={
+              status === 'unacquainted' ? (
+                <RadioButtonUnchecked fontSize="small" />
+              ) : status === 'met' ? (
+                <Visibility fontSize="small" />
+              ) : (
+                <GiSkullCrossedBones />
+              )
+            }
+            sx={{
+              backgroundColor:
+                status === 'dead' ? npcStatusColors.dead :
+                status === 'met' ? npcStatusColors.met :
+                'transparent',
+              borderColor:
+                status === 'dead' ? npcStatusColors.dead :
+                status === 'met' ? npcStatusColors.met :
+                'grey.500',
+              color: status === 'unacquainted' ? 'grey.500' : '#fff',
+              '&:hover': {
+                backgroundColor:
+                  status === 'dead' ? npcStatusColors.dead :
+                  status === 'met' ? npcStatusColors.met :
+                  'rgba(255,255,255,0.05)',
+                borderColor:
+                  status === 'dead' ? npcStatusColors.dead :
+                  status === 'met' ? npcStatusColors.met :
+                  'grey.500',
+              },
+              fontSize: '0.7rem',
+              textTransform: 'none',
+            }}
+          >
+            {npcStatusLabels[status]}
+          </Button>
         </Box>
       </Box>
 

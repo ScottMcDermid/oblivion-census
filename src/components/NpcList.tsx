@@ -10,9 +10,15 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import { FilterList, Search, Shield } from '@mui/icons-material';
-import { NpcDefinition, locationDLCColors, npcFactionColors } from '@/utils/npcTypes';
+import { FilterList, Search, Shield, Visibility } from '@mui/icons-material';
+import { GiSkullCrossedBones } from 'react-icons/gi';
+import { NpcDefinition, NpcStatus, locationDLCColors, npcFactionColors, npcStatusColors } from '@/utils/npcTypes';
 import SkillIcon from '@/components/SkillIcon';
+
+const statusIcon: Partial<Record<NpcStatus, React.ReactNode>> = {
+  met:  <Visibility sx={{ fontSize: 12, color: npcStatusColors.met }} />,
+  dead: <GiSkullCrossedBones style={{ fontSize: 12, color: npcStatusColors.dead, flexShrink: 0 }} />,
+};
 
 const tierColors = {
   Master: '#ef4444',
@@ -28,6 +34,7 @@ export default function NpcList({
   onSearchChange,
   onToggleFilter,
   hasActiveFilters,
+  npcStatuses,
 }: {
   filteredNpcs: NpcDefinition[];
   selectedId: string | null;
@@ -36,6 +43,7 @@ export default function NpcList({
   onSearchChange: (search: string) => void;
   onToggleFilter: () => void;
   hasActiveFilters: boolean;
+  npcStatuses: Record<string, NpcStatus>;
 }) {
   const filtered = filteredNpcs.filter(
     (npc) => search === '' || npc.name.toLowerCase().includes(search.toLowerCase()),
@@ -78,6 +86,7 @@ export default function NpcList({
               (npc.quests && npc.quests.length > 0) ||
               (npc.uniqueItems && npc.uniqueItems.length > 0) ||
               !!npc.trainer;
+            const npcStatus = npcStatuses[npc.id] ?? 'unacquainted';
 
             return (
               <ListItemButton
@@ -97,13 +106,20 @@ export default function NpcList({
                 <ListItemText
                   primary={
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                      {/* Status icon */}
+                      <Box sx={{ display: 'flex', alignItems: 'center', width: 14, flexShrink: 0 }}>
+                        {statusIcon[npcStatus] ?? null}
+                      </Box>
                       {/* Essential indicator */}
                       {npc.essential && (
                         <Shield sx={{ fontSize: 12, color: '#f59e0b' }} />
                       )}
                       <Typography
                         variant="body2"
-                        sx={{ fontSize: '0.8rem', color: 'text.primary' }}
+                        sx={{
+                          fontSize: '0.8rem',
+                          color: npcStatus === 'unacquainted' ? 'text.secondary' : 'text.primary',
+                        }}
                       >
                         {npc.name}
                       </Typography>

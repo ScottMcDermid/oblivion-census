@@ -1,10 +1,12 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { LocationDLC, NpcCity, NpcFaction, NpcRace } from '@/utils/npcTypes';
+import { LocationDLC, NpcCity, NpcFaction, NpcRace, NpcStatus } from '@/utils/npcTypes';
 
 type State = {
   completedQuests: Record<string, boolean>;  // keyed by quest name
   acquiredItems: Record<string, boolean>;    // keyed by "npcId:itemName"
+  npcStatuses: Record<string, NpcStatus>;    // keyed by npc.id
+  statusFilters: NpcStatus[];
   raceFilters: NpcRace[];
   genderFilters: ('Male' | 'Female')[];
   factionFilters: NpcFaction[];
@@ -20,6 +22,8 @@ type State = {
 type Actions = {
   toggleQuestCompleted: (questName: string) => void;
   toggleItemAcquired: (npcId: string, itemName: string) => void;
+  setNpcStatus: (id: string, status: NpcStatus) => void;
+  toggleStatusFilter: (status: NpcStatus) => void;
   toggleRaceFilter: (race: NpcRace) => void;
   toggleGenderFilter: (gender: 'Male' | 'Female') => void;
   toggleFactionFilter: (faction: NpcFaction) => void;
@@ -39,6 +43,8 @@ export const useNpcStore = create<NpcStore>()(
     (set) => ({
       completedQuests: {},
       acquiredItems: {},
+      npcStatuses: {},
+      statusFilters: [],
       raceFilters: [],
       genderFilters: [],
       factionFilters: [],
@@ -61,6 +67,16 @@ export const useNpcStore = create<NpcStore>()(
             const { [key]: current, ...rest } = state.acquiredItems;
             return { acquiredItems: current ? rest : { ...state.acquiredItems, [key]: true } };
           }),
+        setNpcStatus: (id, status) =>
+          set((state) => ({
+            npcStatuses: { ...state.npcStatuses, [id]: status },
+          })),
+        toggleStatusFilter: (status) =>
+          set((state) => ({
+            statusFilters: state.statusFilters.includes(status)
+              ? state.statusFilters.filter((s) => s !== status)
+              : [...state.statusFilters, status],
+          })),
         toggleRaceFilter: (race) =>
           set((state) => ({
             raceFilters: state.raceFilters.includes(race)
@@ -98,17 +114,27 @@ export const useNpcStore = create<NpcStore>()(
         setResponsibilityRange: (min, max) =>
           set({ responsibilityMin: min, responsibilityMax: max }),
         clearFilters: () =>
-          set({ raceFilters: [], genderFilters: [], factionFilters: [], dlcFilters: [], cityFilters: [], beggarFilter: false, merchantFilter: false, responsibilityMin: 0, responsibilityMax: 100 }),
+          set({ statusFilters: [], raceFilters: [], genderFilters: [], factionFilters: [], dlcFilters: [], cityFilters: [], beggarFilter: false, merchantFilter: false, responsibilityMin: 0, responsibilityMax: 100 }),
         resetToDefaults: () =>
-          set({ completedQuests: {}, acquiredItems: {} }),
+          set({ completedQuests: {}, acquiredItems: {}, npcStatuses: {} }),
       },
     }),
     {
       name: 'oblivion-census',
-      version: 1,
+      version: 2,
+      migrate: (persistedState, fromVersion) => {
+        const state = persistedState as Partial<State>;
+        if (fromVersion < 2) {
+          state.npcStatuses = {};
+          state.statusFilters = [];
+        }
+        return state;
+      },
       partialize: (state) => ({
         completedQuests: state.completedQuests,
         acquiredItems: state.acquiredItems,
+        npcStatuses: state.npcStatuses,
+        statusFilters: state.statusFilters,
         raceFilters: state.raceFilters,
         genderFilters: state.genderFilters,
         factionFilters: state.factionFilters,

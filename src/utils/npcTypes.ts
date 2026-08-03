@@ -164,6 +164,22 @@ export type TrainerReference = {
   maxLevel: number;
 };
 
+export type NpcStatus = 'unacquainted' | 'met' | 'dead';
+
+export const npcStatuses: NpcStatus[] = ['unacquainted', 'met', 'dead'];
+
+export const npcStatusColors: Record<NpcStatus, string> = {
+  unacquainted: '#6b7280',
+  met:          '#3b82f6',
+  dead:         '#ef4444',
+};
+
+export const npcStatusLabels: Record<NpcStatus, string> = {
+  unacquainted: 'Unacquainted',
+  met:          'Met',
+  dead:         'Dead',
+};
+
 // Quests whose leveled reward thresholds are corrected by the Unofficial Oblivion Patch.
 // The data stores UOP-corrected values; these are the vanilla (unpatched) equivalents.
 export const vanillaLeveledOverrides: Record<string, number> = {

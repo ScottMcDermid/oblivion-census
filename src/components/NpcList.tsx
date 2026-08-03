@@ -11,17 +11,9 @@ import { FilterList, Search, Shield, Visibility } from '@mui/icons-material';
 import { GiSkullCrossedBones } from 'react-icons/gi';
 import { List, RowComponentProps as WindowRowComponentProps } from 'react-window';
 import { NpcDefinition, NpcStatus, locationDLCColors, npcFactionColors, npcStatusColors } from '@/utils/npcTypes';
-import SkillIcon from '@/components/SkillIcon';
-
 const statusIcon: Partial<Record<NpcStatus, React.ReactNode>> = {
   met:  <Visibility sx={{ fontSize: 12, color: npcStatusColors.met }} />,
   dead: <GiSkullCrossedBones style={{ fontSize: 12, color: npcStatusColors.dead, flexShrink: 0 }} />,
-};
-
-const tierColors = {
-  Master: '#ef4444',
-  Journeyman: '#3b82f6',
-  Novice: '#22c55e',
 };
 
 const ROW_HEIGHT = 52;
@@ -113,18 +105,6 @@ const NpcRowComponent = memo(function NpcRowComponent({
             {npc.dlc}
           </Typography>
         )}
-        {/* Trainer tier dot */}
-        {npc.trainer && (
-          <Box
-            sx={{
-              width: 7,
-              height: 7,
-              borderRadius: '50%',
-              backgroundColor: tierColors[npc.trainer.tier],
-              flexShrink: 0,
-            }}
-          />
-        )}
         {/* Merchant indicator */}
         {npc.merchant && (
           <Typography
@@ -179,17 +159,7 @@ const NpcRowComponent = memo(function NpcRowComponent({
             </span>
           </>
         )}
-        {npc.trainer && (
-          <>
-            <span>·</span>
-            <Box component="span" sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.25 }}>
-              <SkillIcon skill={npc.trainer.skill} size={10} />
-              <span style={{ color: tierColors[npc.trainer.tier] }}>
-                {npc.trainer.skill} ({npc.trainer.tier})
-              </span>
-            </Box>
-          </>
-        )}
+
       </Typography>
     </Box>
   );

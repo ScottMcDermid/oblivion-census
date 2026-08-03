@@ -16,7 +16,7 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
-import { Map, RadioButtonUnchecked, Shield, Visibility, Warning } from '@mui/icons-material';
+import { AccessTime, Map, RadioButtonUnchecked, Shield, Visibility, Warning } from '@mui/icons-material';
 import { GiSkullCrossedBones } from 'react-icons/gi';
 import {
   LocationDLC,
@@ -177,17 +177,27 @@ export default function NpcDetail({
 
           {/* Merchant */}
           {npc.merchant && (
-            <Chip
-              label="Merchant"
-              size="small"
-              sx={{
-                fontSize: '0.65rem',
-                fontWeight: 'bold',
-                color: '#fff',
-                backgroundColor: '#0f766e',
-                height: 20,
-              }}
-            />
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+              <Chip
+                label="Merchant"
+                size="small"
+                sx={{
+                  fontSize: '0.65rem',
+                  fontWeight: 'bold',
+                  color: '#fff',
+                  backgroundColor: '#0f766e',
+                  height: 20,
+                }}
+              />
+              {npc.merchantAvailability && (
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.25, color: 'text.secondary' }}>
+                  <AccessTime sx={{ fontSize: '0.75rem' }} />
+                  <Typography sx={{ fontSize: '0.7rem', color: 'text.secondary', whiteSpace: 'nowrap' }}>
+                    {npc.merchantAvailability}
+                  </Typography>
+                </Box>
+              )}
+            </Box>
           )}
 
           {/* Beggar */}
@@ -446,9 +456,19 @@ export default function NpcDetail({
                   </Box>
                 }
                 secondary={
-                  <Box component="span" sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.5 }}>
-                    <SkillIcon skill={npc.trainer.skill} size={12} />
-                    {`${npc.trainer.skill} - ${npc.trainer.tier} (up to ${npc.trainer.maxLevel})`}
+                  <Box component="span" sx={{ display: 'flex', flexDirection: 'column', gap: 0.25 }}>
+                    <Box component="span" sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.5 }}>
+                      <SkillIcon skill={npc.trainer.skill} size={12} />
+                      {`${npc.trainer.skill} - ${npc.trainer.tier} (up to ${npc.trainer.maxLevel})`}
+                    </Box>
+                    {npc.trainerAvailability && (
+                      <Box component="span" sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.25, color: 'text.secondary' }}>
+                        <AccessTime sx={{ fontSize: '0.75rem' }} />
+                        <Typography component="span" sx={{ fontSize: '0.7rem', color: 'text.secondary' }}>
+                          {npc.trainerAvailability}
+                        </Typography>
+                      </Box>
+                    )}
                   </Box>
                 }
                 primaryTypographyProps={{ fontSize: '0.8rem', component: 'div' }}

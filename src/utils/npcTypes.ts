@@ -203,6 +203,8 @@ export type NpcDefinition = {
   responsibility?: number;    // 0-100 base responsibility
   primaryLocation: NpcLocation;  // Breadcrumb location array; outer = stages, inner = region→building
   routine?: string | ScheduleRow[];  // Table of time→location rows, or free-text description
+  trainerAvailability?: string;   // Hours when they can be trained with, e.g. "8am–8pm", "24 hours"
+  merchantAvailability?: string;  // Hours when they can be traded with, e.g. "8am–8pm", "24 hours"
   trainer?: TrainerReference; // If they offer training
   quests?: QuestReference[];
   uniqueItems?: UniqueItemReference[];

@@ -1,11 +1,11 @@
-# Oblivion Wayshrine
+# Oblivion Census
 
 ![Status](https://img.shields.io/badge/Status-Experimental-8A2BE2?style=flat-square)
 ![Made with Next.js](https://img.shields.io/badge/Next.js-powered-black?style=flat-square)
 ![License MIT](https://img.shields.io/badge/License-MIT-brightgreen?style=flat-square)
 
 Track your progress through every discoverable location in The Elder Scrolls IV: Oblivion.
-Source for https://wayshrine.oblivion.tools
+Source for https://census.oblivion.tools
 
 ## Highlights
 

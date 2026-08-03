@@ -1,7 +1,7 @@
 {
   "$schema": "https://codecompanion.dev/schema/workspace.json",
-  "name": "Oblivion Wayshrine",
-  "description": "Open‑source web tool for tracking discoveries (ScottMcDermid/oblivion‑wayshrine)",
+  "name": "Oblivion Census",
+  "description": "Open‑source web tool for tracking discoveries (ScottMcDermid/oblivion‑census)",
   "tags": ["oblivion", "react", "typescript"],
   "include": [
     "src/**/*.{ts,tsx,js,jsx,css,json}",

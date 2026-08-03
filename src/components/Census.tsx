@@ -53,6 +53,7 @@ function CensusContent({ npcId }: { npcId?: string }) {
   const beggarFilter = useNpcStore((s) => s.beggarFilter);
   const merchantFilter = useNpcStore((s) => s.merchantFilter);
   const ambientFilter = useNpcStore((s) => s.ambientFilter);
+  const trainerFilter = useNpcStore((s) => s.trainerFilter);
   const cityFilters = useNpcStore((s) => s.cityFilters);
   const responsibilityMin = useNpcStore((s) => s.responsibilityMin);
   const responsibilityMax = useNpcStore((s) => s.responsibilityMax);
@@ -69,6 +70,7 @@ function CensusContent({ npcId }: { npcId?: string }) {
     toggleBeggarFilter,
     toggleMerchantFilter,
     toggleAmbientFilter,
+    toggleTrainerFilter,
     setResponsibilityRange,
     clearFilters,
     resetToDefaults,
@@ -113,7 +115,7 @@ function CensusContent({ npcId }: { npcId?: string }) {
   const mobileDetailOpen = isMobile && !!selectedNpc;
 
   const hasActiveFilters =
-    activeStatusFilters.size > 0 || activeRaceFilters.size > 0 || activeGenderFilters.size > 0 || activeFactionFilters.size > 0 || activeDLCFilters.size > 0 || activeCityFilters.size > 0 || beggarFilter || merchantFilter || ambientFilter || responsibilityMin > 0 || responsibilityMax < 100;
+    activeStatusFilters.size > 0 || activeRaceFilters.size > 0 || activeGenderFilters.size > 0 || activeFactionFilters.size > 0 || activeDLCFilters.size > 0 || activeCityFilters.size > 0 ||     beggarFilter || merchantFilter || ambientFilter || trainerFilter || responsibilityMin > 0 || responsibilityMax < 100;
 
   const filteredNpcs = React.useMemo(() => {
     return npcDefinitions.filter((npc) => {
@@ -136,11 +138,12 @@ function CensusContent({ npcId }: { npcId?: string }) {
       if (beggarFilter && npc.beggar !== true) return false;
       if (merchantFilter && npc.merchant !== true) return false;
       if (ambientFilter && npc.ambient !== true) return false;
+      if (trainerFilter && !npc.trainer) return false;
       const npcResponsibility = npc.responsibility ?? 50;
       if (npcResponsibility < responsibilityMin || npcResponsibility > responsibilityMax) return false;
       return true;
     });
-  }, [npcStatusesForFilter, activeStatusFilters, activeRaceFilters, activeGenderFilters, activeFactionFilters, activeDLCFilters, activeCityFilters, beggarFilter, merchantFilter, ambientFilter, responsibilityMin, responsibilityMax]);
+  }, [npcStatusesForFilter, activeStatusFilters, activeRaceFilters, activeGenderFilters, activeFactionFilters, activeDLCFilters, activeCityFilters, beggarFilter, merchantFilter, ambientFilter, trainerFilter, responsibilityMin, responsibilityMax]);
 
   const handleSelectNpc = (npc: NpcDefinition) => {
     navigateTo(npc.id);
@@ -215,6 +218,8 @@ function CensusContent({ npcId }: { npcId?: string }) {
       onToggleMerchantFilter={toggleMerchantFilter}
       ambientFilter={ambientFilter}
       onToggleAmbientFilter={toggleAmbientFilter}
+      trainerFilter={trainerFilter}
+      onToggleTrainerFilter={toggleTrainerFilter}
       responsibilityMin={responsibilityMin}
       responsibilityMax={responsibilityMax}
       onSetResponsibilityRange={setResponsibilityRange}

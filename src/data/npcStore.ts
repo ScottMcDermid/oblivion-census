@@ -15,6 +15,7 @@ type State = {
   beggarFilter: boolean;
   merchantFilter: boolean;
   ambientFilter: boolean;
+  trainerFilter: boolean;
   responsibilityMin: number;
   responsibilityMax: number;
   version: number;
@@ -33,6 +34,7 @@ type Actions = {
   toggleBeggarFilter: () => void;
   toggleMerchantFilter: () => void;
   toggleAmbientFilter: () => void;
+  toggleTrainerFilter: () => void;
   setResponsibilityRange: (min: number, max: number) => void;
   clearFilters: () => void;
   resetToDefaults: () => void;
@@ -55,6 +57,7 @@ export const useNpcStore = create<NpcStore>()(
       beggarFilter: false,
       merchantFilter: false,
       ambientFilter: false,
+      trainerFilter: false,
       responsibilityMin: 0,
       responsibilityMax: 100,
       version: 3,
@@ -116,10 +119,12 @@ export const useNpcStore = create<NpcStore>()(
           set((state) => ({ merchantFilter: !state.merchantFilter })),
         toggleAmbientFilter: () =>
           set((state) => ({ ambientFilter: !state.ambientFilter })),
+        toggleTrainerFilter: () =>
+          set((state) => ({ trainerFilter: !state.trainerFilter })),
         setResponsibilityRange: (min, max) =>
           set({ responsibilityMin: min, responsibilityMax: max }),
         clearFilters: () =>
-          set({ statusFilters: [], raceFilters: [], genderFilters: [], factionFilters: [], dlcFilters: [], cityFilters: [], beggarFilter: false, merchantFilter: false, ambientFilter: false, responsibilityMin: 0, responsibilityMax: 100 }),
+          set({ statusFilters: [], raceFilters: [], genderFilters: [], factionFilters: [], dlcFilters: [], cityFilters: [], beggarFilter: false, merchantFilter: false, ambientFilter: false, trainerFilter: false, responsibilityMin: 0, responsibilityMax: 100 }),
         resetToDefaults: () =>
           set({ completedQuests: {}, acquiredItems: {}, npcStatuses: {} }),
       },
@@ -151,6 +156,7 @@ export const useNpcStore = create<NpcStore>()(
         beggarFilter: state.beggarFilter,
         merchantFilter: state.merchantFilter,
         ambientFilter: state.ambientFilter,
+        trainerFilter: state.trainerFilter,
         responsibilityMin: state.responsibilityMin,
         responsibilityMax: state.responsibilityMax,
         version: state.version,

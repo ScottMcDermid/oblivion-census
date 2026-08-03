@@ -37,6 +37,8 @@ export default function NpcFilters({
   onToggleMerchantFilter,
   ambientFilter,
   onToggleAmbientFilter,
+  trainerFilter,
+  onToggleTrainerFilter,
   responsibilityMin,
   responsibilityMax,
   onSetResponsibilityRange,
@@ -59,6 +61,8 @@ export default function NpcFilters({
   onToggleMerchantFilter: () => void;
   ambientFilter: boolean;
   onToggleAmbientFilter: () => void;
+  trainerFilter: boolean;
+  onToggleTrainerFilter: () => void;
   responsibilityMin: number;
   responsibilityMax: number;
   onSetResponsibilityRange: (min: number, max: number) => void;
@@ -365,6 +369,21 @@ export default function NpcFilters({
               backgroundColor: ambientFilter ? '#4a3728' : 'transparent',
               '&:hover': {
                 backgroundColor: ambientFilter ? '#3d2e20' : 'action.hover',
+              },
+              fontSize: '0.7rem',
+            }}
+          />
+          <Chip
+            label="Trainer"
+            size="small"
+            variant={trainerFilter ? 'filled' : 'outlined'}
+            onClick={onToggleTrainerFilter}
+            sx={{
+              borderColor: trainerFilter ? '#1e40af' : 'divider',
+              color: trainerFilter ? '#fff' : 'text.primary',
+              backgroundColor: trainerFilter ? '#1e40af' : 'transparent',
+              '&:hover': {
+                backgroundColor: trainerFilter ? '#1e3a8a' : 'action.hover',
               },
               fontSize: '0.7rem',
             }}

@@ -22,8 +22,8 @@ import Image from 'next/image';
 import theme from '@/app/theme';
 import { useNpcStore } from '@/data/npcStore';
 import { useHydrated } from '@/hooks/useHydrated';
-import { npcDefinitions, npcDefinitionById } from '@/data/npcs';
-import { LocationDLC, NpcCity, NpcDefinition, NpcFaction, NpcRace, NpcStatus, getCityFromLocation } from '@/utils/npcTypes';
+import { npcDefinitions, npcDefinitionById, npcCityById } from '@/data/npcs';
+import { LocationDLC, NpcCity, NpcDefinition, NpcFaction, NpcRace, NpcStatus } from '@/utils/npcTypes';
 import NpcList from '@/components/NpcList';
 import NpcDetail from '@/components/NpcDetail';
 import NpcFilters from '@/components/NpcFilters';
@@ -36,8 +36,16 @@ function CensusContent({ npcId }: { npcId?: string }) {
 
   const completedQuests = useNpcStore((s) => s.completedQuests);
   const acquiredItems = useNpcStore((s) => s.acquiredItems);
+  // Always subscribe to the full npcStatuses map (needed for list item icons and detail panel),
+  // but the filteredNpcs memo below only references it when statusFilters is non-empty.
   const npcStatuses = useNpcStore((s) => s.npcStatuses);
   const statusFilters = useNpcStore((s) => s.statusFilters);
+  // Stable reference used by filteredNpcs: only resolves to the live map when the status
+  // filter is actually active, so toggling a single NPC's status does not invalidate the
+  // memo (and trigger a full re-filter) when no status filter is in use.
+  const npcStatusesForFilter = useNpcStore((s) =>
+    s.statusFilters.length > 0 ? s.npcStatuses : null,
+  );
   const raceFilters = useNpcStore((s) => s.raceFilters);
   const genderFilters = useNpcStore((s) => s.genderFilters);
   const factionFilters = useNpcStore((s) => s.factionFilters);
@@ -109,28 +117,30 @@ function CensusContent({ npcId }: { npcId?: string }) {
 
   const filteredNpcs = React.useMemo(() => {
     return npcDefinitions.filter((npc) => {
-      const npcStatus = npcStatuses[npc.id] ?? 'unacquainted';
-      const matchesStatus = activeStatusFilters.size === 0 || activeStatusFilters.has(npcStatus);
-      const matchesRace = activeRaceFilters.size === 0 || activeRaceFilters.has(npc.race);
-      const matchesGender = activeGenderFilters.size === 0 || activeGenderFilters.has(npc.gender);
-      const matchesFaction =
-        activeFactionFilters.size === 0 ||
-        (npc.faction ? activeFactionFilters.has(npc.faction) : false);
-      const npcDLC = npc.dlc ?? 'Base';
-      const hasMatchingQuestDLC =
-        npc.quests?.some((q) => q.dlc && activeDLCFilters.has(q.dlc)) ?? false;
-      const matchesDLC =
-        activeDLCFilters.size === 0 || activeDLCFilters.has(npcDLC) || hasMatchingQuestDLC;
-      const matchesCity =
-        activeCityFilters.size === 0 || activeCityFilters.has(getCityFromLocation(npc.primaryLocation) as NpcCity);
-      const matchesBeggar = !beggarFilter || npc.beggar === true;
-      const matchesMerchant = !merchantFilter || npc.merchant === true;
-      const matchesAmbient = !ambientFilter || npc.ambient === true;
+      // Status: npcStatusesForFilter is null when no status filter is active, skipping the
+      // map lookup entirely and keeping this memo stable during per-NPC status updates.
+      if (npcStatusesForFilter !== null) {
+        const npcStatus = npcStatusesForFilter[npc.id] ?? 'unacquainted';
+        if (!activeStatusFilters.has(npcStatus)) return false;
+      }
+      if (activeRaceFilters.size > 0 && !activeRaceFilters.has(npc.race)) return false;
+      if (activeGenderFilters.size > 0 && !activeGenderFilters.has(npc.gender)) return false;
+      if (activeFactionFilters.size > 0 && !activeFactionFilters.has(npc.faction!)) return false;
+      if (activeDLCFilters.size > 0) {
+        const npcDLC = npc.dlc ?? 'Base';
+        const hasMatchingQuestDLC = npc.quests?.some((q) => q.dlc && activeDLCFilters.has(q.dlc)) ?? false;
+        if (!activeDLCFilters.has(npcDLC) && !hasMatchingQuestDLC) return false;
+      }
+      // Use pre-computed city — no allocation per NPC per filter pass.
+      if (activeCityFilters.size > 0 && !activeCityFilters.has(npcCityById[npc.id] as NpcCity)) return false;
+      if (beggarFilter && npc.beggar !== true) return false;
+      if (merchantFilter && npc.merchant !== true) return false;
+      if (ambientFilter && npc.ambient !== true) return false;
       const npcResponsibility = npc.responsibility ?? 50;
-      const matchesResponsibility = npcResponsibility >= responsibilityMin && npcResponsibility <= responsibilityMax;
-      return matchesStatus && matchesRace && matchesGender && matchesFaction && matchesDLC && matchesCity && matchesBeggar && matchesMerchant && matchesAmbient && matchesResponsibility;
+      if (npcResponsibility < responsibilityMin || npcResponsibility > responsibilityMax) return false;
+      return true;
     });
-  }, [npcStatuses, activeStatusFilters, activeRaceFilters, activeGenderFilters, activeFactionFilters, activeDLCFilters, activeCityFilters, beggarFilter, merchantFilter, ambientFilter, responsibilityMin, responsibilityMax]);
+  }, [npcStatusesForFilter, activeStatusFilters, activeRaceFilters, activeGenderFilters, activeFactionFilters, activeDLCFilters, activeCityFilters, beggarFilter, merchantFilter, ambientFilter, responsibilityMin, responsibilityMax]);
 
   const handleSelectNpc = (npc: NpcDefinition) => {
     navigateTo(npc.id);

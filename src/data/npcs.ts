@@ -1,4 +1,4 @@
-import { NpcDefinition } from '@/utils/npcTypes';
+import { NpcCity, NpcDefinition, getCityFromLocation } from '@/utils/npcTypes';
 
 const _npcDefinitions = [
   // ============================================================
@@ -17311,4 +17311,9 @@ npcDefinitions.sort((a, b) => a.name.localeCompare(b.name));
 
 export const npcDefinitionById: Record<string, NpcDefinition> = Object.fromEntries(
   npcDefinitions.map((npc) => [npc.id, npc]),
+);
+
+// Pre-computed city per NPC — avoids allocating arrays/strings on every filter pass.
+export const npcCityById: Record<string, NpcCity | null> = Object.fromEntries(
+  npcDefinitions.map((npc) => [npc.id, getCityFromLocation(npc.primaryLocation)]),
 );

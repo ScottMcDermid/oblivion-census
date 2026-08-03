@@ -18,6 +18,7 @@ import {
 import { Shield, Warning } from '@mui/icons-material';
 import {
   LocationDLC,
+  LocationPart,
   NpcDefinition,
   locationDLCColors,
   locationDLCLabels,
@@ -25,7 +26,7 @@ import {
   vanillaLeveledOverrides,
 } from '@/utils/npcTypes';
 import SkillIcon from '@/components/SkillIcon';
-import { buildUespUrl, buildQuestUrl } from '@/utils/uespLinks';
+import { buildUespUrl, buildQuestUrl, buildLocationUrl } from '@/utils/uespLinks';
 
 function UespLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
@@ -251,7 +252,29 @@ export default function NpcDetail({
           Location
         </Typography>
         <Typography variant="body2" sx={{ fontSize: '0.8rem' }}>
-          {npc.primaryLocation}
+          {npc.primaryLocation.map((stage, si) => (
+            <React.Fragment key={si}>
+              {si > 0 && <span>; </span>}
+              {stage.map((part: LocationPart, pi: number) => {
+                const href = buildLocationUrl(part, npc.dlc);
+                return (
+                  <React.Fragment key={pi}>
+                    {pi > 0 && <span> &gt; </span>}
+                    {href ? (
+                      <UespLink href={href}>{part.label}</UespLink>
+                    ) : (
+                      <span>{part.label}</span>
+                    )}
+                    {part.context && (
+                      <Box component="span" sx={{ color: 'text.secondary' }}>
+                        {' '}({part.context})
+                      </Box>
+                    )}
+                  </React.Fragment>
+                );
+              })}
+            </React.Fragment>
+          ))}
         </Typography>
       </Box>
 

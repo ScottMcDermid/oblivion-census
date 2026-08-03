@@ -106,25 +106,36 @@ export const npcCities: NpcCity[] = [
   'Skingrad',
 ];
 
+export type LocationPart = {
+  label: string;     // display text, e.g. "Chapel of Dibella"
+  slug?: string;     // UESP page name override (spaces become _); empty string = no link
+  context?: string;  // parenthetical annotation shown as plain text, not part of URL
+};
+
+// Outer array = stages/alternatives (rendered joined by '; ')
+// Inner array = breadcrumb parts (rendered joined by ' > ')
+// Most NPCs: single outer element with 1–2 inner parts
+export type NpcLocation = LocationPart[][];
+
 /**
- * Derives the city from a primaryLocation string.
+ * Derives the city from a primaryLocation NpcLocation.
  * Returns null if the location is outside the 8 main cities (e.g. wilderness, shrines).
  */
-export function getCityFromLocation(primaryLocation: string): NpcCity | null {
-  const loc = primaryLocation;
+export function getCityFromLocation(location: NpcLocation): NpcCity | null {
+  const labels = location.flat().map(p => p.label).join(' ');
   // Imperial City — matches "Imperial City", "IC " prefix, or "Arcane University"
   if (
-    loc.includes('Imperial City') ||
-    loc.startsWith('IC ') ||
-    loc.includes('Arcane University') ||
-    loc.includes('Imperial Palace')
+    labels.includes('Imperial City') ||
+    labels.includes('IC ') ||
+    labels.includes('Arcane University') ||
+    labels.includes('Imperial Palace')
   ) {
     return 'Imperial City';
   }
-  // The other 7 cities — name appears in the location string
+  // The other 7 cities — name appears in the location labels
   for (const city of npcCities) {
     if (city === 'Imperial City') continue;
-    if (loc.includes(city)) return city;
+    if (labels.includes(city)) return city;
   }
   return null;
 }
@@ -173,7 +184,7 @@ export type NpcDefinition = {
   beggar?: boolean;           // one of the 19 beggars required for Speechcraft master training
   merchant?: boolean;         // actively sells goods or services to the player
   responsibility?: number;    // 0–100 base responsibility
-  primaryLocation: string;    // City or place where they primarily reside
+  primaryLocation: NpcLocation;  // Breadcrumb location array; outer = stages, inner = region→building
   routine?: string | ScheduleRow[];  // Table of time→location rows, or free-text description
   trainer?: TrainerReference; // If they offer training
   quests?: QuestReference[];

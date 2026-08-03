@@ -200,6 +200,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Horses',
     responsibility: 100,
     primaryLocation: [[{ label: 'Anvil' }, { label: 'Horse Whisperer Stables' }]],
     routine: 'Opens the stables at 8am and is available to sell horses through the day. Closes at 8pm, relaxes until bed at 10pm. Sells White Horses for 4,000 gold.',
@@ -296,6 +297,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Dunbarrow Cove Upgrades',
     responsibility: 5,
     primaryLocation: [[{ label: 'Anvil' }, { label: 'The Sea Tub Clarabella' }]],
     routine: 'Spends her entire day pacing the deck of the Clarabella; never eats or sleeps. Recruits the player for Dunbarrow Cove upgrades.',
@@ -348,6 +350,7 @@ const _npcDefinitions = [
     gender: 'Male',
     essential: true,
     merchant: true,
+    merchantInventory: 'Weapons, Armor, Shields',
     responsibility: 100,
     primaryLocation: [[{ label: 'Anvil' }, { label: "Morvayn's Peacemakers" }]],
     routine: "Works an 8-hour shift at Morvayn's Peacemakers after a morning breakfast at The Flowing Bowl, then secretly meets his lover Hasathil behind the Horse Whisperer Stables before an evening dinner.",
@@ -399,6 +402,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–9pm',
     merchant: true,
+    merchantInventory: 'Potions, Ingredients, Alchemy Apparatus',
     responsibility: 100,
     primaryLocation: [[{ label: 'Anvil Mages Guild' }]],
     routine: [
@@ -704,6 +708,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Food and Drink',
     responsibility: 100,
     primaryLocation: [[{ label: 'Anvil' }, { label: 'The Flowing Bowl' }]],
     routine: 'Never eats or sleeps; available as a merchant 24 hours a day at The Flowing Bowl.',
@@ -789,6 +794,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'General Goods, Clothing',
     responsibility: 50,
     primaryLocation: [[{ label: 'Anvil' }, { label: "Lelles' Quality Merchandise" }]],
     routine: [
@@ -815,6 +821,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Weapons, Armor (Fence)',
     responsibility: 25,
     primaryLocation: [[{ label: 'Anvil Castle', context: 'Smithy' }]],
     routine: [
@@ -1173,6 +1180,7 @@ const _npcDefinitions = [
     gender: 'Male',
     essential: false,
     merchant: true,
+    merchantInventory: 'Weapons, Armor, Shields',
     responsibility: 100,
     primaryLocation: [[{ label: 'Anvil' }, { label: "Morvayn's Peacemakers" }]],
     routine: [
@@ -1252,6 +1260,7 @@ const _npcDefinitions = [
     gender: 'Male',
     essential: false,
     merchant: true,
+    merchantInventory: 'Food and Drink',
     responsibility: 100,
     primaryLocation: [[{ label: 'Anvil' }, { label: "The Count's Arms" }]],
     routine: "Serves customers 24 hours a day, every day. Never eats or sleeps.",
@@ -1767,6 +1776,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Weapons, Armor, Repairs',
     responsibility: 100,
     primaryLocation: [[{ label: 'Bruma' }, { label: 'Hammer and Axe' }]],
     routine: [
@@ -1787,6 +1797,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Food, Drink; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'Bruma' }, { label: 'Jerall View Inn' }]],
     routine: 'On duty at the inn 22 hours a day; eats 8-10pm (no bartering during this window). Rents beds (25 gold) at any hour.',
@@ -2025,6 +2036,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Weapons, Armor, Shields',
     responsibility: 100,
     primaryLocation: [[{ label: 'Bruma' }, { label: 'Nord Winds' }]],
     routine: [
@@ -2045,6 +2057,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Food, Drink; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'Bruma' }, { label: "Olav's Tap and Tack" }]],
     routine: 'Never sleeps or eats; available 24 hours every day.',
@@ -2082,6 +2095,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–6pm',
     merchant: true,
+    merchantInventory: 'Horses',
     responsibility: 100,
     primaryLocation: [[{ label: 'Bruma' }, { label: 'Wildeye Stables' }]],
     routine: [
@@ -2126,6 +2140,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–6pm',
     merchant: true,
+    merchantInventory: 'Spells',
     responsibility: 100,
     primaryLocation: [[{ label: 'Bruma Mages Guild' }]],
     routine: [
@@ -2148,6 +2163,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Weapons, Armor, Shields',
     responsibility: 50,
     primaryLocation: [[{ label: 'Bruma' }, { label: 'Nord Winds' }]],
     routine: [
@@ -2424,6 +2440,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Books, Scrolls',
     responsibility: 80,
     primaryLocation: [[{ label: 'Cheydinhal' }, { label: "Mach-Na's Books" }]],
     routine: [
@@ -2695,6 +2712,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '4am–midnight',
     merchant: true,
+    merchantInventory: 'Food, Drink; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'Chorrol' }, { label: 'The Grey Mare' }]],
     routine: 'Serves customers nearly 24 hours a day; sleeps briefly 12am-4am. Sells food, rents bed (10 gold).',
@@ -2711,6 +2729,7 @@ const _npcDefinitions = [
     gender: 'Female',
     essential: false,
     merchant: true,
+    merchantInventory: 'Clothing, Scrolls',
     responsibility: 80,
     primaryLocation: [[{ label: 'Chorrol' }, { label: "Renoit's Books" }]],
     routine: [
@@ -2855,6 +2874,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Weapons, Repairs',
     responsibility: 80,
     primaryLocation: [[{ label: 'Chorrol' }, { label: 'Fire and Steel' }]],
     routine: [
@@ -2893,6 +2913,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'General Goods',
     responsibility: 80,
     primaryLocation: [[{ label: 'Chorrol' }, { label: 'Northern Goods and Trade' }]],
     routine: 'Available as a merchant nearly 24 hours a day due to a bugged AI package opening the shop early. Intended shop hours are 8am-8pm.',
@@ -3112,6 +3133,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Heavy Armor, Shields, Repairs',
     responsibility: 50,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'The Best Defense', context: 'basement' }]],
     routine: [
@@ -3382,6 +3404,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Clothing, Jewelry',
     responsibility: 50,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'Divine Elegance' }]],
     routine: [
@@ -3443,6 +3466,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Weapons, Armor, Repairs',
     responsibility: 50,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'A Fighting Chance' }]],
     routine: [
@@ -3503,6 +3527,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Potions, Poisons, Lockpicks, Skooma',
     responsibility: 35,
     primaryLocation: [[{ label: 'Imperial City', context: 'outside walls, NE of Chestnut Handy Stables' }]],
     routine: 'Stationary 24 hours a day - never eats or sleeps.',
@@ -3530,6 +3555,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'General Goods, Weapons, Clothing, Books',
     responsibility: 100,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'The Copious Coinpurse' }]],
     routine: [
@@ -3578,6 +3604,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Heavy Armor, Repairs',
     responsibility: 100,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'The Best Defense' }]],
     routine: [
@@ -3601,6 +3628,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '8am–6am',
     merchant: true,
+    merchantInventory: 'Ingredients, Potions; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'IC Waterfront District', slug: 'Imperial_City_Waterfront_District' }, { label: 'The Bloated Float Inn' }]],
     routine: [
@@ -3855,6 +3883,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '8am–noon',
     merchant: true,
+    merchantInventory: 'Ingredients',
     responsibility: 100,
     primaryLocation: [[{ label: 'Leyawiin' }, { label: "Margarte's House" }]],
     routine: [
@@ -3907,6 +3936,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Ingredients, Potions, Alchemy Apparatus',
     responsibility: 100,
     primaryLocation: [[{ label: 'Leyawiin Mages Guild' }]],
     routine: [
@@ -4017,6 +4047,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Food, Drink; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'Leyawiin' }, { label: 'Five Claws Lodge' }]],
     routine: 'Serves at the tavern 24 hours a day, every day. Does not eat or sleep under normal circumstances.',
@@ -4114,6 +4145,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Potions, Ingredients, Alchemy Apparatus',
     responsibility: 100,
     primaryLocation: [[{ label: 'Skingrad' }, { label: 'All Things Alchemical' }]],
     routine: [
@@ -4248,6 +4280,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '6am–2am',
     merchant: true,
+    merchantInventory: 'Food, Ingredients; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'Faregyl Inn', context: 'south of Imperial City' }]],
     routine: 'Sleeps on a bedroll behind the counter 2am-6am; serves customers the rest of the day.',
@@ -4296,6 +4329,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '6am–2am',
     merchant: true,
+    merchantInventory: 'Food, Potions; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'Brina Cross Inn', context: 'north of Anvil' }]],
     routine: 'Available 6am-2am; sleeps downstairs 2am-6am. Rents beds (30 gold) and sells food and potions.',
@@ -4315,6 +4349,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Food, Potions; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'Imperial Bridge Inn', context: 'Nibenay region' }]],
     routine: 'Always behind the counter; available 24 hours a day.',
@@ -4331,6 +4366,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '4am–midnight',
     merchant: true,
+    merchantInventory: 'Food; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'Gottshaw Inn', context: 'Gold Road between Kvatch and Anvil' }]],
     routine: 'Behind counter 4am-midnight; sleeps on mat midnight-4am.',
@@ -4562,6 +4598,7 @@ const _npcDefinitions = [
     gender: 'Female',
     essential: false,
     merchant: true,
+    merchantInventory: 'General Goods, House Upgrades',
     responsibility: 100,
     primaryLocation: [[{ label: 'Cheydinhal' }, { label: "Borba's Goods and Stores" }]],
     routine: [
@@ -4623,6 +4660,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Food; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'Cheydinhal Bridge Inn' }]],
     routine: 'Behind the inn counter at all hours except 9-11pm, when she takes a late dinner on the second floor.',
@@ -4733,6 +4771,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Spells, Ingredients, Potions, Alchemy Apparatus',
     responsibility: 100,
     primaryLocation: [[{ label: 'Chorrol Mages Guild' }]],
     routine: [
@@ -4958,6 +4997,7 @@ const _npcDefinitions = [
     gender: 'Female',
     essential: false,
     merchant: true,
+    merchantInventory: 'Weapons, Armor, Repairs',
     responsibility: 100,
     primaryLocation: [[{ label: 'Skingrad' }, { label: 'Hammer and Tongs' }]],
     routine: [
@@ -5257,6 +5297,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Food; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'IC Temple District', slug: 'Imperial_City_Temple_District' }, { label: 'The All-Saints Inn' }]],
     routine: 'Stationary behind the inn counter 24 hours a day. Never eats, sleeps, or leaves.',
@@ -5386,6 +5427,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '4am–midnight',
     merchant: true,
+    merchantInventory: 'Food, Potions; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'Wawnet Inn', context: 'Weye, near Imperial City' }]],
     routine: [
@@ -5587,6 +5629,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Magic Items, Soul Gems, Enchanting Supplies',
     responsibility: 100,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'Mystic Emporium' }]],
     routine: [
@@ -5684,6 +5727,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '6am–8pm',
     merchant: true,
+    merchantInventory: 'Battlehorn Castle Upgrades',
     responsibility: 100,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'The Merchants Inn' }]],
     routine: [
@@ -5704,6 +5748,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '2pm–8pm',
     merchant: true,
+    merchantInventory: 'Deepscorn Hollow Upgrades',
     responsibility: 65,
     primaryLocation: [[{ label: 'Wawnet Inn', context: 'Weye, near Imperial City' }]],
     routine: [
@@ -5768,6 +5813,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '9am–midnight',
     merchant: true,
+    merchantInventory: 'Spells, Ingredients, Potions',
     responsibility: 100,
     primaryLocation: [[{ label: 'Bravil Mages Guild' }]],
     routine: [
@@ -5850,6 +5896,7 @@ const _npcDefinitions = [
     gender: 'Male',
     essential: false,
     merchant: true,
+    merchantInventory: 'Bows, Arrows, Repairs',
     responsibility: 50,
     primaryLocation: [[{ label: 'Bravil' }, { label: 'The Archer\'s Paradox' }]],
     routine: [
@@ -6143,6 +6190,7 @@ const _npcDefinitions = [
     gender: 'Male',
     essential: false,
     merchant: true,
+    merchantInventory: 'Spells, Clothing, Ingredients, Books, Magic Items',
     responsibility: 50,
     primaryLocation: [[{ label: 'Bravil' }, { label: 'A Warlock\'s Luck' }]],
     routine: [
@@ -6366,6 +6414,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Magic Items, Soul Gems, Enchanting Supplies',
     responsibility: 50,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'Mystic Emporium' }]],
     routine: [
@@ -6388,6 +6437,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Potions, Ingredients',
     responsibility: 100,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'The Gilded Carafe' }]],
     routine: [
@@ -6412,6 +6462,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Spells',
     responsibility: 50,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'Edgar\'s Discount Spells' }]],
     routine: [
@@ -6433,6 +6484,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'General Goods, Weapons',
     responsibility: 100,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'Jensine\'s \'Good as New\' Merchandise' }]],
     routine: [
@@ -6457,6 +6509,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Light Armor, Repairs',
     responsibility: 100,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'The Best Defense' }]],
     routine: [
@@ -6476,6 +6529,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Potions, Ingredients, Alchemy Apparatus',
     responsibility: 100,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'The Main Ingredient' }]],
     routine: [
@@ -6500,6 +6554,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Books',
     responsibility: 50,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'First Edition' }]],
     routine: [
@@ -6530,6 +6585,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Staves, Scrolls, Potions',
     responsibility: 50,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'Rindir\'s Staffs' }]],
     routine: [
@@ -6550,6 +6606,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Food; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'The Merchants Inn' }]],
     routine: 'Available 24 hours a day, every day. No travel or off-duty AI packages.',
@@ -6935,6 +6992,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–noon',
     merchant: true,
+    merchantInventory: 'Weapons, Armor, Repairs',
     responsibility: 60,
     primaryLocation: [[{ label: 'Chorrol Fighters Guild' }]],
     routine: [
@@ -7159,6 +7217,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '7am–2am',
     merchant: true,
+    merchantInventory: 'Potions, Ingredients, Alchemy Apparatus',
     responsibility: 100,
     primaryLocation: [[{ label: 'Kvatch Refugee Camp', context: 'outside Kvatch, Gold Coast' }]],
     routine: [
@@ -7307,6 +7366,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '6am–2am',
     merchant: true,
+    merchantInventory: 'Food, Drink; Beds for Rent',
     responsibility: 70,
     primaryLocation: [[{ label: 'The Drunken Dragon Inn', context: 'Heartlands, east of Imperial City' }]],
     routine: 'Offers services 6am-2am daily; sleeps on bedroll behind counter 2am-6am.',
@@ -7366,6 +7426,7 @@ const _npcDefinitions = [
     gender: 'Female',
     essential: true,
     merchant: true,
+    merchantInventory: 'Food, Drink; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'Roxey Inn', context: 'Silver Road, north of Imperial City' }]],
     routine: "Offers services 6am-2am daily; sleeps on bedroll behind counter 2am-6am.",
@@ -7384,6 +7445,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Food, Drink; Beds for Rent',
     responsibility: 30,
     primaryLocation: [[{ label: 'Inn of Ill Omen', context: 'Green Road, between Imperial City and Bravil' }]],
     routine: 'Stands behind the counter 24 hours a day, never sleeping or eating.',
@@ -7637,6 +7699,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '5am–10pm',
     merchant: true,
+    merchantInventory: 'Food, Drink; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'Bravil' }, { label: 'The Lonely Suitor Lodge' }]],
     routine: [
@@ -7698,6 +7761,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Food, Drink; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'Bravil' }, { label: 'Silverhome on the Water' }]],
     routine: 'Present in the taproom virtually all day; takes a 2-hour dinner break at midnight. Rents beds (20 gold) at all times; will not barter while eating.',
@@ -7755,6 +7819,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Weapons, Armor, Repairs',
     responsibility: 61,
     primaryLocation: [[{ label: 'Bravil Fighters Guild' }]],
     routine: [
@@ -7955,6 +8020,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'General Goods, House Upgrades',
     responsibility: 100,
     primaryLocation: [[{ label: 'Bruma' }, { label: 'Novaroma' }]],
     routine: [
@@ -8063,6 +8129,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–5pm',
     merchant: true,
+    merchantInventory: 'Ingredients, Potions, Alchemy Apparatus',
     responsibility: 100,
     primaryLocation: [[{ label: 'Cheydinhal Mages Guild' }]],
     routine: [
@@ -8401,6 +8468,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Books',
     responsibility: 50,
     primaryLocation: [[{ label: 'Leyawiin' }, { label: 'Southern Books' }]],
     routine: [
@@ -8423,6 +8491,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Weapons, Armor, Repairs',
     responsibility: 50,
     primaryLocation: [[{ label: 'Leyawiin' }, { label: 'The Dividing Line', context: 'lives at Margarte\'s House' }]],
     routine: [
@@ -8476,6 +8545,7 @@ const _npcDefinitions = [
     gender: 'Male',
     essential: false,
     merchant: true,
+    merchantInventory: 'Weapons, Armor, Repairs',
     responsibility: 100,
     primaryLocation: [[{ label: 'Leyawiin' }, { label: 'The Dividing Line' }]],
     routine: [
@@ -8686,6 +8756,7 @@ const _npcDefinitions = [
     gender: 'Female',
     essential: false,
     merchant: true,
+    merchantInventory: 'Food, General Goods',
     responsibility: 100,
     primaryLocation: [[{ label: 'Hackdirt', context: 'Great Forest' }, { label: 'Moslin\'s Dry Goods' }]],
     routine: [
@@ -9145,6 +9216,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Repairs',
     responsibility: 100,
     primaryLocation: [[{ label: 'Battlehorn Castle', context: 'Colovian Highlands' }, { label: 'Blacksmith House' }]],
     routine: [
@@ -9475,6 +9547,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Horses',
     responsibility: 100,
     primaryLocation: [[{ label: 'Bravil' }, { label: 'Bay Roan Stables' }]],
     routine: [
@@ -9566,6 +9639,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'General Goods, House Upgrades',
     responsibility: 100,
     primaryLocation: [[{ label: 'Bravil' }, { label: 'The Fair Deal' }]],
     routine: [
@@ -9587,6 +9661,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '2pm–midnight',
     merchant: true,
+    merchantInventory: 'Skooma, Potions',
     responsibility: 50,
     primaryLocation: [[{ label: 'Bravil' }, { label: 'The Fair Deal', context: 'alley beside it' }]],
     routine: [
@@ -9821,6 +9896,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '2am–midnight',
     merchant: true,
+    merchantInventory: 'Food, Potions; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'Cheydinhal' }, { label: 'Newlands Lodge' }]],
     routine: 'Behind her bar from 2am to midnight; eats midnight-2am (bar services paused but beds available 24h).',
@@ -10116,6 +10192,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Weapons, Armor',
     responsibility: 100,
     primaryLocation: [[{ label: 'Cheydinhal' }, { label: 'The March Rider' }]],
     routine: [
@@ -10155,6 +10232,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Horses',
     responsibility: 100,
     primaryLocation: [[{ label: 'Cheydinhal' }, { label: 'Black Waterside Stables' }]],
     routine: [
@@ -10240,6 +10318,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Horses',
     responsibility: 100,
     primaryLocation: [[{ label: 'Chorrol' }, { label: 'North Country Stables' }]],
     routine: [
@@ -10456,6 +10535,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '6am–2am',
     merchant: true,
+    merchantInventory: 'Food, Drink; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'Chorrol' }, { label: 'The Oak and Crosier' }]],
     routine: [
@@ -10516,6 +10596,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '10am–8pm',
     merchant: true,
+    merchantInventory: 'Spells, Ingredients, Potions',
     responsibility: 100,
     primaryLocation: [[{ label: 'Leyawiin Mages Guild' }]],
     routine: [
@@ -10618,6 +10699,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–6pm',
     merchant: true,
+    merchantInventory: 'Horses',
     responsibility: 100,
     primaryLocation: [[{ label: 'Leyawiin' }, { label: 'Five Riders Stables', context: 'never leaves' }]],
     routine: [
@@ -10669,6 +10751,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '6am–8pm',
     merchant: true,
+    merchantInventory: 'General Goods',
     responsibility: 50,
     primaryLocation: [[{ label: 'Leyawiin' }, { label: 'Best Goods and Guarantees' }]],
     routine: [
@@ -10699,6 +10782,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'General Goods, House Upgrades',
     responsibility: 100,
     primaryLocation: [[{ label: 'Leyawiin' }, { label: 'Best Goods and Guarantees' }]],
     routine: [
@@ -11102,6 +11186,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '6am–1am',
     merchant: true,
+    merchantInventory: 'Food, Drink; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'Skingrad' }, { label: 'West Weald Inn' }]],
     routine: [
@@ -11208,6 +11293,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'General Goods, House Upgrades',
     responsibility: 100,
     primaryLocation: [[{ label: 'Skingrad' }, { label: 'Colovian Traders' }]],
     routine: [
@@ -11274,6 +11360,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Food, Drink; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'Skingrad' }, { label: 'Two Sisters Lodge' }]],
     routine: 'Available 24 hours a day; sleeps briefly 1-4am (fixed by UOP 3.5.2).',
@@ -11465,6 +11552,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Horses',
     responsibility: 100,
     primaryLocation: [[{ label: 'Skingrad' }, { label: 'Grateful Pass Stables' }]],
     routine: [
@@ -11598,6 +11686,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '8am–midnight',
     merchant: true,
+    merchantInventory: 'Enchanting Services',
     responsibility: 50,
     primaryLocation: [[{ label: 'Arcane University', slug: 'Imperial_City_Arcane_University' }, { label: 'Chironasium' }]],
     routine: [
@@ -11652,6 +11741,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '10am–midnight',
     merchant: true,
+    merchantInventory: 'Alchemy Ingredients, Apparatus; Ingredient Duplication',
     responsibility: 100,
     primaryLocation: [[{ label: 'Arcane University', slug: 'Imperial_City_Arcane_University' }, { label: 'Lustratorium' }]],
     routine: [
@@ -11734,6 +11824,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Food and Drink',
     responsibility: 100,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'The Feed Bag' }]],
     routine: 'Available 24 hours a day, every day - never eats or sleeps.',
@@ -11764,6 +11855,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Jewelry',
     responsibility: 100,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'Red Diamond Jewelry' }]],
     routine: [
@@ -11799,6 +11891,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'General Goods, House Upgrades',
     responsibility: 100,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'Three Brothers Trade Goods' }]],
     routine: [
@@ -11843,6 +11936,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'General Goods',
     responsibility: 100,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'Three Brothers Trade Goods' }]],
     routine: [
@@ -11866,6 +11960,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Blunt Weapons, Repairs',
     responsibility: 100,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'Slash \'N Smash' }]],
     routine: [
@@ -11884,6 +11979,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Shields, Repairs',
     responsibility: 100,
     primaryLocation: [[{ label: 'IC Market District', slug: 'Imperial_City_Market_District' }, { label: 'Stonewall Shields' }]],
     routine: [
@@ -12003,6 +12099,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Food, Drink; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'IC Elven Gardens District', slug: 'Imperial_City_Elven_Gardens_District' }, { label: 'The King and Queen Tavern' }]],
     routine: 'Available 24 hours a day, every day - never eats or sleeps.',
@@ -12028,6 +12125,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Food; Beds for Rent',
     responsibility: 80,
     primaryLocation: [[{ label: 'IC Elven Gardens District', slug: 'Imperial_City_Elven_Gardens_District' }, { label: 'Luther Broad\'s Boarding House' }]],
     routine: 'Stands behind counter at all times, 24 hours a day.',
@@ -12277,6 +12375,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Food; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'IC Talos Plaza District', slug: 'Imperial_City_Talos_Plaza_District' }, { label: 'The Tiber Septim Hotel' }]],
     routine: 'Available as innkeeper at all times; sleeps briefly 2-6am.',
@@ -12341,6 +12440,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Food and Drink',
     responsibility: 100,
     primaryLocation: [[{ label: 'IC Talos Plaza District', slug: 'Imperial_City_Talos_Plaza_District' }, { label: 'The Foaming Flask' }]],
     routine: 'Stands behind the bar 24 hours a day, every day. Never eats or sleeps.',
@@ -13016,6 +13116,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Horses',
     responsibility: 100,
     primaryLocation: [[{ label: 'Imperial City' }, { label: 'Chestnut Handy Stables' }]],
     routine: [
@@ -13034,6 +13135,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '6am–8pm',
     merchant: true,
+    merchantInventory: 'Horses',
     responsibility: 100,
     primaryLocation: [[{ label: 'Imperial City' }, { label: 'Chestnut Handy Stables' }]],
     routine: [
@@ -13082,6 +13184,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Weapons, Repairs',
     responsibility: 100,
     primaryLocation: [[{ label: 'Kvatch Refugee Camp' }]],
     routine: 'Wanders camp all day; sleeps 1-6am. Offers repairs 24 hrs/day.',
@@ -13409,6 +13512,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '6am–2am',
     merchant: true,
+    merchantInventory: 'Food, Drink; Beds for Rent',
     responsibility: 50,
     primaryLocation: [[{ label: 'Bleaker\'s Way' }, { label: 'Bleaker\'s Way Goodwill Inn' }]],
     routine: [
@@ -13560,6 +13664,7 @@ const _npcDefinitions = [
     gender: 'Female',
     essential: false,
     merchant: true,
+    merchantInventory: 'Food, Drink; Beds for Rent',
     responsibility: 50,
     primaryLocation: [[{ label: 'Border Watch Inn', context: 'innkeeper' }]],
     routine: [
@@ -13939,6 +14044,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Food, Drink; Beds for Rent',
     responsibility: 50,
     primaryLocation: [[{ label: "Pell's Gate" }, { label: 'The Sleeping Mare Inn' }]],
     routine: 'Never eats or sleeps; available 24 hours a day.',
@@ -14391,6 +14497,7 @@ const _npcDefinitions = [
     gender: 'Male',
     essential: true,
     merchant: true,
+    merchantInventory: 'Potions, Ingredients',
     responsibility: 50,
     primaryLocation: [[{ label: 'Vaermina\'s Shrine', context: 'West Weald' }]],
     routine: 'Worships at shrine day and night.',
@@ -15192,6 +15299,7 @@ const _npcDefinitions = [
     gender: 'Female',
     essential: false,
     merchant: true,
+    merchantInventory: 'Food, Drink; Beds for Rent',
     responsibility: 100,
     primaryLocation: [[{ label: 'Leyawiin' }, { label: 'Three Sisters\' Inn' }]],
     routine: [
@@ -15227,6 +15335,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Repairs',
     responsibility: 50,
     primaryLocation: [[{ label: 'Priory of the Nine', context: 'basement forge' }]],
     routine: 'Stands near the forge 24 hours a day; never sleeps or eats. Offers repairs at all times.',
@@ -16044,6 +16153,7 @@ const _npcDefinitions = [
     dlc: 'SI',
     essential: false,
     merchant: true,
+    merchantInventory: 'General Goods; Beds for Rent',
     responsibility: 50,
     primaryLocation: [[{ label: 'Passwall', slug: 'Shivering:Passwall' }, { label: "The Wastrel's Purse", slug: "Shivering:The_Wastrel's_Purse" }]],
     routine: 'Innkeeper and general merchant at The Wastrel\'s Purse in Passwall.',
@@ -16471,6 +16581,7 @@ const _npcDefinitions = [
     dlc: 'SI',
     essential: true,
     merchant: true,
+    merchantInventory: 'Madness Ore Weapons, Armor, Repairs',
     responsibility: 60,
     primaryLocation: [[{ label: 'New Sheoth', slug: 'Shivering:New_Sheoth' }, { label: 'Crucible', slug: 'Shivering:Crucible' }, { label: "Cutter's Weapons", slug: "Shivering:Cutter's_Weapons" }]],
     routine: [
@@ -16493,6 +16604,7 @@ const _npcDefinitions = [
     dlc: 'SI',
     essential: true,
     merchant: true,
+    merchantInventory: 'Spells',
     responsibility: 50,
     primaryLocation: [[{ label: 'New Sheoth', slug: 'Shivering:New_Sheoth' }, { label: 'Crucible', slug: 'Shivering:Crucible' }, { label: "Earil's Mysteries", slug: "Shivering:Earil's_Mysteries" }]],
     routine: [
@@ -16530,6 +16642,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–6pm',
     merchant: true,
+    merchantInventory: 'Magic Items, Clothing',
     responsibility: 50,
     primaryLocation: [[{ label: 'New Sheoth', slug: 'Shivering:New_Sheoth' }, { label: 'Crucible', slug: 'Shivering:Crucible' }, { label: 'Things Found', slug: 'Shivering:Things_Found' }]],
     routine: [
@@ -16553,6 +16666,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Food, Drink; Beds for Rent',
     responsibility: 50,
     primaryLocation: [[{ label: 'New Sheoth', slug: 'Shivering:New_Sheoth' }, { label: 'Crucible', slug: 'Shivering:Crucible' }, { label: "Sickly Bernice's Taphouse", slug: "Shivering:Sickly_Bernice's_Taphouse" }]],
     routine: 'Works 24 hours a day in her taphouse, alternating between standing behind the counter and strolling the taproom 10pm-4am.',
@@ -16702,6 +16816,7 @@ const _npcDefinitions = [
     essential: true,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Amber Weapons, Light Armor, Repairs',
     responsibility: 90,
     primaryLocation: [[{ label: 'New Sheoth', slug: 'Shivering:New_Sheoth' }, { label: 'Bliss', slug: 'Shivering:Bliss' }, { label: 'The Missing Pauldron', slug: 'Shivering:The_Missing_Pauldron' }]],
     routine: [
@@ -16724,6 +16839,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '8am–8pm',
     merchant: true,
+    merchantInventory: 'Books',
     responsibility: 50,
     primaryLocation: [[{ label: 'New Sheoth', slug: 'Shivering:New_Sheoth' }, { label: 'Bliss', slug: 'Shivering:Bliss' }, { label: 'Books of Bliss', slug: 'Shivering:Books_of_Bliss' }]],
     routine: [
@@ -16743,6 +16859,7 @@ const _npcDefinitions = [
     essential: false,
     merchantAvailability: '24 hours',
     merchant: true,
+    merchantInventory: 'Food, Drink; Beds for Rent',
     responsibility: 10,
     primaryLocation: [[{ label: 'New Sheoth', slug: 'Shivering:New_Sheoth' }, { label: 'Bliss', slug: 'Shivering:Bliss' }, { label: 'The Choosy Beggar', slug: 'Shivering:The_Choosy_Beggar' }]],
     routine: 'Works 24 hours a day in The Choosy Beggar, never leaving the ground floor due to intense jealousy over his wife Sheer Meedish.',
@@ -16782,6 +16899,7 @@ const _npcDefinitions = [
     dlc: 'SI',
     essential: false,
     merchant: true,
+    merchantInventory: 'General Goods',
     responsibility: 50,
     primaryLocation: [[{ label: 'New Sheoth', slug: 'Shivering:New_Sheoth' }, { label: 'Bliss', slug: 'Shivering:Bliss' }, { label: 'Common Treasures', slug: 'Shivering:Common_Treasures' }]],
     routine: 'Runs Common Treasures general store in Bliss.',
@@ -17050,6 +17168,7 @@ const _npcDefinitions = [
     dlc: 'SI',
     essential: false,
     merchant: true,
+    merchantInventory: 'Spells',
     responsibility: 50,
     primaryLocation: [[{ label: 'Highcross', slug: 'Shivering:Highcross' }]],
     routine: 'Works on important research in Highcross. Sells Illusion spells.',

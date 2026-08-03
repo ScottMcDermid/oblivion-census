@@ -205,6 +205,7 @@ export type NpcDefinition = {
   routine?: string | ScheduleRow[];  // Table of time→location rows, or free-text description
   trainerAvailability?: string;   // Hours when they can be trained with, e.g. "8am–8pm", "24 hours"
   merchantAvailability?: string;  // Hours when they can be traded with, e.g. "8am–8pm", "24 hours"
+  merchantInventory?: string;     // Description of goods/services sold, e.g. "Potions, Ingredients, Spell Tomes"
   trainer?: TrainerReference; // If they offer training
   quests?: QuestReference[];
   uniqueItems?: UniqueItemReference[];

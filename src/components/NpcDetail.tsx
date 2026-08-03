@@ -16,7 +16,7 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
-import { AccessTime, Map, RadioButtonUnchecked, Shield, Visibility, Warning } from '@mui/icons-material';
+import { AccessTime, Map, RadioButtonUnchecked, Shield, Storefront, Visibility, Warning } from '@mui/icons-material';
 import { GiSkullCrossedBones } from 'react-icons/gi';
 import {
   LocationDLC,
@@ -177,27 +177,17 @@ export default function NpcDetail({
 
           {/* Merchant */}
           {npc.merchant && (
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-              <Chip
-                label="Merchant"
-                size="small"
-                sx={{
-                  fontSize: '0.65rem',
-                  fontWeight: 'bold',
-                  color: '#fff',
-                  backgroundColor: '#0f766e',
-                  height: 20,
-                }}
-              />
-              {npc.merchantAvailability && (
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.25, color: 'text.secondary' }}>
-                  <AccessTime sx={{ fontSize: '0.75rem' }} />
-                  <Typography sx={{ fontSize: '0.7rem', color: 'text.secondary', whiteSpace: 'nowrap' }}>
-                    {npc.merchantAvailability}
-                  </Typography>
-                </Box>
-              )}
-            </Box>
+            <Chip
+              label="Merchant"
+              size="small"
+              sx={{
+                fontSize: '0.65rem',
+                fontWeight: 'bold',
+                color: '#fff',
+                backgroundColor: '#0f766e',
+                height: 20,
+              }}
+            />
           )}
 
           {/* Beggar */}
@@ -479,6 +469,43 @@ export default function NpcDetail({
                 }}
               />
             </ListItem>
+          </List>
+        </>
+      )}
+
+      {/* Merchant */}
+      {npc.merchant && (
+        <>
+          <Divider sx={{ my: 1 }} />
+          <Typography
+            variant="caption"
+            sx={{ color: 'text.secondary', fontWeight: 'bold', textTransform: 'uppercase' }}
+          >
+            Merchant
+          </Typography>
+          <List dense disablePadding>
+            {npc.merchantInventory && (
+              <ListItem disableGutters sx={{ py: 0.25 }}>
+                <ListItemIcon sx={{ minWidth: 28 }}>
+                  <Storefront sx={{ fontSize: '0.85rem', color: '#0f766e', ml: 0.5 }} />
+                </ListItemIcon>
+                <ListItemText
+                  primary={npc.merchantInventory}
+                  primaryTypographyProps={{ fontSize: '0.8rem', component: 'div' }}
+                />
+              </ListItem>
+            )}
+            {npc.merchantAvailability && (
+              <ListItem disableGutters sx={{ py: 0.25 }}>
+                <ListItemIcon sx={{ minWidth: 28 }}>
+                  <AccessTime sx={{ fontSize: '0.85rem', color: 'text.secondary', ml: 0.5 }} />
+                </ListItemIcon>
+                <ListItemText
+                  primary={npc.merchantAvailability}
+                  primaryTypographyProps={{ fontSize: '0.8rem', component: 'div', sx: { color: 'text.secondary' } }}
+                />
+              </ListItem>
+            )}
           </List>
         </>
       )}

@@ -82,10 +82,6 @@ export default function NpcList({
         <List dense disablePadding>
           {filtered.map((npc) => {
             const isSelected = selectedId === npc.id;
-            const hasInfo =
-              (npc.quests && npc.quests.length > 0) ||
-              (npc.uniqueItems && npc.uniqueItems.length > 0) ||
-              !!npc.trainer;
             const npcStatus = npcStatuses[npc.id] ?? 'unacquainted';
 
             return (
@@ -177,10 +173,7 @@ export default function NpcList({
                           Beggar
                         </Typography>
                       )}
-                      {/* Notes indicator */}
-                      {npc.notes && (
-                        <Typography sx={{ fontSize: '0.65rem', color: '#fbbf24' }}>!</Typography>
-                      )}
+
                     </Box>
                   }
                   secondary={
@@ -215,7 +208,7 @@ export default function NpcList({
                           </Box>
                         </>
                       )}
-                      {hasInfo && !npc.trainer && <><span>·</span><span>Has info</span></>}
+
                     </Typography>
                   }
                 />

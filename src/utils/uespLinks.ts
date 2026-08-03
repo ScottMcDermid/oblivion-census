@@ -82,7 +82,13 @@ export function buildMapUrl(name: string, dlc?: LocationDLC): string | null {
 // Returns null if slug is explicitly empty (no link desired).
 export function buildLocationUrl(part: LocationPart, dlc?: LocationDLC): string | null {
   if (part.slug === '') return null;
+  const rawName = part.slug ?? part.label;
+  // If the slug already includes a namespace prefix (e.g. "Shivering:Split"),
+  // use it as the full page path to avoid double-prefixing.
+  if (/^(Shivering|Oblivion):/.test(rawName)) {
+    return `https://en.uesp.net/wiki/${rawName.replace(/ /g, '_')}`;
+  }
   const prefix = dlc === 'SI' ? 'Shivering' : 'Oblivion';
-  const pageName = (part.slug ?? part.label).replace(/ /g, '_');
+  const pageName = rawName.replace(/ /g, '_');
   return `https://en.uesp.net/wiki/${prefix}:${pageName}`;
 }

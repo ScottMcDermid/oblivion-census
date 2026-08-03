@@ -59,7 +59,7 @@ const centeronOverrides: Record<string, string | null> = {
   'Skingrad Fighters Guild':          'Skingrad',
   'Skingrad Mages Guild':             'Skingrad',
   'Skingrad Town Guard House':        'Skingrad',
-  // Oblivion planes and abstract/scripted locations — no Cyrodiil map marker
+  // Oblivion planes and abstract/scripted locations - no Cyrodiil map marker
   'Cheydinhal Oblivion World':        null,
   'Kvatch Oblivion World':            null,
   'Carac Agaialor':                   null,

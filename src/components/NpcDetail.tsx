@@ -389,7 +389,7 @@ export default function NpcDetail({
                 secondary={
                   <Box component="span" sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.5 }}>
                     <SkillIcon skill={npc.trainer.skill} size={12} />
-                    {`${npc.trainer.skill} — ${npc.trainer.tier} (up to ${npc.trainer.maxLevel})`}
+                    {`${npc.trainer.skill} - ${npc.trainer.tier} (up to ${npc.trainer.maxLevel})`}
                   </Box>
                 }
                 primaryTypographyProps={{ fontSize: '0.8rem', component: 'div' }}

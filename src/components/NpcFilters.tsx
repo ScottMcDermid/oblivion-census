@@ -320,7 +320,7 @@ export default function NpcFilters({
             Responsibility
           </Typography>
           <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-            {localRange[0]} – {localRange[1]}
+            {localRange[0]} - {localRange[1]}
           </Typography>
         </Box>
         <Box sx={{ px: 1 }}>

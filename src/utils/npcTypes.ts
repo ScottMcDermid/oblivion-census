@@ -114,7 +114,7 @@ export type LocationPart = {
 
 // Outer array = stages/alternatives (rendered joined by '; ')
 // Inner array = breadcrumb parts (rendered joined by ' > ')
-// Most NPCs: single outer element with 1–2 inner parts
+// Most NPCs: single outer element with 1-2 inner parts
 export type NpcLocation = LocationPart[][];
 
 /**
@@ -123,7 +123,7 @@ export type NpcLocation = LocationPart[][];
  */
 export function getCityFromLocation(location: NpcLocation): NpcCity | null {
   const labels = location.flat().map(p => p.label).join(' ');
-  // Imperial City — matches "Imperial City", "IC " prefix, or "Arcane University"
+  // Imperial City - matches "Imperial City", "IC " prefix, or "Arcane University"
   if (
     labels.includes('Imperial City') ||
     labels.includes('IC ') ||
@@ -132,7 +132,7 @@ export function getCityFromLocation(location: NpcLocation): NpcCity | null {
   ) {
     return 'Imperial City';
   }
-  // The other 7 cities — name appears in the location labels
+  // The other 7 cities - name appears in the location labels
   for (const city of npcCities) {
     if (city === 'Imperial City') continue;
     if (labels.includes(city)) return city;
@@ -152,7 +152,7 @@ export type UniqueItemReference = {
 };
 
 export type ScheduleRow = {
-  time: string;      // e.g. "6am–8am", "5–8pm (weekends)"
+  time: string;      // e.g. "6am-8am", "5-8pm (weekends)"
   location: string;  // e.g. "The Count's Arms"
 };
 
@@ -183,7 +183,7 @@ export type NpcDefinition = {
   essential?: boolean;
   beggar?: boolean;           // one of the 19 beggars required for Speechcraft master training
   merchant?: boolean;         // actively sells goods or services to the player
-  responsibility?: number;    // 0–100 base responsibility
+  responsibility?: number;    // 0-100 base responsibility
   primaryLocation: NpcLocation;  // Breadcrumb location array; outer = stages, inner = region→building
   routine?: string | ScheduleRow[];  // Table of time→location rows, or free-text description
   trainer?: TrainerReference; // If they offer training

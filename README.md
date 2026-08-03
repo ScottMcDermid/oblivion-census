@@ -10,7 +10,7 @@ Source for https://census.oblivion.tools
 ## Highlights
 
 - Browse and filter ~910 hand-curated NPCs from the base game and all DLC by race, gender, faction, city, role, and base responsibility score.
-- Track quest completion and unique item acquisition per NPC — progress persists in your browser across sessions.
+- Track quest completion and unique item acquisition per NPC - progress persists in your browser across sessions.
 - Full trainer reference for all 21 skills across Novice, Journeyman, and Master tiers, including prerequisites and max trainable levels.
 - NPC detail view with location breadcrumbs, daily routine, UESP wiki links, and a direct gamemap link for each character.
 - UOP-aware quest data that surfaces both vanilla and Unofficial Oblivion Patch-corrected level thresholds for leveled rewards.

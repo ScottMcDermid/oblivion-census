@@ -246,7 +246,7 @@ function CensusContent({ npcId }: { npcId?: string }) {
       </AppBar>
 
       <Box sx={{ display: 'flex', height: 'calc(100vh - 48px)', overflow: 'hidden' }}>
-        {/* Filter Panel — Desktop */}
+        {/* Filter Panel - Desktop */}
         {!isMobile && (
           <Collapse orientation="horizontal" in={filterPanelOpen} timeout={250}>
             <Box
@@ -314,10 +314,10 @@ function CensusContent({ npcId }: { npcId?: string }) {
           />
         </Box>
 
-        {/* Detail Panel — Desktop */}
+        {/* Detail Panel - Desktop */}
         {!isMobile && <Box sx={{ flex: 1, overflow: 'auto' }}>{detailContent}</Box>}
 
-        {/* Detail Drawer — Mobile */}
+        {/* Detail Drawer - Mobile */}
         {isMobile && (
           <Drawer
             anchor="right"
@@ -347,7 +347,7 @@ function CensusContent({ npcId }: { npcId?: string }) {
         )}
       </Box>
 
-      {/* Filter Dialog — Mobile */}
+      {/* Filter Dialog - Mobile */}
       {isMobile && (
         <Dialog
           open={filterPanelOpen}

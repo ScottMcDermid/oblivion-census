@@ -15,7 +15,7 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
-import { Shield, Warning } from '@mui/icons-material';
+import { Map, Shield, Warning } from '@mui/icons-material';
 import {
   LocationDLC,
   LocationPart,
@@ -26,7 +26,7 @@ import {
   vanillaLeveledOverrides,
 } from '@/utils/npcTypes';
 import SkillIcon from '@/components/SkillIcon';
-import { buildUespUrl, buildQuestUrl, buildLocationUrl } from '@/utils/uespLinks';
+import { buildUespUrl, buildQuestUrl, buildLocationUrl, buildMapUrl } from '@/utils/uespLinks';
 
 function UespLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
@@ -69,6 +69,7 @@ export default function NpcDetail({
   activeDLCFilters?: Set<LocationDLC>;
 }) {
   const npcDLC = npc.dlc ?? 'Base';
+  const mapUrl = buildMapUrl(npc.primaryLocation[0][0].label, npc.dlc);
 
   const filteredQuests = npc.quests?.filter((q) => {
     const questDLC = q.dlc ?? npcDLC;
@@ -187,6 +188,27 @@ export default function NpcDetail({
                 height: 20,
               }}
             />
+          )}
+
+          {/* Map link */}
+          {mapUrl && (
+            <Box
+              component="a"
+              href={mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e: React.MouseEvent) => e.stopPropagation()}
+              title="View on map"
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                color: 'text.secondary',
+                '&:hover': { color: 'text.primary' },
+                ml: 'auto',
+              }}
+            >
+              <Map sx={{ fontSize: 16 }} />
+            </Box>
           )}
         </Box>
       </Box>

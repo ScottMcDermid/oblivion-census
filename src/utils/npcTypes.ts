@@ -145,10 +145,12 @@ export type QuestReference = {
   levelReq?: number;
   leveled?: number;
   dlc?: LocationDLC;
+  uespSlug?: string;  // UESP page name override, e.g. 'Azani Blackheart (quest)'
 };
 
 export type UniqueItemReference = {
   name: string;
+  uespSlug?: string;  // UESP page name override, e.g. 'Umbra (sword)'
 };
 
 export type ScheduleRow = {
@@ -192,6 +194,7 @@ export const vanillaLeveledOverrides: Record<string, number> = {
 export type NpcDefinition = {
   id: string;
   name: string;
+  uespSlug?: string;  // UESP page name override for the NPC header link, e.g. 'Azani Blackheart (person)'
   race: NpcRace;
   gender: 'Male' | 'Female';
   faction?: NpcFaction;

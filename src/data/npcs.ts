@@ -1161,7 +1161,7 @@ const _npcDefinitions = [
     quests: [
       { name: 'Pilgrimage' },
       { name: 'The Blessing of Talos' },
-      { name: 'Umaril the Unfeathered' },
+      { name: 'Umaril the Unfeathered', uespSlug: 'Umaril the Unfeathered (quest)' },
     ],
     uniqueItems: [
       { name: 'Wayshrines Maps' },
@@ -3016,7 +3016,7 @@ const _npcDefinitions = [
       { name: 'Drunk and Disorderly' },
       { name: "The Master's Son" },
       { name: 'More Unfinished Business' },
-      { name: 'Azani Blackheart' },
+      { name: 'Azani Blackheart', uespSlug: 'Azani Blackheart (quest)' },
       { name: 'Trolls of Forsaken Mine' },
       { name: 'Information Gathering', leveled: 5 },
       { name: 'Infiltration' },
@@ -3437,7 +3437,7 @@ const _npcDefinitions = [
       { time: '5am-6am',        location: 'Private Quarters' },
     ],
     quests: [{ name: 'Boots of Springheel Jak' }],
-    uniqueItems: [{ name: 'Boots of Springheel Jak' }],
+    uniqueItems: [{ name: 'Boots of Springheel Jak', uespSlug: 'Boots of Springheel Jak (item)' }],
     notes: 'Secretly a 300-year-old vampire - he is Springheel Jak himself. Feigns cowardice but attacks in full armor in the crypt. Name is a pun on "Jack be nimble."',
   },
   {
@@ -3931,7 +3931,7 @@ const _npcDefinitions = [
       { time: '11pm-midnight', location: 'Castle Leyawiin Private Quarters' },
     ],
     quests: [
-      { name: 'Mazoga the Orc' },
+      { name: 'Mazoga the Orc', uespSlug: 'Mazoga the Orc (quest)' },
       { name: 'Knights of the White Stallion' },
       { name: 'Allies for Bruma' },
       { name: 'Black Bow Bandits' },
@@ -4074,6 +4074,7 @@ const _npcDefinitions = [
   {
     id: 'mazoga-the-orc',
     name: 'Mazoga the Orc',
+    uespSlug: 'Mazoga the Orc (person)',
     race: 'Orc',
     gender: 'Female',
     essential: false,
@@ -4082,7 +4083,7 @@ const _npcDefinitions = [
     primaryLocation: [[{ label: 'Castle Leyawiin', context: 'County Hall, pre-quest' }], [{ label: 'White Stallion Lodge', context: 'post-quest' }]],
     routine: 'Pre-quest waits in Castle Leyawiin County Hall. Post-quest: alternates between hunting Black Bow Bandits at Telepe and Rockmilk Cave during the week; rests at White Stallion Lodge on weekends.',
     quests: [
-      { name: 'Mazoga the Orc' },
+      { name: 'Mazoga the Orc', uespSlug: 'Mazoga the Orc (quest)' },
       { name: 'Knights of the White Stallion' },
       { name: 'Black Bow Bandits' },
     ],
@@ -4260,7 +4261,7 @@ const _npcDefinitions = [
     primaryLocation: [[{ label: 'Leyawiin' }, { label: "Weebam-Na's House" }]],
     routine: 'Wakes at 4am, stands in his home chatting with partner Bejeen all day, sleeps at 2am (only 2 hours of sleep). Does not eat. Essentially stays home all day.',
     quests: [
-      { name: 'Mazoga the Orc' },
+      { name: 'Mazoga the Orc', uespSlug: 'Mazoga the Orc (quest)' },
       { name: 'Nocturnal' },
     ],
     uniqueItems: [{ name: 'Eye of Nocturnal' }],
@@ -4664,14 +4665,15 @@ const _npcDefinitions = [
   {
     id: 'azani-blackheart',
     name: 'Azani Blackheart',
+    uespSlug: 'Azani Blackheart (person)',
     race: 'Redguard',
     gender: 'Male',
     essential: false,
     responsibility: 50,
-    aggression: 80,
+    aggression: 75,
     primaryLocation: [[{ label: 'Atatar', context: 'Atatar Loria, Nibenay Valley' }]],
     routine: 'Wanders Atatar Loria continuously; never eats or sleeps. Always hostile.',
-    quests: [{ name: 'Azani Blackheart' }],
+    quests: [{ name: 'Azani Blackheart', uespSlug: 'Azani Blackheart (quest)' }],
     uniqueItems: [
       { name: 'Sinweaver' },
       { name: "Blackheart's Ring" },
@@ -4835,6 +4837,7 @@ const _npcDefinitions = [
   {
     id: 'umbra',
     name: 'Umbra',
+    uespSlug: 'Umbra (person)',
     race: 'Bosmer',
     gender: 'Female',
     essential: false,
@@ -4844,7 +4847,7 @@ const _npcDefinitions = [
     routine: 'Fixed in the last room of Vindasel at all times. Never sleeps or eats. Accessible before the related quest.',
     quests: [{ name: 'Clavicus Vile' }],
     uniqueItems: [
-      { name: 'Umbra' },
+      { name: 'Umbra', uespSlug: 'Umbra (sword)' },
       { name: "Umbra's Ebony Armor" },
     ],
     notes: "Fixed level 50 - one of the highest-level named NPCs in the game. Born Lenwin; renamed herself after the soul-stealing sword. Retreated to Vindasel voluntarily seeking a worthy opponent. Has a passive 2 HP/sec healing ability.",
@@ -6043,7 +6046,7 @@ const _npcDefinitions = [
       { name: 'The Faithful Squire' },
       { name: 'The Sword of the Crusader' },
       { name: 'The Blessing of Talos' },
-      { name: 'Umaril the Unfeathered' },
+      { name: 'Umaril the Unfeathered', uespSlug: 'Umaril the Unfeathered (quest)' },
     ],
     uniqueItems: [{ name: 'Greaves of the Crusader' }],
     notes: "Squire to Sir Roderic of Wayrest. Delivers the Greaves of the Crusader to the player. Can die at Garlas Malatar. Essential until he joins the Knights of the Nine.",
@@ -6112,7 +6115,7 @@ const _npcDefinitions = [
     quests: [
       { name: 'Priory of the Nine' },
       { name: 'The Shrine of the Crusader' },
-      { name: 'Umaril the Unfeathered' },
+      { name: 'Umaril the Unfeathered', uespSlug: 'Umaril the Unfeathered (quest)' },
     ],
     notes: "Exists only as a ghost NPC. Founded the Knights of the Nine in 3E 111; died in Vanua in 3E 153. After Umaril is defeated, ascends to Aetherius. His tomb then provides a semi-permanent Akatosh's Blessing (+5 Strength).",
   },
@@ -6131,7 +6134,7 @@ const _npcDefinitions = [
     quests: [
       { name: 'The Faithful Squire' },
       { name: 'The Sword of the Crusader' },
-      { name: 'Umaril the Unfeathered' },
+      { name: 'Umaril the Unfeathered', uespSlug: 'Umaril the Unfeathered (quest)' },
     ],
     uniqueItems: [{ name: 'Sword of the Crusader' }],
     notes: "Has two game entries: hostile Gloom Wraith 'Lord Berich Vlindrel' (immune to normal weapons) and benign ghost 'Sir Berich' in the Priory after his shade is defeated. Left the KotN during the War of the Red Diamond. Ascends to Aetherius after Umaril is defeated.",
@@ -6315,7 +6318,7 @@ const _npcDefinitions = [
     trainer: { skill: 'Conjuration', tier: 'Novice', maxLevel: 40 },
     quests: [{ name: 'Arrow of Extrication' }],
     uniqueItems: [
-      { name: 'Arrow of Extrication' },
+      { name: 'Arrow of Extrication', uespSlug: 'Arrow of Extrication (quest item)' },
       { name: "Aren's Strange Key" },
     ],
     notes: "Relocates to Fathis Aren's Tower (southeast of Bravil) during Arrow of Extrication and becomes hostile. Essential until quest completes.",
@@ -8062,7 +8065,7 @@ const _npcDefinitions = [
     quests: [
       { name: 'Priory of the Nine' },
       { name: 'The Sword of the Crusader' },
-      { name: 'Umaril the Unfeathered' },
+      { name: 'Umaril the Unfeathered', uespSlug: 'Umaril the Unfeathered (quest)' },
     ],
     uniqueItems: [{ name: 'Knights of the Nine Cuirass' }],
     notes: "Ghost of a knight slain by Sir Berich on the Priory steps with the holy Sword. He provoked the fight by drawing first, indirectly causing Berich's fall to evil. After Umaril's defeat his tomb grants Stendarr's Blessing (+5 Personality).",
@@ -8082,7 +8085,7 @@ const _npcDefinitions = [
     quests: [
       { name: 'Priory of the Nine' },
       { name: 'Wisdom of the Ages' },
-      { name: 'Umaril the Unfeathered' },
+      { name: 'Umaril the Unfeathered', uespSlug: 'Umaril the Unfeathered (quest)' },
     ],
     notes: "Died defending Fort Bulwark where the Shield of the Crusader was kept. After Umaril's defeat his tomb grants Julianos' Blessing (+5 Intelligence).",
   },
@@ -8123,6 +8126,7 @@ const _npcDefinitions = [
   {
     id: 'umaril-the-unfeathered',
     name: 'Umaril the Unfeathered',
+    uespSlug: 'Umaril the Unfeathered (person)',
     race: 'Other',
     gender: 'Male',
     dlc: 'KotN',
@@ -8132,7 +8136,7 @@ const _npcDefinitions = [
     primaryLocation: [[{ label: 'Garlas Malatar', context: 'Gold Coast, physical form' }], [{ label: 'Oblivion spiritual plane', slug: '', context: 'spirit' }]],
     routine: 'Static boss encounter at Garlas Malatar. After physical death his spirit retreats to Oblivion - the Blessing of Talos allows the player to follow and finish him there.',
     quests: [
-      { name: 'Umaril the Unfeathered' },
+      { name: 'Umaril the Unfeathered', uespSlug: 'Umaril the Unfeathered (quest)' },
     ],
     uniqueItems: [{ name: "Umaril's Sword" }],
     notes: "Half-Ayleid, half-divine; bound to Meridia's realm, granting immortality (spirit survives physical death). Immune to shock; 33% resist magic/fire; 33% spell absorption. Vulnerable to Crusader's Relics. Soul can be trapped in a Grand Soul Gem (not Black).",
@@ -8221,7 +8225,7 @@ const _npcDefinitions = [
     aggression: 5,
     primaryLocation: [[{ label: 'Bravil' }, { label: 'Silverhome on the Water' }]],
     routine: 'Present in the taproom virtually all day; takes a 2-hour dinner break at midnight. Rents beds (20 gold) at all times; will not barter while eating.',
-    quests: [{ name: 'The Forlorn Watchman' }],
+    quests: [{ name: 'The Forlorn Watchman', uespSlug: 'The Forlorn Watchman (quest)' }],
     notes: 'Sells food, rents beds. Provides map markers for Bawnwatch Camp and Mouth of the Panther during The Forlorn Watchman. Would rather be a painter.',
   },
   {
@@ -9686,6 +9690,7 @@ const _npcDefinitions = [
   {
     id: 'the-forlorn-watchman',
     name: 'The Forlorn Watchman',
+    uespSlug: 'The Forlorn Watchman (ghost)',
     race: 'Breton',
     gender: 'Male',
     essential: false,
@@ -9693,7 +9698,7 @@ const _npcDefinitions = [
     aggression: 0,
     primaryLocation: [[{ label: 'Bawnwatch Camp', context: 'shore of Niben Bay, near Bravil' }]],
     routine: 'Appears only at night (8pm-5am). Manifests at Bawnwatch Camp, crosses the bridge toward Bawn, follows the shore to Fort Irony, then dissipates. Does not exist during daylight hours.',
-    quests: [{ name: 'The Forlorn Watchman' }],
+    quests: [{ name: 'The Forlorn Watchman', uespSlug: 'The Forlorn Watchman (quest)' }],
     notes: "A ghost (non-hostile, Aggression 0). Spirit of a sailor named Grantham Blakeley whose ship (Emma May) ran aground after a mutiny. Quest resolves by finding his remains on the Emma May at the Mouth of the Panther. His daughter Angelie lives in the Imperial City (Talos Plaza District). Fixed level 20.",
   },
 
@@ -9714,7 +9719,7 @@ const _npcDefinitions = [
     routine: 'Pre-knighting: wanders Shrine of Kynareth all day; carries torch at night. Post-knighting: structured schedule at the Priory including Chapel, basement training, dinner, and sleep.',
     quests: [
       { name: "Nature's Fury" },
-      { name: 'Umaril the Unfeathered' },
+      { name: 'Umaril the Unfeathered', uespSlug: 'Umaril the Unfeathered (quest)' },
     ],
     notes: 'Essential until she joins the Knights of the Nine. Can die at Garlas Malatar. Member of CreatureFaction - will never attack creatures, vampires, necromancers, goblins, or undead.',
   },
@@ -9733,7 +9738,7 @@ const _npcDefinitions = [
     quests: [
       { name: 'The Path of the Righteous' },
       { name: 'The Blessing of Talos' },
-      { name: 'Umaril the Unfeathered' },
+      { name: 'Umaril the Unfeathered', uespSlug: 'Umaril the Unfeathered (quest)' },
     ],
     notes: 'Essential until he joins the Knights of the Nine. Can die at Garlas Malatar.',
   },
@@ -9811,7 +9816,7 @@ const _npcDefinitions = [
     quests: [
       { name: 'Priory of the Nine' },
       { name: "Nature's Fury" },
-      { name: 'Umaril the Unfeathered' },
+      { name: 'Umaril the Unfeathered', uespSlug: 'Umaril the Unfeathered (quest)' },
     ],
     notes: "Historical ghost NPC. 6th ghost knight the player must defeat in the undercroft gauntlet. Died during his quest for the Boots of the Crusader. Refused to help Sir Ralvas, indirectly causing Ralvas's death.",
   },
@@ -9830,7 +9835,7 @@ const _npcDefinitions = [
     quests: [
       { name: 'Priory of the Nine' },
       { name: 'The Path of the Righteous' },
-      { name: 'Umaril the Unfeathered' },
+      { name: 'Umaril the Unfeathered', uespSlug: 'Umaril the Unfeathered (quest)' },
     ],
     notes: "Historical ghost. Quested obsessively for the Mace of Zenithar; died of starvation/exhaustion after failing his test of faith at Leyawiin chapel. 2nd ghost knight in the gauntlet. Gives the player the Path of the Righteous quest.",
   },
@@ -9849,7 +9854,7 @@ const _npcDefinitions = [
     quests: [
       { name: 'Wisdom of the Ages' },
       { name: 'The Blessing of Talos' },
-      { name: 'Umaril the Unfeathered' },
+      { name: 'Umaril the Unfeathered', uespSlug: 'Umaril the Unfeathered (quest)' },
     ],
     notes: "Only KotN recruit who is essential (needed to deliver the final speech on return from Garlas Malatar). Recruits blacksmith Sergius Turrianus to the Priory. Found imprisoned in sack cloth pants.",
   },
@@ -9867,7 +9872,7 @@ const _npcDefinitions = [
     routine: "Stationary ghost in the Priory undercroft. Ascends to Aetherius after Umaril is defeated; tomb grants Arkay's Blessing (+5 Willpower).",
     quests: [
       { name: 'Priory of the Nine' },
-      { name: 'Umaril the Unfeathered' },
+      { name: 'Umaril the Unfeathered', uespSlug: 'Umaril the Unfeathered (quest)' },
     ],
     notes: "7th (final) ghost knight in the undercroft gauntlet. Described as showing 'the ferocity of the North.' Wields a silver longsword (unique among the ghost knights).",
   },
@@ -15561,7 +15566,7 @@ const _npcDefinitions = [
     aggression: 5,
     primaryLocation: [[{ label: 'Fisherman\'s Rock', context: 'north of Leyawiin, quest stage 50' }]],
     routine: 'Sits near fire or wanders camp; no eating or sleeping.',
-    quests: [{ name: 'Mazoga the Orc' }],
+    quests: [{ name: 'Mazoga the Orc', uespSlug: 'Mazoga the Orc (quest)' }],
     notes: 'Attacks player and Mazoga on Mogens\'s command.',
   },
   {
@@ -15574,7 +15579,7 @@ const _npcDefinitions = [
     aggression: 5,
     primaryLocation: [[{ label: 'Fisherman\'s Rock', context: 'north of Leyawiin, quest stage 50' }]],
     routine: 'Wanders camp; no eating or sleeping.',
-    quests: [{ name: 'Mazoga the Orc' }],
+    quests: [{ name: 'Mazoga the Orc', uespSlug: 'Mazoga the Orc (quest)' }],
     notes: 'Uses bow and arrows or dagger in combat.',
   },
   {
@@ -15587,7 +15592,7 @@ const _npcDefinitions = [
     aggression: 5,
     primaryLocation: [[{ label: 'Fisherman\'s Rock', context: 'north of Leyawiin, quest stage 50' }]],
     routine: 'Wanders camp all day and night; no eating or sleeping.',
-    quests: [{ name: 'Mazoga the Orc' }],
+    quests: [{ name: 'Mazoga the Orc', uespSlug: 'Mazoga the Orc (quest)' }],
     notes: 'Gang leader. Killed Ra\'vindra (Mazoga\'s friend), triggering her knight\'s oath. Bug with Shivering Isles: class overwritten by Zealot Wizard (fixed by Unofficial Shivering Isles Patch v1.5.9).',
   },
   {
@@ -16084,7 +16089,7 @@ const _npcDefinitions = [
     routine: 'Pre-knighting: wanders Priory House, sleeps midnight-6am. Post-knighting: 6-9am garden, 9am-noon socializes, noon-3pm archery practice, 3-6pm dinner, 6-9pm relaxing, 9pm-midnight basement melee practice.',
     quests: [
       { name: 'The Blessing of Talos' },
-      { name: 'Umaril the Unfeathered' },
+      { name: 'Umaril the Unfeathered', uespSlug: 'Umaril the Unfeathered (quest)' },
     ],
     notes: 'From Silvenar. Becomes Sir Brellin on joining. Participates in Garlas Malatar assault. Essential until joins Knights. Can follow player post-quest.',
   },
@@ -16103,7 +16108,7 @@ const _npcDefinitions = [
     quests: [
       { name: 'Priory of the Nine' },
       { name: 'The Blessing of Talos' },
-      { name: 'Umaril the Unfeathered' },
+      { name: 'Umaril the Unfeathered', uespSlug: 'Umaril the Unfeathered (quest)' },
     ],
     notes: 'Brothers with Gukimir; came from Skyrim. Rides a Bay Horse at the Priory. Essential until joins Knights.',
   },
@@ -16122,7 +16127,7 @@ const _npcDefinitions = [
     quests: [
       { name: 'Priory of the Nine' },
       { name: 'The Blessing of Talos' },
-      { name: 'Umaril the Unfeathered' },
+      { name: 'Umaril the Unfeathered', uespSlug: 'Umaril the Unfeathered (quest)' },
     ],
     notes: 'Brothers with Geimund; from Skyrim. Rides a Chestnut Horse at the Priory. Essential until joins Knights.',
   },
@@ -16157,7 +16162,7 @@ const _npcDefinitions = [
     quests: [
       { name: "Stendarr's Mercy" },
       { name: 'Priory of the Nine' },
-      { name: 'Umaril the Unfeathered' },
+      { name: 'Umaril the Unfeathered', uespSlug: 'Umaril the Unfeathered (quest)' },
     ],
     notes: 'Killed a beggar in Chorrol\'s chapel; Gauntlets of the Crusader fused to the floor as punishment. His curse affected his entire lineage (descendant: Kellen).',
   },
@@ -16175,7 +16180,7 @@ const _npcDefinitions = [
     routine: 'Stands/kneels in undercroft as a ghost. Ascends to Aetherius after Umaril is permanently defeated; tomb then grants Dibella\'s Blessing (+5 Personality).',
     quests: [
       { name: 'Priory of the Nine' },
-      { name: 'Umaril the Unfeathered' },
+      { name: 'Umaril the Unfeathered', uespSlug: 'Umaril the Unfeathered (quest)' },
     ],
     notes: 'Died in the War of the Red Diamond (3E 121-127). First of the ghost knights the player fights in the undercroft gauntlet. Level PC-3.',
   },
@@ -16485,7 +16490,7 @@ const _npcDefinitions = [
     aggression: 5,
     primaryLocation: [[{ label: 'Fisherman\'s Rock', context: 'north of Leyawiin, quest only' }]],
     routine: 'Wanders and sits near the campfire. Attacks the player and Mazoga on Mogens Wind-Shifter\'s command.',
-    quests: [{ name: 'Mazoga the Orc' }],
+    quests: [{ name: 'Mazoga the Orc', uespSlug: 'Mazoga the Orc (quest)' }],
     notes: 'Dialogue: "J\'Baasha\'s an adventurer... just like you." Equipped with leveled light armor and a leveled blade.',
   },
   {
@@ -17682,7 +17687,7 @@ const _npcDefinitions = [
       { time: 'midnight-8am', location: "Earil's Mysteries, second floor (sleeping)" },
     ],
     quests: [
-      { name: 'Brithaur', dlc: 'SI' },
+      { name: 'Brithaur', dlc: 'SI', uespSlug: 'Brithaur (quest)' },
     ],
     notes: 'The only spell merchant in the Shivering Isles. Sells Conjuration, Destruction, and Restoration spells unique to the Isles. Obsessed with time and convinced everyone is slowly dying. Offers a bounty on the compulsive thief Brithaur.',
   },
@@ -17698,7 +17703,7 @@ const _npcDefinitions = [
     primaryLocation: [[{ label: 'New Sheoth', slug: 'Shivering:New_Sheoth' }, { label: 'Crucible', slug: 'Shivering:Crucible' }, { label: "Brithaur's House", slug: "Shivering:Brithaur's_House" }]],
     routine: "Sleeps midnight-8am; wanders Crucible during the day, visiting Earil's, Things Found, and Cutter's Weapons. Worships at the Sacellum 2pm-4pm when available.",
     quests: [
-      { name: 'Brithaur', dlc: 'SI' },
+      { name: 'Brithaur', dlc: 'SI', uespSlug: 'Brithaur (quest)' },
     ],
     notes: 'A compulsive thief in Crucible who keeps getting caught. His residence was stolen from another citizen. Earil wants him removed. Can be persuaded to stop stealing with 5 Flawless Pearls, reported to Kithlan, or killed. Essential until his quest begins.',
   },
@@ -18024,7 +18029,7 @@ const _npcDefinitions = [
     quests: [
       { name: 'The Fork of Horripilation', dlc: 'SI' },
     ],
-    uniqueItems: [{ name: 'The Fork of Horripilation' }],
+    uniqueItems: [{ name: 'The Fork of Horripilation', uespSlug: 'Fork of Horripilation' }],
     notes: 'A Bosmer in Bliss who worships a giant fork. His quest involves retrieving the Fork of Horripilation from a Goblin tribe in Mania.',
   },
   {
@@ -18750,7 +18755,7 @@ const _npcDefinitions = [
     routine: 'Pre-knighting: wanders the Chapel of Stendarr in Chorrol all day without eating or sleeping. Post-knighting: sleeps 10pm-6am at Priory; strolls the house until midday; prays in the Chapel of the Nine 12pm-3pm; dines 3pm-6pm; trains on the dummy 6pm-9pm; loiters 9pm-10pm. Trains archery 6am-9am in courtyard after the final quest.',
     quests: [
       { name: "Stendarr's Mercy" },
-      { name: 'Umaril the Unfeathered' },
+      { name: 'Umaril the Unfeathered', uespSlug: 'Umaril the Unfeathered (quest)' },
     ],
     notes: 'Altmer priest of Stendarr in the Chapel of Stendarr, Chorrol. Knew the secret to lifting the Gauntlets of the Crusader curse from Kellen but lacked the faith to act on it himself. Joins the Knights of the Nine after the player demonstrates selfless sacrifice. Essential until he joins the faction.',
   },

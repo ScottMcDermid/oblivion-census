@@ -107,7 +107,7 @@ export default function NpcDetail({
         <Typography
           variant="h6"
           component="a"
-          href={buildUespUrl(npc.name, npc.dlc)}
+          href={buildUespUrl(npc.name, npc.dlc, npc.uespSlug)}
           target="_blank"
           rel="noopener noreferrer"
           sx={{
@@ -613,7 +613,7 @@ export default function NpcDetail({
                   <ListItemText
                     primary={
                       <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
-                        <UespLink href={buildQuestUrl(q.name, q.dlc ?? npc.dlc)}>
+                        <UespLink href={buildQuestUrl(q.name, q.dlc ?? npc.dlc, q.uespSlug)}>
                           {q.name}
                         </UespLink>
                         {questDLCBadge && (
@@ -682,7 +682,7 @@ export default function NpcDetail({
                   </ListItemIcon>
                   <ListItemText
                     primary={
-                      <UespLink href={buildUespUrl(item.name, npc.dlc)}>
+                      <UespLink href={buildUespUrl(item.name, npc.dlc, item.uespSlug)}>
                         {item.name}
                       </UespLink>
                     }

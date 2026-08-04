@@ -1,14 +1,14 @@
 import { LocationDLC, LocationPart } from '@/utils/npcTypes';
 
-export function buildUespUrl(name: string, dlc?: LocationDLC): string {
+export function buildUespUrl(name: string, dlc?: LocationDLC, slug?: string): string {
   const prefix = dlc === 'SI' ? 'Shivering' : 'Oblivion';
-  const pageName = name.replace(/ /g, '_');
+  const pageName = (slug ?? name).replace(/ /g, '_');
   return `https://en.uesp.net/wiki/${prefix}:${pageName}`;
 }
 
-export function buildQuestUrl(name: string, dlc?: LocationDLC): string {
+export function buildQuestUrl(name: string, dlc?: LocationDLC, slug?: string): string {
   const prefix = dlc === 'SI' ? 'Shivering' : 'Oblivion';
-  const pageName = name.replace(/ /g, '_');
+  const pageName = (slug ?? name).replace(/ /g, '_');
   return `https://en.uesp.net/wiki/${prefix}:${pageName}`;
 }
 

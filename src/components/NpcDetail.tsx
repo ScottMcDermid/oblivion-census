@@ -145,7 +145,7 @@ export default function NpcDetail({
           )}
 
           {/* DLC */}
-          {npc.dlc && (
+          {npc.dlc && !(npc.dlc === 'KotN' && npc.faction === 'Knights of the Nine') && (
             <Chip
               label={locationDLCLabels[npc.dlc]}
               size="small"

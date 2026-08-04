@@ -216,57 +216,9 @@ export type NpcDefinition = {
 
 /**
  * Returns the effective aggression (0–100) for an NPC.
- * Uses the explicit `aggression` field if present; otherwise derives a
- * reasonable default from faction and responsibility, mirroring the in-game
- * AI values:
- *
- *  - Mythic Dawn (active, resp=0): 80  — hostile cultists / leadership
- *  - Mythic Dawn (sleeper, resp>0): 5  — living a civilian cover identity
- *  - Dark Brotherhood:              70  — professional killers
- *  - Thieves Guild:                 10  — avoid violence where possible
- *  - Fighters Guild (hostile, r=0): 80  — Blackwood Company / enemy faction
- *  - Fighters Guild:                30  — disciplined mercenaries
- *  - Imperial Legion:               20  — soldiers who follow rules of engagement
- *  - Blades:                        20  — loyal guardians, rarely aggressive
- *  - Knights of the Nine:           20  — holy warriors, defend don't attack
- *  - Mages Guild:                   10  — scholars; fight only when cornered
- *  - Arena:                         30  — fighters by trade, controlled setting
- *  - No faction, resp=0:            70  — criminals / outcasts / addicts
- *  - No faction, resp≤10:           50  — very low-law characters
- *  - No faction, resp≤25:           30  — shady or lawless types
- *  - No faction, resp≤50:           10  — ordinary citizens
- *  - No faction, resp>50:            5  — law-abiding / civic-minded NPCs
+ * All NPCs in the dataset have an explicit `aggression` field scraped from UESP.
+ * The fallback of 5 applies only to any future NPC entries added without the field.
  */
 export function getDefaultAggression(npc: NpcDefinition): number {
-  if (npc.aggression !== undefined) return npc.aggression;
-
-  const resp = npc.responsibility ?? 50;
-
-  switch (npc.faction) {
-    case 'Mythic Dawn':
-      return resp === 0 ? 80 : 5;
-    case 'Dark Brotherhood':
-      return 70;
-    case 'Thieves Guild':
-      return 10;
-    case 'Fighters Guild':
-      return resp === 0 ? 80 : 30;
-    case 'Imperial Legion':
-      return 20;
-    case 'Blades':
-      return 20;
-    case 'Knights of the Nine':
-      return 20;
-    case 'Mages Guild':
-      return 10;
-    case 'Arena':
-      return 30;
-  }
-
-  // No faction — derive from responsibility
-  if (resp === 0)  return 70;
-  if (resp <= 10)  return 50;
-  if (resp <= 25)  return 30;
-  if (resp <= 50)  return 10;
-  return 5;
+  return npc.aggression ?? 5;
 }

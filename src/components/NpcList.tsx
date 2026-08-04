@@ -96,7 +96,7 @@ const NpcRowComponent = memo(function NpcRowComponent({
           {npc.name}
         </Typography>
         {/* DLC badge */}
-        {npc.dlc && (
+        {npc.dlc && !(npc.dlc === 'KotN' && npc.faction === 'Knights of the Nine') && (
           <Typography
             component="span"
             sx={{

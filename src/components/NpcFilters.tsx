@@ -42,6 +42,9 @@ export default function NpcFilters({
   responsibilityMin,
   responsibilityMax,
   onSetResponsibilityRange,
+  aggressionMin,
+  aggressionMax,
+  onSetAggressionRange,
 }: {
   activeStatusFilters: Set<NpcStatus>;
   onToggleStatusFilter: (status: NpcStatus) => void;
@@ -66,13 +69,21 @@ export default function NpcFilters({
   responsibilityMin: number;
   responsibilityMax: number;
   onSetResponsibilityRange: (min: number, max: number) => void;
+  aggressionMin: number;
+  aggressionMax: number;
+  onSetAggressionRange: (min: number, max: number) => void;
 }) {
   const [localRange, setLocalRange] = useState<[number, number]>([responsibilityMin, responsibilityMax]);
+  const [localAggressionRange, setLocalAggressionRange] = useState<[number, number]>([aggressionMin, aggressionMax]);
 
   // Sync local range if the store value changes externally (e.g. "Clear filters")
   useEffect(() => {
     setLocalRange([responsibilityMin, responsibilityMax]);
   }, [responsibilityMin, responsibilityMax]);
+
+  useEffect(() => {
+    setLocalAggressionRange([aggressionMin, aggressionMax]);
+  }, [aggressionMin, aggressionMax]);
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
@@ -385,6 +396,44 @@ export default function NpcFilters({
             valueLabelDisplay="auto"
             size="small"
             sx={{ color: 'primary.main' }}
+          />
+        </Box>
+      </Box>
+
+      {/* Aggression filter */}
+      <Box>
+        <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1, mb: 0.5 }}>
+          <Typography
+            variant="caption"
+            sx={{
+              color: 'text.secondary',
+              fontWeight: 'bold',
+              textTransform: 'uppercase',
+              display: 'block',
+            }}
+          >
+            Aggression
+          </Typography>
+          <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+            {localAggressionRange[0]} - {localAggressionRange[1]}
+          </Typography>
+        </Box>
+        <Box sx={{ px: 1 }}>
+          <Slider
+            min={0}
+            max={100}
+            value={localAggressionRange}
+            onChange={(_e, value) => {
+              const [min, max] = value as number[];
+              setLocalAggressionRange([min, max]);
+            }}
+            onChangeCommitted={(_e, value) => {
+              const [min, max] = value as number[];
+              onSetAggressionRange(min, max);
+            }}
+            valueLabelDisplay="auto"
+            size="small"
+            sx={{ color: '#ef4444' }}
           />
         </Box>
       </Box>

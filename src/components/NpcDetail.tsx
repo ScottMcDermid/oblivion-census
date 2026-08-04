@@ -23,6 +23,7 @@ import {
   LocationPart,
   NpcDefinition,
   NpcStatus,
+  getDefaultAggression,
   locationDLCColors,
   locationDLCLabels,
   npcFactionColors,
@@ -317,6 +318,55 @@ export default function NpcDetail({
           </Box>
         </Box>
       )}
+
+      {/* Aggression */}
+      {(() => {
+        const aggression = getDefaultAggression(npc);
+        return (
+          <Box sx={{ mb: 1.5 }}>
+            <Typography
+              variant="caption"
+              sx={{
+                color: 'text.secondary',
+                fontWeight: 'bold',
+                textTransform: 'uppercase',
+                display: 'block',
+                mb: 0.5,
+              }}
+            >
+              Base Aggression
+            </Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <Typography variant="body2" sx={{ fontSize: '0.8rem', fontWeight: 'bold' }}>
+                {aggression}
+              </Typography>
+              <Box
+                sx={{
+                  flex: 1,
+                  height: 4,
+                  borderRadius: 2,
+                  backgroundColor: 'action.hover',
+                  overflow: 'hidden',
+                }}
+              >
+                <Box
+                  sx={{
+                    width: `${aggression}%`,
+                    height: '100%',
+                    borderRadius: 2,
+                    backgroundColor:
+                      aggression >= 70
+                        ? '#ef4444'
+                        : aggression >= 40
+                        ? '#f59e0b'
+                        : '#22c55e',
+                  }}
+                />
+              </Box>
+            </Box>
+          </Box>
+        );
+      })()}
 
       {/* Primary Location */}
       <Box sx={{ mb: 1.5 }}>

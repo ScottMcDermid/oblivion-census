@@ -23,7 +23,7 @@ import theme from '@/app/theme';
 import { useNpcStore } from '@/data/npcStore';
 import { useHydrated } from '@/hooks/useHydrated';
 import { npcDefinitions, npcDefinitionById, npcCityById } from '@/data/npcs';
-import { LocationDLC, NpcCity, NpcDefinition, NpcFaction, NpcRace, NpcStatus } from '@/utils/npcTypes';
+import { LocationDLC, NpcCity, NpcDefinition, NpcFaction, NpcRace, NpcStatus, getDefaultAggression } from '@/utils/npcTypes';
 import NpcList, { NpcListHandle } from '@/components/NpcList';
 import NpcDetail from '@/components/NpcDetail';
 import NpcFilters from '@/components/NpcFilters';
@@ -57,6 +57,8 @@ function CensusContent({ npcId }: { npcId?: string }) {
   const cityFilters = useNpcStore((s) => s.cityFilters);
   const responsibilityMin = useNpcStore((s) => s.responsibilityMin);
   const responsibilityMax = useNpcStore((s) => s.responsibilityMax);
+  const aggressionMin = useNpcStore((s) => s.aggressionMin);
+  const aggressionMax = useNpcStore((s) => s.aggressionMax);
   const {
     toggleQuestCompleted,
     toggleItemAcquired,
@@ -72,6 +74,7 @@ function CensusContent({ npcId }: { npcId?: string }) {
     toggleAmbientFilter,
     toggleTrainerFilter,
     setResponsibilityRange,
+    setAggressionRange,
     clearFilters,
     resetToDefaults,
   } = useNpcStore((s) => s.actions);
@@ -117,7 +120,8 @@ function CensusContent({ npcId }: { npcId?: string }) {
   const mobileDetailOpen = isMobile && !!selectedNpc;
 
   const hasActiveFilters =
-    activeStatusFilters.size > 0 || activeRaceFilters.size > 0 || activeGenderFilters.size > 0 || activeFactionFilters.size > 0 || activeDLCFilters.size > 0 || activeCityFilters.size > 0 ||     beggarFilter || merchantFilter || ambientFilter || trainerFilter || responsibilityMin > 0 || responsibilityMax < 100;
+    activeStatusFilters.size > 0 || activeRaceFilters.size > 0 || activeGenderFilters.size > 0 || activeFactionFilters.size > 0 || activeDLCFilters.size > 0 || activeCityFilters.size > 0 ||
+    beggarFilter || merchantFilter || ambientFilter || trainerFilter || responsibilityMin > 0 || responsibilityMax < 100 || aggressionMin > 0 || aggressionMax < 100;
 
   const filteredNpcs = React.useMemo(() => {
     return npcDefinitions.filter((npc) => {
@@ -143,9 +147,11 @@ function CensusContent({ npcId }: { npcId?: string }) {
       if (trainerFilter && !npc.trainer) return false;
       const npcResponsibility = npc.responsibility ?? 50;
       if (npcResponsibility < responsibilityMin || npcResponsibility > responsibilityMax) return false;
+      const npcAggression = getDefaultAggression(npc);
+      if (npcAggression < aggressionMin || npcAggression > aggressionMax) return false;
       return true;
     });
-  }, [npcStatusesForFilter, activeStatusFilters, activeRaceFilters, activeGenderFilters, activeFactionFilters, activeDLCFilters, activeCityFilters, beggarFilter, merchantFilter, ambientFilter, trainerFilter, responsibilityMin, responsibilityMax]);
+  }, [npcStatusesForFilter, activeStatusFilters, activeRaceFilters, activeGenderFilters, activeFactionFilters, activeDLCFilters, activeCityFilters, beggarFilter, merchantFilter, ambientFilter, trainerFilter, responsibilityMin, responsibilityMax, aggressionMin, aggressionMax]);
 
   // Apply search on top of store filters. Kept as a separate memo so the expensive
   // store-filter pass above stays stable while the user is typing.
@@ -304,6 +310,9 @@ function CensusContent({ npcId }: { npcId?: string }) {
       responsibilityMin={responsibilityMin}
       responsibilityMax={responsibilityMax}
       onSetResponsibilityRange={setResponsibilityRange}
+      aggressionMin={aggressionMin}
+      aggressionMax={aggressionMax}
+      onSetAggressionRange={setAggressionRange}
     />
   );
 

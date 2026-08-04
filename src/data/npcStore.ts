@@ -18,6 +18,8 @@ type State = {
   trainerFilter: boolean;
   responsibilityMin: number;
   responsibilityMax: number;
+  aggressionMin: number;
+  aggressionMax: number;
   version: number;
 };
 
@@ -36,6 +38,7 @@ type Actions = {
   toggleAmbientFilter: () => void;
   toggleTrainerFilter: () => void;
   setResponsibilityRange: (min: number, max: number) => void;
+  setAggressionRange: (min: number, max: number) => void;
   clearFilters: () => void;
   resetToDefaults: () => void;
 };
@@ -60,7 +63,9 @@ export const useNpcStore = create<NpcStore>()(
       trainerFilter: false,
       responsibilityMin: 0,
       responsibilityMax: 100,
-      version: 3,
+      aggressionMin: 0,
+      aggressionMax: 100,
+      version: 4,
       actions: {
         toggleQuestCompleted: (questName) =>
           set((state) => {
@@ -123,15 +128,17 @@ export const useNpcStore = create<NpcStore>()(
           set((state) => ({ trainerFilter: !state.trainerFilter })),
         setResponsibilityRange: (min, max) =>
           set({ responsibilityMin: min, responsibilityMax: max }),
+        setAggressionRange: (min, max) =>
+          set({ aggressionMin: min, aggressionMax: max }),
         clearFilters: () =>
-          set({ statusFilters: [], raceFilters: [], genderFilters: [], factionFilters: [], dlcFilters: [], cityFilters: [], beggarFilter: false, merchantFilter: false, ambientFilter: false, trainerFilter: false, responsibilityMin: 0, responsibilityMax: 100 }),
+          set({ statusFilters: [], raceFilters: [], genderFilters: [], factionFilters: [], dlcFilters: [], cityFilters: [], beggarFilter: false, merchantFilter: false, ambientFilter: false, trainerFilter: false, responsibilityMin: 0, responsibilityMax: 100, aggressionMin: 0, aggressionMax: 100 }),
         resetToDefaults: () =>
           set({ completedQuests: {}, acquiredItems: {}, npcStatuses: {} }),
       },
     }),
     {
       name: 'oblivion-census',
-      version: 3,
+      version: 4,
       migrate: (persistedState, fromVersion) => {
         const state = persistedState as Partial<State>;
         if (fromVersion < 2) {
@@ -140,6 +147,10 @@ export const useNpcStore = create<NpcStore>()(
         }
         if (fromVersion < 3) {
           state.ambientFilter = false;
+        }
+        if (fromVersion < 4) {
+          state.aggressionMin = 0;
+          state.aggressionMax = 100;
         }
         return state;
       },
@@ -159,6 +170,8 @@ export const useNpcStore = create<NpcStore>()(
         trainerFilter: state.trainerFilter,
         responsibilityMin: state.responsibilityMin,
         responsibilityMax: state.responsibilityMax,
+        aggressionMin: state.aggressionMin,
+        aggressionMax: state.aggressionMax,
         version: state.version,
       }),
     },
